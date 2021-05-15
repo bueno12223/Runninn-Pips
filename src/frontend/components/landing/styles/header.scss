@@ -1,19 +1,49 @@
 @import '../../../assets/styles/roots';
 
 .lheader {
-    height: 150px;
+    height: 135px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     font-size: 1.3em;
-    &-icon {
-        width: 50px;
+    margin: 10px auto;
+    align-items: center;
+    &-logo {
+        height: auto;
+        width: 111px;
+        margin-left: 25px;
+    }
+    & svg {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
     }
     &-links {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        & a {
-            font-weight: 100;
+        left: 100%;
+        position: absolute;
+        transition: 0.4s;
+        z-index: 1;
+        top: 130px;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-color: $dark;
+        width: 100%;
+        font-size: 1.6rem;
+        line-height: 23px;
+        & a, & button {
+            font-weight: bold;
+            text-decoration: none;
+            color: $white;
+            margin: 20px;
+        }
+        & span {
+            height: 5px;
+            background-color: $white;
+            width: 50px;
+            margin-left: 20px;
         }
     }
 }

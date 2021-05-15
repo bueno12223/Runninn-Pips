@@ -4,9 +4,9 @@
   "description": "",
   "main": "src/server/index",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "standard --fix && nodemon src/server/index",
-    "run": "node src/server/index",
+    "dev": "nodemon src/server/index",
+    "start": "node src/server/index",
+    "build": "webpack-cli --config webpack.config.js",
     "lint-fix": "standard --fix"
   },
   "engines": {

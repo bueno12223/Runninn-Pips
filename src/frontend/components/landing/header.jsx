@@ -1,10 +1,11 @@
 import React from 'react'
-
+import logo from '../../assets/images/logo.jpeg'
+import './styles/header.scss'
 function header () {
   return (
-    <header>
-      <h3>Running Pips</h3>
-      <div>
+    <header className='lheader'>
+      <img src={logo} alt='logo' className='lheader-logo' />
+      <div className='lheader-links'>
         <a href='#'>Acerca de</a>
         <a href='#'>Precios</a>
         <a href='#'>Testimonios</a>

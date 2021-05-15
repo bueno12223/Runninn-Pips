@@ -1,0 +1,19 @@
+@import '../../../assets/styles/roots';
+
+.lheader {
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3em;
+    &-icon {
+        width: 50px;
+    }
+    &-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & a {
+            font-weight: 100;
+        }
+    }
+}

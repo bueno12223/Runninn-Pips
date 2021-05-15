@@ -9,6 +9,9 @@
     "run": "node src/server/index",
     "lint-fix": "standard --fix"
   },
+  "engines": {
+    "node": "15.5.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

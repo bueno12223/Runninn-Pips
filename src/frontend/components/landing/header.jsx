@@ -4,7 +4,6 @@ import { HiMenu } from 'react-icons/hi'
 import './styles/header.scss'
 function header () {
   const [display, setDisplay] = useState(false)
-  console.log(display ? '0%' : '100%')
   return (
     <header className='lheader'>
       <img src={logo} alt='logo' className='lheader-logo' />

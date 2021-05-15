@@ -8,6 +8,7 @@
     font-size: 1.3em;
     margin: 10px auto;
     align-items: center;
+    overflow: hidden;
     &-logo {
         height: auto;
         width: 111px;
@@ -21,7 +22,7 @@
     &-links {
         display: flex;
         left: 100%;
-        position: absolute;
+        position: fixed;
         transition: 0.4s;
         z-index: 1;
         top: 130px;

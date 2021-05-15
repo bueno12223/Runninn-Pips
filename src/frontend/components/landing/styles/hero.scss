@@ -1,0 +1,35 @@
+@import '../../../assets/styles/roots';
+.lhero {
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 20px 60px;
+    img {
+        width: 100%;
+
+    }
+    h1 {
+        width: 76%;
+        font-size: 2.5em;
+        margin-left: 30px;
+        margin-top: 20px;
+        font-weight: 500;
+    }
+    & p {
+        font-size: 1.4em;
+        margin: 30px;
+        color: $dark-grey;
+        text-align: justify;
+        line-height: 30px;
+    }
+    & a {
+        background-color: $red;
+        text-decoration: none;
+        height: 50px;
+        color: $white;
+        width: 80%;
+        margin: 39px;
+        max-width: 80px;
+        padding: 13px 31.5%;
+        box-shadow: rgba(245, 56, 56, 0.35) 0px 20px 40px;
+        border-radius: 10px;
+
+    }
+}

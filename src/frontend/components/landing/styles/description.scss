@@ -2,7 +2,8 @@
 .description {
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
+    margin: 15px auto;
+    max-width: 550px;
     img {
         margin-top: 15px;
         width: 100%;
@@ -21,7 +22,7 @@
         margin: 30px;
         margin-top: 1px;
         list-style: none;
-        align-self: center;
+        align-self: flex-start;
         & li {
             @extend %text;
             text-align: inherit;
@@ -31,7 +32,7 @@
             margin: 0;
             margin-bottom: 10px;
             svg {
-                fill:#2fab73;
+                fill: $green;
                 width: 30px;
                 height: 30px;
                 margin-right: 5px;

@@ -14,8 +14,8 @@ function header () {
         <a href='#'>Testimonios</a>
         <a href='#'>Ayuda</a>
         <span />
-        <a href='#'>Iniciar Sesión</a>
-        <a href='#'>Registrate</a>
+        <a href='#' className='lheader-links__button'>Iniciar Sesión</a>
+        <a href='#' className='lheader-links__button'>Registrate</a>
       </div>
     </header>
   )

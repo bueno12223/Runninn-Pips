@@ -39,5 +39,22 @@ $green: #2fab73;
     font-size: 1.5em;
     font-weight: bold;
     text-align: center;
+    transition: all 200ms ease;
+    &:hover {
+        background-color: $dark-grey;
+    }
+}
+%ligth-button {
+    border-radius: 1000px;
+    border: 1px solid $red;
+    color: $red;
+    padding: 1.3rem 4.5rem;
+    transition: all 200ms ease;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover {
+        background-color: $red;
+        color: $white;
+    }
 }
 

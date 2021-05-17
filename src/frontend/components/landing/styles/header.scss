@@ -6,18 +6,21 @@
     flex-wrap: wrap;
     justify-content: space-between;
     font-size: 1.3em;
-    margin: 10px auto;
     align-items: center;
     overflow: hidden;
     &-logo {
         height: auto;
         width: 111px;
         margin-left: 25px;
+        cursor: pointer;
     }
     & svg {
         width: 40px;
         height: 40px;
         margin-right: 10px;
+        @include response-to(920px) {
+            display: none;
+        }
     }
     &-links {
         display: flex;
@@ -45,6 +48,47 @@
             background-color: $white;
             width: 50px;
             margin-left: 20px;
+        }
+        @include response-to(920px) {
+            display: flex;
+            position: unset;
+            width: 78%;
+            flex-direction: row;
+            background-color: unset;
+            align-items: center;
+            justify-content: flex-end;
+            a {
+                color: $dark;
+                font-weight: 100;
+                margin: 10px;
+                &:hover {
+                    color: $red;
+                }
+            }
+            height: 100%;
+            span {
+                background-color: unset;
+                width: 0%;
+            }
+            & :nth-child(6) {
+                font-weight: bold;
+                &:hover {
+                    color: $dark;
+                }
+            }
+            & :last-child {
+                border-radius: 1000px;
+                border: 1px solid $red;
+                color: $red;
+                padding: 1.3rem 4.5rem;
+                transition: all 200ms ease;
+                font-weight: bold;
+                &:hover {
+                    background-color: $red;
+                    color: $white;
+                }
+            }
+
         }
     }
 }

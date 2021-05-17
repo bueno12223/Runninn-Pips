@@ -1,31 +1,40 @@
 @import '../../../assets/styles/roots';
+$media-mid: 680px;
 .lhero {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0px 20px 60px #00000021;
+    @include response-to($media-mid) {
+        display: grid;
+        grid-template-columns: 40% 1fr;
+        justify-items: center;
+    }
     img {
         width: 100%;
         max-width: 450px;
         margin: auto;
+        @include response-to(920px) {
+            max-width: none;
+            margin:  0 20px;
+        }
 
     }
     h1 {
         @extend %title;
+        font-size: 7vw;
+        @include response-to($media-mid) {
+            order: -1;
+            font-size: 5em;
+            margin-left: 0;
+        }
+        
     }
     & p {
         @extend %text;
     }
     & a {
-        background-color: $red;
-        text-decoration: none;
-        color: $white;
-        width: 80%;
-        padding: 20px 31.5%;
-        box-shadow: rgba(245, 56, 56, 0.35) 0px 20px 40px;
-        border-radius: 10px;
-        font-size: 1.5em;
-        font-weight: bold;
-        text-align: center;
+        @extend %button;
     }
 }

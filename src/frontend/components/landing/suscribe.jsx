@@ -5,6 +5,9 @@ function suscribe () {
     <section className='suscribe'>
       <h2>Suscribete a nuestro news letter</h2>
       <p>Suscribete para obtener la última información</p>
+      <input type='email' placeholder='email' />
+      <input type='text' placeholder='nombre' />
+      <input type='number' placeholder='numero de contacto' />
       <a href='/'>Suscribirse</a>
     </section>
   )

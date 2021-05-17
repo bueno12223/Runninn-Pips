@@ -14,8 +14,8 @@ function landing () {
       <Description />
       <Plans />
       <Locations />
-      <Suscribe />
       <Testiomonial />
+      <Suscribe />
     </>
   )
 }

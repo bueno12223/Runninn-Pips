@@ -20,9 +20,23 @@
         margin-top: 10px;
         text-align: center;
     }
+    input {
+        border-radius: 10px;
+        width: 80%;
+        border: 1px solid $red;
+        padding: 20px 31.5%;
+        color: $dark;
+        border-width: 1px;
+        padding: 1.25em 5px;
+        font-size: 1.3em;
+        font-weight: unset;
+        margin: 5px;
+        outline: none;
+    }
+    
     a {
         @extend %button;
         padding: 20px 26.5%;
-        margin-bottom: 20px;
+        margin: 20px 0;
     }
 }

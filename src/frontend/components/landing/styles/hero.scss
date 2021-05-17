@@ -1,23 +1,20 @@
 @import '../../../assets/styles/roots';
 .lhero {
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 20px 60px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
     img {
         width: 100%;
+        max-width: 450px;
+        margin: auto;
 
     }
     h1 {
-        width: 76%;
-        font-size: 2.5em;
-        margin-left: 30px;
-        margin-top: 20px;
-        font-weight: 500;
+        @extend %title;
     }
     & p {
-        font-size: 1.4em;
-        margin: 30px;
-        color: $dark-grey;
-        text-align: justify;
-        line-height: 30px;
+        @extend %text;
     }
     & a {
         background-color: $red;

@@ -5,4 +5,19 @@ $dark:  #5c5656;
 $dark-grey: #312b2b;
 $red: #e42421;
 
+%title {
+    width: 76%;
+    font-size: 2.5em;
+    margin-left: 30px;
+    margin-top: 20px;
+    font-weight: 500;
+}
+%text {
+    font-size: 1.4em;
+    margin: 30px;
+    color: $dark-grey;
+    text-align: justify;
+    line-height: 30px;
+}
+
 

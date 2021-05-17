@@ -1,0 +1,41 @@
+@import '../../../assets/styles/roots';
+.description {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    img {
+        margin-top: 15px;
+        width: 100%;
+        max-width: 450px;
+        margin: auto;
+    }
+    & h2 {
+        @extend %title;
+    }
+    & p {
+        @extend %text;
+    }
+    & ul {
+        display: flex;
+        flex-direction: column;
+        margin: 30px;
+        margin-top: 1px;
+        list-style: none;
+        align-self: center;
+        & li {
+            @extend %text;
+            text-align: inherit;
+            gap: 5px;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            margin-bottom: 10px;
+            svg {
+                fill:#2fab73;
+                width: 30px;
+                height: 30px;
+                margin-right: 5px;
+            }
+        }
+    }
+}

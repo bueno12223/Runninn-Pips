@@ -28,5 +28,16 @@ $green: #2fab73;
     text-align: justify;
     line-height: 30px;
 }
-
+%button {
+    background-color: $red;
+    text-decoration: none;
+    color: $white;
+    width: 80%;
+    padding: 20px 31.5%;
+    box-shadow: rgba(245, 56, 56, 0.35) 0px 20px 40px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
 

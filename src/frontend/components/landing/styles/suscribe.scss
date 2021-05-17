@@ -1,0 +1,28 @@
+@import '../../../assets/styles/roots';
+.suscribe {
+    box-shadow: 0px 20px 60px #00000021;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 30px;
+    h2 {
+        @extend %title;
+        font-weight: bold;
+        text-align: center;
+        margin-left: 0;
+    }
+    p {
+        @extend %text;
+        margin-top: 10px;
+        text-align: center;
+    }
+    a {
+        @extend %button;
+        padding: 20px 26.5%;
+        margin-bottom: 20px;
+    }
+}

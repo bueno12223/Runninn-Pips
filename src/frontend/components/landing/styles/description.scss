@@ -4,11 +4,21 @@
     flex-direction: column;
     margin: 15px auto;
     max-width: 550px;
+    @include response-to(920px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, auto);
+        max-width: none;
+    }
     img {
         margin-top: 15px;
         width: 100%;
         max-width: 450px;
         margin: auto;
+        @include response-to(920px) {
+            grid-row: 3 span;
+            margin: 0;
+        }
     }
     & h2 {
         @extend %title;

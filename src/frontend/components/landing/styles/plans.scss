@@ -6,6 +6,11 @@
     justify-items: center;
     gap: 5px;
     margin: 0 20px;
+    @include response-to(920px) {
+        grid-template-rows: auto;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
     &  > :last-child {
         border-color: $red;
     }

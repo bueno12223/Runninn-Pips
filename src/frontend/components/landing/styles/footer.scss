@@ -3,10 +3,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    width: 100%;
+    width: 70%;
     justify-items: center;
-    background-color: #73737329;
-    margin-top: 10%;
+    margin: 10% auto;
     svg {
         width: 20px;
         height: 20px;

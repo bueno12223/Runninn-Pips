@@ -1,0 +1,19 @@
+@import '../../../assets/styles/roots';
+.locations {
+    margin-top: 40px;
+    h2 {
+        @extend %title;
+        margin: auto;
+        font-weight: 600;
+        text-align: center;
+    }
+    p {
+        @extend %text;
+        text-align: center;
+        margin-top: 7px;
+    }
+    img {
+        width: 100%;
+        margin: 0 5px;
+    }
+}

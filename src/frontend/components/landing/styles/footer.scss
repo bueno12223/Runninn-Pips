@@ -1,0 +1,23 @@
+@import '../../../assets/styles/roots';
+.lfooter {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    width: 100%;
+    justify-items: center;
+    background-color: #73737329;
+    margin-top: 10%;
+    svg {
+        width: 20px;
+        height: 20px;
+        margin-top: 10px;
+    }
+    p {
+        @extend %text;
+        grid-column: 3 span;
+        margin: 10px 0;
+    }
+    a {
+        font-size: 1.2em;
+    }
+}

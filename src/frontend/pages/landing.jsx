@@ -6,6 +6,7 @@ import Plans from '../components/landing/plans'
 import Locations from '../components/landing/locations'
 import Suscribe from '../components/landing/suscribe'
 import Testiomonial from '../components/landing/testimonial'
+import Footer from '../components/landing/footer'
 function landing () {
   return (
     <>
@@ -16,6 +17,7 @@ function landing () {
       <Locations />
       <Testiomonial />
       <Suscribe />
+      <Footer />
     </>
   )
 }

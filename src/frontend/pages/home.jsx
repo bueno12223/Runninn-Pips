@@ -1,8 +1,8 @@
 import React from 'react'
-
+import CardList from '../components/home/cardList'
 function home () {
   return (
-    <div />
+    <CardList />
   )
 }
 

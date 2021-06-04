@@ -2,16 +2,17 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Landing from '../pages/landing'
 import Home from '../pages/home'
-import Layout from '../components/general/layout'
+import Login from '../pages/login'
+import Footer from '../components/general/footer'
 import '../assets/styles/app.scss'
 const App = () => (
   <BrowserRouter>
-    <Layout>
-      <Switch>
-        <Route exact path='/' component={Landing} />
-        <Route exact path='/home' component={Home} />
-      </Switch>
-    </Layout>
+    <Switch>
+      <Route exact path='/' component={Landing} />
+      <Route exact path='/home' component={Home} />
+      <Route exact path='/home' component={Login} />
+    </Switch>
+    <Footer />
   </BrowserRouter>
 )
 

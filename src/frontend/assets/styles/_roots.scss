@@ -40,6 +40,7 @@ $green: #2fab73;
     font-weight: bold;
     text-align: center;
     transition: all 200ms ease;
+    cursor: pointer;
     &:hover {
         background-color: $dark-grey;
     }

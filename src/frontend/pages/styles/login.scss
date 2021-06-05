@@ -1,0 +1,96 @@
+@import '../../assets/styles/roots';
+.login {
+    &-title {
+        @extend %title;
+        font-size: 3em;
+        margin: auto;
+        width: 80%;
+        margin-bottom: 20px;
+    }
+    &-form {
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        width: 80%;
+        margin: auto;
+        &__input {
+            grid-column: 4 span;
+            border: 1px solid $grey;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            padding-left: 5px;
+        }
+        &__text {
+            @extend %text;
+            grid-column: 2 span;
+            margin: 0;
+            width: max-content;
+            font-size: 1em;
+            text-decoration: none;
+            color: $dark-grey;
+            &:hover {
+                text-decoration: underline;
+            }
+            &-left {
+                justify-self: flex-end;
+            }
+        }
+        &__button {
+            @extend %button;
+            grid-column: 2 span;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            &-white {
+                @extend %ligth-button;
+                grid-column: 2 span;
+                justify-self: flex-end;
+                padding: 1.3rem 1.9rem;
+                border-radius: 10px;
+                font-size: 1.5em;
+            }
+            &-facebook {
+                @extend %button;
+                background-color: #4064ac;
+                border: none;
+                padding: 0;
+                grid-column: 5 span;
+                box-shadow: none;
+                padding: 5px;
+                margin-top: 15px;
+                max-width: 250px;
+            }
+        }
+    }
+}
+.login-container {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.login__left {
+    background: rgba(229, 229, 229, 0.41);
+    display: none;
+    &-img {
+        width: 50vw;
+    }
+}
+@media only screen and (min-width: 700px) {
+    .login-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+    .login {
+        grid-column: 1/2;
+        &-form__button-facebook {
+            margin: auto;
+            margin-top: 15px;
+        }
+    }
+    .login__left {
+        display: block;
+        grid-column: 2/3;
+
+    }
+    
+}

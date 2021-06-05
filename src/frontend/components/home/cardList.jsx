@@ -18,6 +18,7 @@ function cardList () {
 
           {
             data.map(PreVideo => (
+
               <Card key={PreVideo.title} {...PreVideo} />
             ))
             }

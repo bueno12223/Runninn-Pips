@@ -1,0 +1,35 @@
+@import '../../assets/styles/roots';
+.reproductor {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    &-video-container {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        align-items: center;
+    }
+    &-video {
+        width: 96vw;
+        height: 50vw;
+        border: none;
+        max-width: 700px;
+        margin: 7px 2%;
+        border-radius: 10px;
+        &__title {    
+            align-self: baseline;
+            margin-left: 7%;
+            font-size: 1.7em;
+
+        }
+    }
+    &-description {
+        font-size: 1.2em;
+        text-align: justify;
+        width: 96vw;
+        margin: auto;
+        background-color: #ddd;
+        border-radius: 10px;
+        padding: 15px;
+    }
+}

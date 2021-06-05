@@ -13,6 +13,9 @@
         grid-template-columns: repeat(4, 1fr);
         width: 80%;
         margin: auto;
+        &__register {
+            grid-template-rows: repeat(6, 1fr);
+        }
         &__input {
             grid-column: 4 span;
             border: 1px solid $grey;

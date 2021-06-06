@@ -48,6 +48,7 @@
     "react-router-dom": "^5.2.0",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^11.1.1",
+    "webpack": "^5.33.2",
     "webpack-dev-middleware": "^4.1.0",
     "webpack-hot-middleware": "^2.25.0"
   },
@@ -58,7 +59,6 @@
     "mini-css-extract-plugin": "^1.4.1",
     "standard": "^16.0.3",
     "url-loader": "^4.1.1",
-    "webpack": "^5.33.2",
     "webpack-cli": "^4.6.0",
     "webpack-manifest-plugin": "^3.1.1"
   },

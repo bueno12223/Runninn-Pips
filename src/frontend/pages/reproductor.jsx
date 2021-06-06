@@ -11,7 +11,7 @@ function reproductor (props) {
         <iframe className='reproductor-video' src='https://www.youtube.com/embed/3piln_n6MZ4?autoplay=1&mute=1' width='640' height='480' />
         <p className='reproductor-likes'>20{'   '}<img src={like} alt='me gusta' /></p>
       </article>
-      <article lassName='reproductor-content-container'>
+      <article className='reproductor-content-container'>
         <h4 className='reproductor-content-title'>Descripción</h4>
         <p className='reproductor-description'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe asperiores tempora sed harum sapiente deserunt quisquam, rerum dicta! Minima, provident. Neque fugit atque aliquid, molestiae exercitationem aspernatur qui. Itaque, iste?</p>
         <h4 className='reproductor-content-title'>Descripción</h4>

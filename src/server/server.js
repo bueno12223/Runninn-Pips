@@ -12,7 +12,7 @@ import { StaticRouter } from 'react-router-dom'
 import reducer from '../frontend/reducers/index'
 import serverRoutes from '../frontend/routes/serverRoutes'
 import getManifest from './getManifest'
-
+import studentRoutes from './routes/student'
 dotenv.config()
 const { ENV, PORT } = process.env
 const app = express()
@@ -88,6 +88,7 @@ const renderApp = async (req, res) => {
 
   res.send(setResponse(html, preloadedState, req.hashManifest))
 }
+studentRoutes(app)
 app.get('*', renderApp)
 
 app.listen(PORT, (err) => {

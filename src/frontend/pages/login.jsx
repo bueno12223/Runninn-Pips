@@ -1,23 +1,39 @@
-import React from 'react'
+import facebook from '../assets/icons/facebook.svg'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Hello from '../assets/icons/hello'
-import facebook from '../assets/icons/facebook.svg'
+import { connect } from 'react-redux'
+import { loginStudent } from '../actions'
 import './styles/login.scss'
-function login () {
+function login ({ loginStudent }) {
+  const [form, setForm] = useState({
+    userID: '',
+    password: ''
+  })
+  const handleChangue = e => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    })
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    loginStudent(form, '/home')
+  }
   return (
     <section className='login-container'>
       <article className='login'>
         <h2 className='login-title'>Bienvenido de vuelta!!, por favor inicia sesión</h2>
-        <form className='login-form'>
-          <input className='login-form__input' type='email' name='email' placeholder='Usuario' required />
-          <input className='login-form__input' type='password' name='email' placeholder='Contraseña' required />
-          <Link className='login-form__text' to='/'>¿Olvidaste tu contraseña?</Link>
-          <Link className='login-form__text login-form__text-left' to='/'>Recuerdame</Link>
+        <form className='login-form' onSubmit={(e) => handleSubmit(e)}>
+          <input onChange={e => handleChangue(e)} className='login-form__input' type='text' name='userID' placeholder='Usuario' required />
+          <input onChange={e => handleChangue(e)} className='login-form__input' type='password' name='password' placeholder='Contraseña' required />
+          <Link className='login-form__text' to='/login'>¿Olvidaste tu contraseña?</Link>
+          <Link className='login-form__text login-form__text-left' to='/login'>Recuerdame</Link>
           <input className='login-form__button' type='Submit' />
-          <Link className='login-form__button-white'>Registrarme</Link>
+          <Link to='/registro' className='login-form__button-white'>Registrarme</Link>
           <button className='login-form__button-facebook'>
             <img src={facebook} alt='' />
-            {'   '}
+            loginStudent        {'   '}
             Iniciar Sesión con <br /> Facebook
           </button>
         </form>
@@ -28,5 +44,7 @@ function login () {
     </section>
   )
 }
-
-export default login
+const mapStateToProps = {
+  loginStudent
+}
+export default connect(null, mapStateToProps)(login)

@@ -59,6 +59,15 @@ const setResponse = (html, preloadedState, manifest) => {
       </script>
       <script src='${mainBuild}' type="text/javascript"></script>
       <script src="${vendorBuild}" type="text/javascript"></script>
+      <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
+      <script
+  src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"
+  crossorigin></script>
+
+<script
+  src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
+  crossorigin></script>
+
     </body>
   </html>
   `)

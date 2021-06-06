@@ -1,0 +1,10 @@
+.comment{
+    &-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    &-date {
+        justify-self: flex-end;
+    }
+}

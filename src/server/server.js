@@ -13,11 +13,14 @@ import reducer from '../frontend/reducers/index'
 import serverRoutes from '../frontend/routes/serverRoutes'
 import getManifest from './getManifest'
 import studentRoutes from './routes/student'
+import cookieParser from 'cookie-parser'
+import axios from 'axios'
+
 dotenv.config()
 const { ENV, PORT } = process.env
 const app = express()
 app.use(express.json())
-// app.use(cookieParser())
+app.use(cookieParser())
 
 if (ENV === 'development') {
   console.log('Development config')
@@ -74,8 +77,25 @@ const setResponse = (html, preloadedState, manifest) => {
 }
 
 const renderApp = async (req, res) => {
-  const InitalState = []
-  const isLogged = false
+  let InitalState = {}
+  let isLogged = false
+  const cookieValues = Object.values(req.cookies)
+  console.log(req.cookies)
+  try {
+    if (cookieValues.length >= 2) {
+      const result = await axios({
+        method: 'POST',
+        url: `http://localhost:3003/student/${cookieValues[1]} `,
+        // eslint-disable-next-line quote-props
+        headers: { 'Cookie': `connect.sid=${cookieValues[2]}` },
+        withCredentials: true
+      })
+      InitalState = { ...result.data.data, error: [] }
+      isLogged = true
+    }
+  } catch (error) {
+    console.log(error)
+  }
   const store = createStore(reducer, InitalState)
   const preloadedState = store.getState()
   const html = renderToString(

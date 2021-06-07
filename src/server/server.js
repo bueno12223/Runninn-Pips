@@ -62,29 +62,20 @@ const setResponse = (html, preloadedState, manifest) => {
       </script>
       <script src='${mainBuild}' type="text/javascript"></script>
       <script src="${vendorBuild}" type="text/javascript"></script>
-      <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
-      <script
-  src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"
-  crossorigin></script>
-
-<script
-  src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
-  crossorigin></script>
-
     </body>
   </html>
   `)
 }
 
 const renderApp = async (req, res) => {
-  let InitalState = {}
+  let InitalState = { error: '' }
   let isLogged = false
   const cookieValues = Object.values(req.cookies)
   try {
     if (cookieValues.length >= 2) {
       const result = await axios({
         method: 'POST',
-        url: `http://localhost:3003/student/${cookieValues[1]} `,
+        url: `http://localhost:3003/student/getUser/${cookieValues[1]} `,
         // eslint-disable-next-line quote-props
         headers: { 'Cookie': `connect.sid=${cookieValues[2]}` },
         withCredentials: true

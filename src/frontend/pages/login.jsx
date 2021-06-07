@@ -5,7 +5,7 @@ import Hello from '../assets/icons/hello'
 import { connect } from 'react-redux'
 import { loginStudent } from '../actions'
 import './styles/login.scss'
-function login ({ loginStudent }) {
+function login ({ loginStudent, error }) {
   const [form, setForm] = useState({
     userID: '',
     password: ''
@@ -47,4 +47,9 @@ function login ({ loginStudent }) {
 const mapStateToProps = {
   loginStudent
 }
-export default connect(null, mapStateToProps)(login)
+const mapDispachToProps = state => {
+  return {
+    error: state.error
+  }
+}
+export default connect(mapDispachToProps, mapStateToProps)(login)

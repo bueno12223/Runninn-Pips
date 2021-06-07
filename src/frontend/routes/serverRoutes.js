@@ -13,12 +13,12 @@ const serverRoutes = (isLogged) => {
     {
       exact: true,
       path: '/home',
-      component: Home
+      component: isLogged ? Home : Login
     },
     {
       exact: true,
       path: '/home/:id',
-      component: Reproductor
+      component: isLogged ? Reproductor : Login
     },
     {
       exact: true,

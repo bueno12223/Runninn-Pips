@@ -4,6 +4,11 @@ const reducer = (state, action) => {
       return {
         ...action.payload
       }
+    case 'ERROR_REGISTER':
+      return {
+        ...state,
+        error: action.payload
+      }
     default:
       return state
   }

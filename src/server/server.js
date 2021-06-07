@@ -80,7 +80,6 @@ const renderApp = async (req, res) => {
   let InitalState = {}
   let isLogged = false
   const cookieValues = Object.values(req.cookies)
-  console.log(req.cookies)
   try {
     if (cookieValues.length >= 2) {
       const result = await axios({

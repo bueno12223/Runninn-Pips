@@ -13,7 +13,6 @@ const studentRoutes = (app) => {
           password
         }
       })
-      console.log(result.headers)
       res.status(200).header(result.headers).json({ data: result.data.result })
     } catch (e) {
       console.log(e)

@@ -68,19 +68,31 @@ const setResponse = (html, preloadedState, manifest) => {
 }
 
 const renderApp = async (req, res) => {
-  let InitalState = { error: '' }
+  let InitalState = {
+    userID: '',
+    error: '',
+    videos: []
+  }
   let isLogged = false
   const cookieValues = Object.values(req.cookies)
   try {
-    if (cookieValues.length >= 2) {
+    if (cookieValues.length === 2) {
       const result = await axios({
         method: 'POST',
-        url: `http://localhost:3003/student/getUser/${cookieValues[1]} `,
+        url: 'http://localhost:3003/student',
+        data: { id: cookieValues[0] },
         // eslint-disable-next-line quote-props
-        headers: { 'Cookie': `connect.sid=${cookieValues[2]}` },
+        headers: { 'Cookie': `connect.sid=${cookieValues[1]}` },
         withCredentials: true
       })
-      InitalState = { ...result.data.data, error: [] }
+      const videos = await axios({
+        method: 'GET',
+        url: 'http://localhost:3003/video',
+        // eslint-disable-next-line quote-props
+        headers: { 'Cookie': `connect.sid=${cookieValues[1]}` },
+        withCredentials: true
+      })
+      InitalState = { ...result.data.data, videos: videos.data.message, error: [] }
       isLogged = true
     }
   } catch (error) {

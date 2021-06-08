@@ -1,7 +1,9 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import Card from './card'
 import './styles/cardList.scss'
-function cardList () {
+function cardList ({ videos }) {
+  console.log(videos)
   const data = [
     { title: 'Example #1', description: 'lorem', time: 50 },
     { title: 'Example #1', description: 'lorem', time: 50 },
@@ -27,5 +29,9 @@ function cardList () {
     </>
   )
 }
-
-export default cardList
+const useStateToProps = state => {
+  return {
+    videos: state.videos
+  }
+}
+export default connect(useStateToProps, null)(cardList)

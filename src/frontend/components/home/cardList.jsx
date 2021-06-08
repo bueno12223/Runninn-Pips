@@ -3,26 +3,18 @@ import { connect } from 'react-redux'
 import Card from './card'
 import './styles/cardList.scss'
 function cardList ({ videos }) {
-  console.log(videos)
-  const data = [
-    { title: 'Example #1', description: 'lorem', time: 50 },
-    { title: 'Example #1', description: 'lorem', time: 50 },
-    { title: 'Example #1', description: 'lorem', time: 50 },
-    { title: 'Example #1', description: 'lorem', time: 50 },
-    { title: 'Example #1', description: 'lorem', time: 50 },
-    { title: 'Example #1', description: 'lorem', time: 50 }
-  ]
   return (
     <>
       <section className='cardList'>
-        <h2>Tu lista</h2>
         <div className='cardList-container'>
 
           {
-            data.map(PreVideo => (
+            videos.map(PreVideo => {
+              return (
 
-              <Card key={PreVideo.title} {...PreVideo} />
-            ))
+                <Card key={PreVideo._id} {...PreVideo} keyID={PreVideo.key} />
+              )
+            })
             }
         </div>
       </section>

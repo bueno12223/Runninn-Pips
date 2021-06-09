@@ -76,7 +76,7 @@ const renderApp = async (req, res) => {
   let isLogged = false
   const cookieValues = Object.values(req.cookies)
   try {
-    if (cookieValues.length === 2) {
+    if (cookieValues[0]) {
       const result = await axios({
         method: 'POST',
         url: 'http://localhost:3003/student',

@@ -38,3 +38,9 @@ export const singup = (payload, redirectUrl) => async (dispatch) => {
     console.log(e)
   }
 }
+
+export const logOutUser = (payload, redirectUrl) => async (dispatch) => {
+  document.cookie = 'id='
+  document.cookie = 'connect.sid='
+  window.location.href = '/login'
+}

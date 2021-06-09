@@ -7,7 +7,6 @@ function reproductor (props) {
   const { id } = props.match.params
   // eslint-disable-next-line eqeqeq
   const video = props.videos.find(e => e.key == id)
-  console.log(video)
   return (
     <section className='reproductor'>
       <article className='reproductor-video-container'>

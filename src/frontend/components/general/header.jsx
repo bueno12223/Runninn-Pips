@@ -3,8 +3,14 @@ import logo from '../../assets/images/logo-s.jpg'
 import { Link } from 'react-router-dom'
 import menuIcon from '../../assets/icons/menu.svg'
 import './styles/header.scss'
-function header () {
+import { logOutUser } from '../../actions'
+import { connect } from 'react-redux'
+function header ({ userID, logOutUser }) {
   const [display, setDisplay] = useState(false)
+  const handleOnClick = () => {
+    setDisplay(!display)
+    logOutUser()
+  }
   return (
     <header className='lheader'>
       <Link to='/'>
@@ -17,11 +23,18 @@ function header () {
         <Link to='/' onClick={() => setDisplay(!display)}>Testimonios</Link>
         <Link to='/' onClick={() => setDisplay(!display)}>Ayuda</Link>
         <span />
-        <Link to='/login' className='lheader-links__button' onClick={() => setDisplay(!display)}>Iniciar Sesión</Link>
-        <Link to='/registro' className='lheader-links__button' onClick={() => setDisplay(!display)}>Registrate</Link>
+        <Link to={userID ? '/home' : '/login'} className='lheader-links__button' onClick={() => setDisplay(!display)}>{userID ? 'Home' : 'Iniciar Sesión'}</Link>
+        <Link to={userID ? '/login' : '/register'} className='lheader-links__button' onClick={() => handleOnClick()}>{userID ? 'Cerrar Sesión' : 'Registrarme'}</Link>
       </div>
     </header>
   )
 }
-
-export default header
+const mapStateToProps = state => {
+  return {
+    userID: state.userID
+  }
+}
+const mapDispachToProps = {
+  logOutUser
+}
+export default connect(mapStateToProps, mapDispachToProps)(header)

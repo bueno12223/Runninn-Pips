@@ -33,7 +33,7 @@ function login ({ loginStudent, error }) {
           <Link to='/registro' className='login-form__button-white'>Registrarme</Link>
           <button className='login-form__button-facebook'>
             <img src={facebook} alt='' />
-            loginStudent        {'   '}
+            {'   '}
             Iniciar Sesión con <br /> Facebook
           </button>
         </form>

@@ -2,10 +2,12 @@
 .lfooter {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: 30% 25% 10% auto;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 40px;
     width: 70%;
     justify-items: center;
-    margin: 10% auto;
     svg {
         width: 20px;
         height: 20px;

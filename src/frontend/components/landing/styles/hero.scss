@@ -35,6 +35,6 @@ $media-mid: 680px;
     }
     &-button {
         @extend %button;
-        padding: 0;
+        padding: 15px;
     }
 }

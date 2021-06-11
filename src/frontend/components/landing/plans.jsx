@@ -1,5 +1,6 @@
 import React from 'react'
 import Check from '../../assets/icons/check'
+import box from '../../assets/icons/box.svg'
 import './styles/plans.scss'
 function plans () {
   return (
@@ -13,7 +14,7 @@ function plans () {
 function Card () {
   return (
     <article className='plans-card'>
-      <img src='https://laslesvpn-landing.netlify.app/images/standard-plan.svg' alt='box img' />
+      <img src={box} alt='box img' />
       <h3>Plan gratis</h3>
       <ul>
         <li><Check />Trades ilimitados</li>

@@ -5,7 +5,7 @@ const studentRoutes = (app) => {
     const { userID, password } = req.body
     try {
       const result = await axios({
-        url: 'http://localhost:3003/student/login',
+        url: `${process.env.API_URL}/student/login`,
         method: 'POST',
         withCredentials: true,
         auth: {
@@ -25,7 +25,7 @@ const studentRoutes = (app) => {
       console.log('registrao')
       await axios({
         data: { userID, password, email, userName },
-        url: 'http://localhost:3003/student/register',
+        url: `${process.env.API_URL}/student/register`,
         method: 'POST'
       })
       res.status(201).json({ message: 'creado correctamente' })

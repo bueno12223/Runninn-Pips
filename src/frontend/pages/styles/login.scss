@@ -10,18 +10,18 @@
         width: 80%;
         margin-bottom: 5px;
     }
-    &-alert {
+    &-message {
         padding: 5px;
-        background-color: #f47c69;
         border-radius: 10px;
         min-width: 275px;
         text-align: center;
         color: $white;
         min-height: 25px;
-        cursor: default;
-        &__disable {
-            background-color: none;
-            min-height: 25px;
+        &__success {
+            background-color: #9fea7f;
+        }
+        &__alert {
+            background-color: #f47c69;
         }
     }
     &-form {

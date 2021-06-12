@@ -5,8 +5,8 @@ export const registerRequest = (payload) => ({
   payload
 })
 
-export const errorHandler = (payload) => ({
-  type: 'ERROR_REGISTER',
+export const messageHandler = (payload) => ({
+  type: 'MESSAGE_HANDLER',
   payload
 })
 
@@ -20,25 +20,32 @@ export const loginStudent = (payload, redirectUrl) => async (dispatch) => {
       window.location.href = redirectUrl
     }
   } catch (e) {
-    console.log(e.response)
     if (e.response.status === 401) {
-      console.log(e.response.data.message)
-      return dispatch(errorHandler(e.response.data.message))
+      return dispatch(messageHandler({ message: e.response.data.message, success: false }))
     }
-    dispatch(errorHandler('Usuario o contraseña incorrecta'))
+    dispatch(messageHandler({ message: 'Usuario o contraseña incorrecta', success: false }))
   }
 }
 
 export const singup = (payload, redirectUrl) => async (dispatch) => {
   try {
     const result = await axios.post('/register', payload)
-    console.log(result.status)
     if (result.status === 201) {
-      window.location.href = redirectUrl
+      dispatch(messageHandler({ message: 'Usuario creado correctamente', success: true }))
+      setTimeout(() => {
+        window.location.href = redirectUrl
+      }
+      , 2000)
     }
   } catch (e) {
-    dispatch(errorHandler('error del servidor, intenta mas tarde'))
-    console.log(e)
+    if (e.response.status === 400) {
+      const keys = Object.keys(e.response.data.key)
+      if (keys[0] === 'userID') {
+        return dispatch(messageHandler({ message: 'Ya existe una cuenta con este usuario', success: false }))
+      }
+      return dispatch(messageHandler({ message: 'Ya existe una cuenta con este correo', success: false }))
+    }
+    dispatch(messageHandler({ message: 'error del servidor, intenta mas tarde', success: false }))
   }
 }
 

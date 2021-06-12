@@ -4,11 +4,10 @@ const reducer = (state, action) => {
       return {
         ...action.payload
       }
-    case 'ERROR_REGISTER':
-      console.log(action.payload)
+    case 'MESSAGE_HANDLER':
       return {
         ...state,
-        error: action.payload
+        message: action.payload
       }
     default:
       return state

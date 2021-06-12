@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Hello from '../assets/icons/hello'
-import { singup } from '../actions'
+import { singup, messageHandler } from '../actions'
 import facebook from '../assets/icons/facebook.svg'
 import { connect } from 'react-redux'
 import './styles/login.scss'
-function registro ({ singup }) {
+function registro ({ singup, message: { message, success }, messageHandler }) {
   const [form, setForm] = useState({
     email: '',
     userName: '',
@@ -22,14 +22,24 @@ function registro ({ singup }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (form.password === form.password2) {
-      singup(form, '/login')
+      return singup(form, '/login')
     }
+    return messageHandler({ message: 'las contraseñas no son iguales', success: false })
   }
-
+  const messageClassname = () => {
+    if (message) {
+      if (success) {
+        return 'login-message__success'
+      }
+      return 'login-message__alert'
+    }
+    return ''
+  }
   return (
     <section className='login-container'>
       <article className='login'>
         <h2 className='login-title'>Bienvenido!!, por favor llena los siguientes datos</h2>
+        <span className={`login-message ${messageClassname()}`}>{message}</span>
         <form className='login-form login-form__register' onSubmit={e => handleSubmit(e)}>
           <input onChange={(e) => handleChangue(e)} className='login-form__input' type='email' name='email' placeholder='Email' required />
           <input onChange={(e) => handleChangue(e)} className='login-form__input' type='text' name='userName' placeholder='Nombre completo' required />
@@ -52,6 +62,12 @@ function registro ({ singup }) {
   )
 }
 const mapStateToProps = {
-  singup
+  singup,
+  messageHandler
 }
-export default connect(null, mapStateToProps)(registro)
+const mapDispachToProps = state => {
+  return {
+    message: state.message
+  }
+}
+export default connect(mapDispachToProps, mapStateToProps)(registro)

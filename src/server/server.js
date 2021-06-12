@@ -70,7 +70,7 @@ const setResponse = (html, preloadedState, manifest) => {
 const renderApp = async (req, res) => {
   let InitalState = {
     userID: '',
-    error: '',
+    message: {},
     videos: []
   }
   let isLogged = false

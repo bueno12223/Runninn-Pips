@@ -27,9 +27,8 @@ const studentRoutes = (app) => {
         method: 'POST'
       })
       res.status(201).json({ message: 'creado correctamente' })
-    } catch (error) {
-      console.log(error, 'error de aqui')
-      res.status(500)
+    } catch (e) {
+      res.status(e.response.status).json(e.response.data)
     }
   })
 }

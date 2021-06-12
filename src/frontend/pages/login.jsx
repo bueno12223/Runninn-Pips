@@ -3,7 +3,7 @@ import facebook from '../assets/icons/facebook.svg'
 import { Link } from 'react-router-dom'
 import Hello from '../assets/icons/hello'
 import { connect } from 'react-redux'
-import { loginStudent, errorHandler } from '../actions'
+import { loginStudent } from '../actions'
 import './styles/login.scss'
 function login ({ loginStudent, error }) {
   const [form, setForm] = useState({
@@ -20,7 +20,6 @@ function login ({ loginStudent, error }) {
     e.preventDefault()
     loginStudent(form, '/home')
   }
-  console.log(error === true)
   return (
     <section className='login-container'>
       <article className='login'>
@@ -47,8 +46,7 @@ function login ({ loginStudent, error }) {
   )
 }
 const mapStateToProps = {
-  loginStudent,
-  errorHandler
+  loginStudent
 }
 const mapDispachToProps = state => {
   return {

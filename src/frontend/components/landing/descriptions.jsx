@@ -6,13 +6,14 @@ function descriptions () {
   return (
     <section className='description'>
       <ToolsImg className='description-img' />
-      <h2><b>Te damos herramientas para que puedas usar</b></h2>
-      <p>You can explore the features that we provide with fun and have their own functions each feature.</p>
+      <h2><b>Explora las herramientas mas poderosas del mercado</b></h2>
+      <p>Con tu accseso premium puedes tener todas estas herramientas listas para cuando las nesecites</p>
       <ul className='description-list'>
-        <li><Check /> Enseñanza en todo lugar</li>
-        <li><Check /> Sin tiempos limites</li>
-        <li><Check /> La información mas actualizada</li>
-        <li><Check /> Con mentorías personales</li>
+        <li><Check /> Acceso a todos los cursos</li>
+        <li><Check /> Señales de Trading </li>
+        <li><Check /> Ideas de inversiones </li>
+        <li><Check /> Mentorias grupales todas las semanas</li>
+        <li><Check /> La información mas actualizada de la industria</li>
       </ul>
     </section>
   )

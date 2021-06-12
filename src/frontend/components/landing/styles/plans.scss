@@ -2,13 +2,13 @@
 
 .plans {
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     justify-items: center;
     gap: 5px;
     margin: 0 20px;
     @include response-to(920px) {
         grid-template-rows: auto;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
     &-card {

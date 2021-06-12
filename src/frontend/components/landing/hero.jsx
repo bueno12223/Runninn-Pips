@@ -6,9 +6,9 @@ function hero () {
   return (
     <section className='lhero'>
       <HeroIcon className='lhero-img' />
-      <h1 className='lhero-title'>Todo es mas fácil con <b>Runnig Traders</b></h1>
-      <p className='lhero-text'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis doloremque excepturi nisi quidem qui autem? Cupiditate optio hic, laborum adipisci minima et inventore beatae tempora qui animi deserunt ipsa expedita!</p>
-      <Link className='lhero-button' to='/registro'>Empezar</Link>
+      <h1 className='lhero-title'>Todo es mas fácil con <b>Running Traders</b></h1>
+      <p className='lhero-text'>Te enseñamos a travez de cursos o sesiones en vivo las estrategias de inversión mas efectiva en el mercado de Forex, bolsa de valores, criptomonedas o índices. Genera una nueva fuente de ingresos, aprende la información que te dará mas libertad.</p>
+      <Link className='lhero-button' to='/registro'>Registarme ahora!!</Link>
     </section>
   )
 }

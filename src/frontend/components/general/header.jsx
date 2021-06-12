@@ -18,7 +18,7 @@ function header ({ userID, logOutUser }) {
       </Link>
       <img src={menuIcon} className='lheader-menu' alt='menu icon' onClick={() => setDisplay(!display)} />
       <div className='lheader-links' style={{ left: display ? '0%' : '100%' }}>
-        <Link to='/' onClick={() => setDisplay(!display)}>Acerca de</Link>
+        <Link to={userID ? '/user' : '/'} onClick={() => setDisplay(!display)}>{userID ? 'Cuenta' : 'Acerca de'}</Link>
         <Link to='/' onClick={() => setDisplay(!display)}>Precios</Link>
         <Link to='/' onClick={() => setDisplay(!display)}>Testimonios</Link>
         <Link to='/' onClick={() => setDisplay(!display)}>Ayuda</Link>

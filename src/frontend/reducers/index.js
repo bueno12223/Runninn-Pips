@@ -5,6 +5,7 @@ const reducer = (state, action) => {
         ...action.payload
       }
     case 'ERROR_REGISTER':
+      console.log(action.payload)
       return {
         ...state,
         error: action.payload

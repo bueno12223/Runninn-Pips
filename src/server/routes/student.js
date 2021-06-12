@@ -15,14 +15,12 @@ const studentRoutes = (app) => {
       })
       res.status(200).header(result.headers).json({ data: result.data.result })
     } catch (e) {
-      console.log(e)
-      next(e)
+      res.status(e.response.status).json(e.response.data)
     }
   })
   app.post('/register', async (req, res) => {
     const { userID, password, email, userName } = req.body
     try {
-      console.log('registrao')
       await axios({
         data: { userID, password, email, userName },
         url: `${process.env.API_URL}/student/register`,

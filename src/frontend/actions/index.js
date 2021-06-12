@@ -19,10 +19,13 @@ export const loginStudent = (payload, redirectUrl) => async (dispatch) => {
       dispatch(registerRequest(data.data))
       window.location.href = redirectUrl
     }
-    return dispatch(errorHandler('los datos no son correctos'))
   } catch (e) {
-    dispatch(errorHandler('error del servidor, intenta mas tarde'))
-    console.log(e)
+    console.log(e.response)
+    if (e.response.status === 401) {
+      console.log(e.response.data.message)
+      return dispatch(errorHandler(e.response.data.message))
+    }
+    dispatch(errorHandler('Usuario o contraseña incorrecta'))
   }
 }
 

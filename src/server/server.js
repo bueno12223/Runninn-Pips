@@ -5,7 +5,6 @@ import dotenv from 'dotenv'
 import webpack from 'webpack'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
-import helmet from 'helmet'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { renderRoutes } from 'react-router-config'
@@ -41,7 +40,6 @@ if (ENV === 'development') {
   })
   // eslint-disable-next-line node/no-path-concat
   app.use(express.static(`${__dirname}/public`))
-  app.use(helmet())
 }
 
 const setResponse = (html, preloadedState, manifest) => {
@@ -54,7 +52,6 @@ const setResponse = (html, preloadedState, manifest) => {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="Content-Security-Policy" content="default-src *;img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;style-src  'self' 'unsafe-inline' *">
       <title>Runnig pips</title>
       <link rel="stylesheet" href='${mainStyles}' type="text/css">
     </head>
@@ -77,29 +74,29 @@ const renderApp = async (req, res) => {
     videos: []
   }
   let isLogged = false
-  const cookieValues = Object.values(req.cookies)
-  try {
-    if (cookieValues[0]) {
+  const { 'connect.sid': sesionID, id } = req.cookies
+  if (sesionID && id) {
+    try {
       const result = await axios({
         method: 'POST',
         url: `${process.env.API_URL}/student`,
-        data: { id: cookieValues[0] },
+        data: { id },
         // eslint-disable-next-line quote-props
-        headers: { 'Cookie': `connect.sid=${cookieValues[1]}` },
+        headers: { 'Cookie': `connect.sid=${sesionID}` },
         withCredentials: true
       })
       const videos = await axios({
         method: 'GET',
         url: `${process.env.API_URL}/video`,
         // eslint-disable-next-line quote-props
-        headers: { 'Cookie': `connect.sid=${cookieValues[1]}` },
+        headers: { 'Cookie': `connect.sid=${sesionID}` },
         withCredentials: true
       })
       InitalState = { ...result.data.data, videos: videos.data.message, error: [] }
       isLogged = true
+    } catch (e) {
+      console.log('aqui se maneja')
     }
-  } catch (error) {
-    console.log(error)
   }
   const store = createStore(reducer, InitalState)
   const preloadedState = store.getState()

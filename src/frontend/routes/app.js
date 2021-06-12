@@ -5,6 +5,7 @@ import Home from '../pages/home'
 import Login from '../pages/login'
 import registro from '../pages/registro'
 import Reproductor from '../pages/reproductor'
+import pagos from '../pages/pagos'
 import Layout from '../components/general/layout'
 import notFound from '../pages/404'
 import '../assets/styles/app.scss'
@@ -24,6 +25,7 @@ const App = ({ isLogged }) => (
         />
         <Route exact path='/login' component={Login} />
         <Route exact path='/registro' component={registro} />
+        <Route exact path='/pagos' component={pagos} />
         <Route component={notFound} />
       </Switch>
     </Layout>

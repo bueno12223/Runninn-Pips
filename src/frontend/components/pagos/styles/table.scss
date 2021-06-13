@@ -1,0 +1,20 @@
+.table{
+    margin: auto;
+    margin-top: 25px;
+    border-spacing: 0;
+    width: 50vw;
+    min-width: 250px;
+    max-width: 500px;
+    &-item {
+        &__text {
+            text-align: start;
+        }
+        &__price {
+            text-align: end;
+        }
+        font-weight: 300;
+        border: 1px solid #d4d4d4;
+        padding: 5px;
+        font-size: 1.5em;
+    }
+}

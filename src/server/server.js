@@ -95,7 +95,6 @@ const renderApp = async (req, res) => {
       InitalState = { ...result.data.data, videos: videos.data.message, error: [] }
       isLogged = true
     } catch (e) {
-      console.log('aqui se maneja')
     }
   }
   const store = createStore(reducer, InitalState)

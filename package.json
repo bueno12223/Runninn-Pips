@@ -2,6 +2,7 @@
   "name": "running-pips",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "src/server/index",
   "scripts": {
     "dev": "nodemon src/server/index",
@@ -33,6 +34,7 @@
     "cookie-parser": "^1.4.5",
     "css-loader": "^5.2.4",
     "dotenv": "^8.2.0",
+    "emailjs-com": "^3.0.2",
     "express": "^4.17.1",
     "history": "^4.10.1",
     "ignore-styles": "^5.0.1",

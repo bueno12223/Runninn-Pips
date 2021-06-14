@@ -1,17 +1,9 @@
 import React from 'react'
-import axios from 'axios'
-import FormData from 'form-data'
-function transferencia () {
+import { connect } from 'react-redux'
+import { uploadTransacction } from '../../actions'
+function transferencia ({ uploadTransacction, userID }) {
   const handleFileInput = async (file) => {
-    const bodyFormData = new FormData()
-    bodyFormData.append('image', file)
-    const result = await axios({
-      method: 'post',
-      url: 'https://api.imgbb.com/1/upload?expiration=604800&key=1b513c3ad873e32c0f610845b3ac9601',
-      data: bodyFormData,
-      headers: { 'Content-Type': 'multipart/form-data' }
-    })
-    console.log(result)
+    uploadTransacction({ img: file, userID })
   }
   return (
     <section>
@@ -25,5 +17,12 @@ function transferencia () {
     </section>
   )
 }
-
-export default transferencia
+const mapStateToProps = {
+  uploadTransacction
+}
+const mapDispachToProps = state => {
+  return {
+    userID: state.userID
+  }
+}
+export default connect(mapDispachToProps, mapStateToProps)(transferencia)

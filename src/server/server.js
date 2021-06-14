@@ -13,6 +13,7 @@ import reducer from '../frontend/reducers/index'
 import serverRoutes from '../frontend/routes/serverRoutes'
 import getManifest from './getManifest'
 import studentRoutes from './routes/student'
+import transacctions from './routes/transacctions'
 import cookieParser from 'cookie-parser'
 import axios from 'axios'
 
@@ -111,6 +112,7 @@ const renderApp = async (req, res) => {
 }
 app.set('x-powered-by', false)
 studentRoutes(app)
+transacctions(app)
 app.get('*', renderApp)
 
 app.listen(PORT, (err) => {

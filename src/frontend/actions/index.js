@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+// import FormData from 'form-data'
 export const registerRequest = (payload) => ({
   type: 'REGISTER_REQUEST',
   payload
@@ -53,4 +53,21 @@ export const logOutUser = (payload, redirectUrl) => async (dispatch) => {
   document.cookie = 'id='
   document.cookie = 'connect.sid='
   window.location.href = '/login'
+}
+
+export const uploadTransacction = (payload, redirectUrl) => async (dispatch) => {
+  // const bodyFormData = new FormData()
+  // bodyFormData.append('image', payload.img)
+  // const img = await axios({
+  //   method: 'post',
+  //   url: 'https://api.imgbb.com/1/upload?expiration=604800&key=1b513c3ad873e32c0f610845b3ac9601',
+  //   data: bodyFormData,
+  //   headers: { 'Content-Type': 'multipart/form-data' }
+  // })
+  await axios({
+    method: 'post',
+    url: '/transaction',
+    // data: { url: img.data.data.display_url, user_id: payload.user_id }
+    data: { url: 'https://i.ibb.co/Yp8h6js/yappy.png', user_id: payload.user_id }
+  })
 }

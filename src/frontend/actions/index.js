@@ -9,10 +9,6 @@ export const messageHandler = (payload) => ({
   type: 'MESSAGE_HANDLER',
   payload
 })
-const registerTokens = (payload) => ({
-  type: 'REGISTER_TOKEN',
-  payload
-})
 export const loginStudent = (payload, redirectUrl) => async (dispatch) => {
   try {
     const data = await axios.post('/login', payload)
@@ -72,27 +68,4 @@ export const uploadTransacction = (payload, redirectUrl) => async (dispatch) => 
     url: '/transaction',
     data: { url: img.data.data.display_url, userID: payload.userID, userName: payload.userName }
   })
-}
-export const getTokens = (payload, redirectUrl) => async (dispatch) => {
-  try {
-    const tokens = await axios({
-      method: 'POST',
-      url: '/transaction/all'
-    })
-    dispatch(registerTokens(tokens.data.data.result))
-  } catch (e) {
-    console.log(e)
-  }
-}
-export const validateTransaccion = (payload, redirectUrl) => async (dispatch) => {
-  try {
-    const result = await axios({
-      method: 'POST',
-      url: 'transaction/validate',
-      data: { url: payload }
-    })
-    console.log(result)
-  } catch (e) {
-    console.log(e)
-  }
 }

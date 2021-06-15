@@ -6,7 +6,6 @@ import Login from '../pages/login'
 import registro from '../pages/registro'
 import Reproductor from '../pages/reproductor'
 import Pagos from '../pages/pagos'
-import Admin from '../pages/admin'
 import Layout from '../components/general/layout'
 import NotFound from '../pages/404'
 import '../assets/styles/app.scss'
@@ -32,14 +31,6 @@ const App = ({ isLogged }) => (
               return (<Pagos />)
             }
             return (<Login />)
-          }}
-        />
-        <Route
-          exact path='/noAdmin' component={() => {
-            if (isLogged === 'admin') {
-              return (<Admin />)
-            }
-            return <NotFound />
           }}
         />
         <Route component={NotFound} />

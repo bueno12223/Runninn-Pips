@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { getTokens } from '../actions'
-function admin ({ getTokens, tokens }) {
+import { getTokens, validateTransaccion } from '../actions'
+function admin ({ getTokens, tokens, validateTransaccion }) {
   useEffect(() => {
     getTokens()
   }, [])
+  const handleValidate = (url) => {
+    validateTransaccion(url)
+  }
   if (!tokens) {
     return (<h1>Cargando</h1>)
   }
@@ -17,6 +20,7 @@ function admin ({ getTokens, tokens }) {
             <img src={e.img_url} alt='transaccion' />
             <h3>{e.userID}</h3>
             <p>{e.userName}</p>
+            <button onClick={() => handleValidate(e.redirect_url)}>Validar pago</button>
           </li>
         ))
     }
@@ -25,7 +29,8 @@ function admin ({ getTokens, tokens }) {
   )
 }
 const mapStateToProps = {
-  getTokens
+  getTokens,
+  validateTransaccion
 }
 const mapDispatchToProps = state => {
   return {

@@ -84,3 +84,15 @@ export const getTokens = (payload, redirectUrl) => async (dispatch) => {
     console.log(e)
   }
 }
+export const validateTransaccion = (payload, redirectUrl) => async (dispatch) => {
+  try {
+    const result = await axios({
+      method: 'POST',
+      url: 'transaction/validate',
+      data: { url: payload }
+    })
+    console.log(result)
+  } catch (e) {
+    console.log(e)
+  }
+}

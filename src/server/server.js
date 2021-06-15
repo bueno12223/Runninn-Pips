@@ -86,6 +86,7 @@ const renderApp = async (req, res) => {
         headers: { 'Cookie': `connect.sid=${sesionID}` },
         withCredentials: true
       })
+      isLogged = true
       const videos = await axios({
         method: 'GET',
         url: `${process.env.API_URL}/video`,
@@ -94,7 +95,6 @@ const renderApp = async (req, res) => {
         withCredentials: true
       })
       InitalState = { ...result.data.data, videos: videos.data.message, error: [] }
-      isLogged = true
     } catch (e) {
     }
   }

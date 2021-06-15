@@ -9,6 +9,12 @@ const reducer = (state, action) => {
         ...state,
         message: action.payload
       }
+    case 'REGISTER_TOKEN':
+      console.log(action.payload)
+      return {
+        ...state,
+        tokens: action.payload
+      }
     default:
       return state
   }

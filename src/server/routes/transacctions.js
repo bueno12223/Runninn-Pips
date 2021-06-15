@@ -36,7 +36,8 @@ const transacctions = (app) => {
         headers: { 'Cookie': `connect.sid=${sesionID}` },
         withCredentials: true
       })
-      res.status(201).json({ data: result.data.result })
+      console.log(result.data)
+      res.status(201).json({ data: result.data })
     } catch (e) {
       res.status(e.response.status).json(e.response.data)
     }

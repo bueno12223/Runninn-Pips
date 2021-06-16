@@ -1,3 +1,4 @@
+@import '../../../assets/styles/roots';
 .hero {
     display: grid;
     grid-area: repeat(2, auto);
@@ -12,9 +13,8 @@
             padding-left: 10px;
             min-width: 160px;
             justify-self: center;
-        }
-        &__avatar {
-            border-radius: 20px;
+            font-size: 2.5em;
+            margin-bottom: 20px;
         }
     }
     &-search {
@@ -24,12 +24,18 @@
         border-radius: 10px;
         padding: 8px 5px;
         display: flex;
-        justify-content: center;
         align-items: center;
+        max-width: 550px;
         &__input {
+            outline: none;
             border: unset;
             margin-left: 3px;
             max-width: 60%;
+            width: 100%;
+        }
+        &__input, &__input::placeholder {
+            font-family: 'Open Sans', sans-serif;
+            color: $dark;
         }
     }
 }

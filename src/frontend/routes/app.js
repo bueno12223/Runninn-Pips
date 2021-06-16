@@ -24,6 +24,7 @@ const App = ({ isLogged }) => (
           }}
         />
         <Route exact path='/login' component={Login} />
+        <Route exact path='/login/:id' component={(props) => <Login {...props} />} />
         <Route exact path='/registro' component={registro} />
         <Route
           exact path='/pagos' component={() => <Pagos isLogged={isLogged} />}

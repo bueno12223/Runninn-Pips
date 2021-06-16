@@ -1,11 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import Card from './card'
 import './styles/cardList.scss'
 function cardList ({ videos }) {
   return (
     <>
       <section className='cardList'>
+        <Link to='/home/envivo' className='cardList-link'><h1 className='cardList-title'>Análisis en vivo</h1></Link>
         <div className='cardList-container'>
 
           {

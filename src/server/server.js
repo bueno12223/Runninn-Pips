@@ -71,7 +71,7 @@ const setResponse = (html, preloadedState, manifest) => {
 const renderApp = async (req, res) => {
   let InitalState = {
     userID: '',
-    message: {},
+    message: { message: '' },
     videos: []
   }
   let isLogged = false
@@ -94,7 +94,7 @@ const renderApp = async (req, res) => {
         headers: { 'Cookie': `connect.sid=${sesionID}` },
         withCredentials: true
       })
-      InitalState = { ...result.data.data, videos: videos.data.message, error: [] }
+      InitalState = { ...result.data.data, videos: videos.data.message, error: [], message: { message: '' } }
     } catch (e) {
     }
   }

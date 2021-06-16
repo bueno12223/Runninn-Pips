@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { uploadTransacction } from '../../actions'
-function transferencia ({ uploadTransacction, userID, userName }) {
+function transferencia ({ uploadTransacction, userID }) {
   const handleFileInput = async (file) => {
-    uploadTransacction({ img: file, userID, userName })
+    uploadTransacction({ img: file, userID })
+    window.localStorage.removeItem('userID')
   }
   return (
     <section>
@@ -20,10 +21,4 @@ function transferencia ({ uploadTransacction, userID, userName }) {
 const mapStateToProps = {
   uploadTransacction
 }
-const mapDispachToProps = state => {
-  return {
-    userID: state.userID,
-    userName: state.userName
-  }
-}
-export default connect(mapDispachToProps, mapStateToProps)(transferencia)
+export default connect(null, mapStateToProps)(transferencia)

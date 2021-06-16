@@ -26,12 +26,7 @@ const App = ({ isLogged }) => (
         <Route exact path='/login' component={Login} />
         <Route exact path='/registro' component={registro} />
         <Route
-          exact path='/pagos' component={() => {
-            if (isLogged) {
-              return (<Pagos />)
-            }
-            return (<Login />)
-          }}
+          exact path='/pagos' component={() => <Pagos isLogged={isLogged} />}
         />
         <Route component={NotFound} />
       </Switch>

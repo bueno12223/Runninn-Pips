@@ -5,7 +5,7 @@ import Hello from '../assets/icons/hello'
 import { connect } from 'react-redux'
 import { loginStudent } from '../actions'
 import './styles/login.scss'
-function login ({ loginStudent, error }) {
+function login ({ loginStudent }) {
   const [form, setForm] = useState({
     userID: '',
     password: ''
@@ -24,7 +24,7 @@ function login ({ loginStudent, error }) {
     <section className='login-container'>
       <article className='login'>
         <h2 className='login-title'>Bienvenido de vuelta!!, por favor inicia sesión</h2>
-        <span className={error ? 'login-alert' : 'login-alert__disable'}>{error}</span>
+        {/* <span className={`login-message ${messageClassname()}`}>{message}</span> */}
         <form className='login-form' onSubmit={(e) => handleSubmit(e)}>
           <input onChange={e => handleChangue(e)} className='login-form__input' type='text' name='userID' placeholder='Usuario' required />
           <input onChange={e => handleChangue(e)} className='login-form__input' type='password' name='password' placeholder='Contraseña' required />
@@ -50,7 +50,7 @@ const mapStateToProps = {
 }
 const mapDispachToProps = state => {
   return {
-    error: state.error
+    message: state.message
   }
 }
 export default connect(mapDispachToProps, mapStateToProps)(login)

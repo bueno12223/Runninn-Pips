@@ -58,6 +58,12 @@
             margin-left: 4%;
         }
     }
+    &-href {
+        display: flex;
+        color: $dark;
+        text-decoration: none;
+        align-items: center;
+    }
 }
 @media only screen and (min-width: 820px) {
     .pagos{

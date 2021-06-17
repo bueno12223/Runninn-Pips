@@ -9,6 +9,10 @@ export const messageHandler = (payload) => ({
   type: 'MESSAGE_HANDLER',
   payload
 })
+export const registerData = (payload) => ({
+  type: 'REGISTER_DATA',
+  payload
+})
 export const loginStudent = (payload, redirectUrl) => async (dispatch) => {
   try {
     const data = await axios.post('/login', payload)
@@ -79,10 +83,11 @@ export const getTeacher = (payload, redirectUrl) => async (dispatch) => {
   try {
     const teacher = await axios({
       method: 'GET',
-      url: `/video/teacher${payload}`
+      url: `/video/teacher/${payload}`
     })
-    return teacher.data
+    console.log(teacher.data.teacher)
+    dispatch(registerData({ name: 'teacher', data: teacher.data.teacher }))
   } catch (e) {
-    window.location.href = '/home'
+    console.log(e)
   }
 }

@@ -22,9 +22,9 @@ const videos = (app) => {
         method: 'GET',
         url: `${process.env.API_URL}/video/teacher/${id}`
       })
-      res.status(200).json({ result })
+      res.status(200).json({ teacher: result.data.teacher })
     } catch (e) {
-      res.status(e.response.status).json(e.response.data)
+      res.status(400).json({ message: 'Profesor no encontrado' })
     }
   })
   router.get('/:id', async (req, res) => {
@@ -34,7 +34,7 @@ const videos = (app) => {
         method: 'GET',
         url: `${process.env.API_URL}/video/${id}`
       })
-      res.status(200).json({ result })
+      res.status(200).json({ teacher: result.data.teacher })
     } catch (e) {
       res.status(e.response.status).json(e.response.data)
     }

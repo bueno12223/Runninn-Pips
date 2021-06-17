@@ -11,7 +11,6 @@ function header ({ userID, logOutUser }) {
     setDisplay(!display)
     logOutUser()
   }
-  console.log('My layout!!!! >:(')
   return (
     <header className='lheader'>
       <Link to='/'>

@@ -4,16 +4,15 @@ const reducer = (state, action) => {
       return {
         ...action.payload
       }
+    case 'REGISTER_DATA':
+      return {
+        ...state,
+        [action.payload.name]: action.payload.data
+      }
     case 'MESSAGE_HANDLER':
       return {
         ...state,
         message: action.payload
-      }
-    case 'REGISTER_TOKEN':
-      console.log(action.payload)
-      return {
-        ...state,
-        tokens: action.payload
       }
     default:
       return state

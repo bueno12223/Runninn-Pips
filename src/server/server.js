@@ -11,6 +11,7 @@ import { renderRoutes } from 'react-router-config'
 import { StaticRouter } from 'react-router-dom'
 import reducer from '../frontend/reducers/index'
 import serverRoutes from '../frontend/routes/serverRoutes'
+import videos from './routes/videos'
 import getManifest from './getManifest'
 import studentRoutes from './routes/student'
 import transacctions from './routes/transacctions'
@@ -28,27 +29,27 @@ if (ENV === 'development') {
   const webpackConfig = require('../../webpack.config')
   const webpackDevMiddleware = require('webpack-dev-middleware')
   const webpackHotMiddleware = require('webpack-hot-middleware')
-  // const figlet = require('figlet')
+  const figlet = require('figlet')
   const compiler = webpack(webpackConfig)
   const { publicPath } = webpackConfig.output
   const serverConfig = { serverSideRender: true, publicPath }
 
   app.use(webpackDevMiddleware(compiler, serverConfig))
   app.use(webpackHotMiddleware(compiler))
-  // figlet(`Server on port ${PORT}`, {
-  //   font: 'Poison',
-  //   horizontalLayout: 'full',
-  //   verticalLayout: 'full',
-  //   width: 100,
-  //   whitespaceBreak: true
-  // }, function (err, data) {
-  //   if (err) {
-  //     console.log('Something went wrong...')
-  //     console.dir(err)
-  //     return
-  //   }
-  //   console.log(data)
-  // })
+  figlet(`Server on port ${PORT}`, {
+    font: 'Poison',
+    horizontalLayout: 'full',
+    verticalLayout: 'full',
+    width: 100,
+    whitespaceBreak: true
+  }, function (err, data) {
+    if (err) {
+      console.log('Something went wrong...')
+      console.dir(err)
+      return
+    }
+    console.log(data)
+  })
 } else {
   app.use((req, res, next) => {
     if (!req.hashManifest) req.hashManifest = getManifest()
@@ -128,6 +129,7 @@ const renderApp = async (req, res) => {
 app.set('x-powered-by', false)
 studentRoutes(app)
 transacctions(app)
+videos(app)
 app.get('*', renderApp)
 
 app.listen(PORT, (err) => {

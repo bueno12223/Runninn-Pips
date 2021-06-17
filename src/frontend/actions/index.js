@@ -75,3 +75,14 @@ export const uploadTransacction = (payload, redirectUrl) => async (dispatch) => 
     dispatch(messageHandler({ message: 'error al notificar la transacción, intenta mas tarde', success: false }))
   }
 }
+export const getTeacher = (payload, redirectUrl) => async (dispatch) => {
+  try {
+    const teacher = await axios({
+      method: 'GET',
+      url: `/video/teacher${payload}`
+    })
+    return teacher.data
+  } catch (e) {
+    window.location.href = '/home'
+  }
+}

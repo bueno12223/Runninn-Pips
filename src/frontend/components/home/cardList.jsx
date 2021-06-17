@@ -1,13 +1,12 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Card from './card'
 import './styles/cardList.scss'
-function cardList ({ videos }) {
+function cardList ({ videos, title, to }) {
   return (
     <>
       <section className='cardList'>
-        <Link to='/home/envivo' className='cardList-link'><h1 className='cardList-title'>Análisis en vivo</h1></Link>
+        <Link to={`/profesor/${to}`} className='cardList-link'><h1 className='cardList-title'>{title}</h1></Link>
         <div className='cardList-container'>
 
           {
@@ -23,9 +22,4 @@ function cardList ({ videos }) {
     </>
   )
 }
-const useStateToProps = state => {
-  return {
-    videos: state.videos
-  }
-}
-export default connect(useStateToProps, null)(cardList)
+export default cardList

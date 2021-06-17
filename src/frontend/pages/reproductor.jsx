@@ -1,5 +1,5 @@
 import React from 'react'
-// import Comment from '../components/general/comment'
+import Vimeo from 'react-vimeo-embed'
 import './styles/reproductor.scss'
 import { connect } from 'react-redux'
 function reproductor (props) {
@@ -10,6 +10,7 @@ function reproductor (props) {
     <section className='reproductor'>
       <article className='reproductor-video-container'>
         <h1 className='reproductor-video__title'>{video.title}</h1>
+        <Vimeo className='reproductor-video' video={id} autoplay color='#e42421' showTitle={false} />
         <iframe className='reproductor-video' src='https://player.vimeo.com/video/560082465?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479' width='1212' height='720' frameborder='0' allow='autoplay; fullscreen; picture-in-picture' allowfullscreen title='TRADING INSTITUCIONAL (CONFIRMACION 7)CLASES DE FIBONACCI' />
       </article>
       <article className='reproductor-content-container'>

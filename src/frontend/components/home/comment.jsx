@@ -1,11 +1,9 @@
 import React from 'react'
-import user from '../../assets/images/user.png'
 import './styles/comment.scss'
 function comment () {
   return (
     <li className='reproductor-description'>
       <div className='comment-container'>
-        <img src={user} alt='' />
         <h4>USER TITLE</h4>
         <p className='comment-date'>00/00/00</p>
       </div>

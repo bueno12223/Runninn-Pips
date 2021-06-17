@@ -85,8 +85,18 @@ export const getTeacher = (payload, redirectUrl) => async (dispatch) => {
       method: 'GET',
       url: `/video/teacher/${payload}`
     })
-    console.log(teacher.data.teacher)
     dispatch(registerData({ name: 'teacher', data: teacher.data.teacher }))
+  } catch (e) {
+    console.log(e)
+  }
+}
+export const getVideo = (payload, redirectUrl) => async (dispatch) => {
+  try {
+    const video = await axios({
+      method: 'GET',
+      url: `/video/${payload}`
+    })
+    dispatch(registerData({ name: 'teacher', data: video.data.data }))
   } catch (e) {
     console.log(e)
   }

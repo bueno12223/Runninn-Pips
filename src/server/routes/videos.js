@@ -29,12 +29,15 @@ const videos = (app) => {
   })
   router.get('/:id', async (req, res) => {
     const { id } = req.params
+    const { 'connect.sid': sesionID } = req.cookies
     try {
       const result = await axios({
         method: 'GET',
-        url: `${process.env.API_URL}/video/${id}`
+        url: `${process.env.API_URL}/video/${id}`,
+        headers: { Cookie: `connect.sid=${sesionID}` },
+        withCredentials: true
       })
-      res.status(200).json({ teacher: result.data.teacher })
+      res.status(200).json({ data: result.data.result[0] })
     } catch (e) {
       res.status(e.response.status).json(e.response.data)
     }

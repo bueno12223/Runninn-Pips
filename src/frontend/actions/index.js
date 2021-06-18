@@ -96,7 +96,7 @@ export const getVideo = (payload, redirectUrl) => async (dispatch) => {
       method: 'GET',
       url: `/video/${payload}`
     })
-    dispatch(registerData({ name: 'teacher', data: video.data.data }))
+    return video.data.data
   } catch (e) {
     console.log(e)
   }

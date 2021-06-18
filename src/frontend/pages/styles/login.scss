@@ -10,20 +10,6 @@
         width: 80%;
         margin-bottom: 5px;
     }
-    &-message {
-        padding: 5px;
-        border-radius: 10px;
-        min-width: 275px;
-        text-align: center;
-        color: $white;
-        min-height: 25px;
-        &__success {
-            background-color: #5db936;
-        }
-        &__alert {
-            background-color: #f47c69;
-        }
-    }
     &-form {
         display: grid;
         grid-template-rows: repeat(4, 1fr);

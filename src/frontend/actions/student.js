@@ -3,7 +3,7 @@ import { registerRequest, messageHandler } from './states'
 // inicar sesion
 export const loginStudent = (payload, redirectUrl) => async (dispatch) => {
   try {
-    const data = await axios.post('/login', payload)
+    const data = await axios.post('/student/login', payload)
     if (data.status === 200) {
       const date = new Date(Date.now() + 86400e3)
       document.cookie = `id=${data.data.data._id};expires=${date}; secure`
@@ -22,7 +22,7 @@ export const loginStudent = (payload, redirectUrl) => async (dispatch) => {
 // registrarse
 export const singup = (payload, redirectUrl) => async (dispatch) => {
   try {
-    const result = await axios.post('/register', payload)
+    const result = await axios.post('/student/register', payload)
     if (result.status === 201) {
       dispatch(messageHandler({ message: 'Usuario creado correctamente', success: true }))
       setTimeout(() => {

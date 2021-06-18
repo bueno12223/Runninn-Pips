@@ -1,3 +1,4 @@
+import { connect } from 'react-redux'
 import { messageHandler } from '../actions'
 
 function useHandleMessage (e, form, successCallback) {
@@ -10,4 +11,4 @@ function useHandleMessage (e, form, successCallback) {
 const mapDispatchToProps = {
   messageHandler
 }
-export default (null, mapDispatchToProps)(useHandleMessage)
+export default connect(null, mapDispatchToProps)(useHandleMessage)

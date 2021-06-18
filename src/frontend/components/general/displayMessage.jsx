@@ -1,5 +1,6 @@
 import React from 'react'
-function displayMessage (className, { message, success }) {
+import './styles/displayMessage.scss'
+function displayMessage (className, { message = '', success }) {
   // decide si el class del mensaje si fue exitosio o no
   function messageClassname () {
     if (message) {

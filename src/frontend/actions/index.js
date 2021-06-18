@@ -1,8 +1,10 @@
-import * as student from './student'
-import * as getData from './getData'
-import * as transaccion from './transacction'
-export default {
-  ...student,
-  ...getData,
-  ...transaccion
+import { loginStudent, singup, setStudentAccont, logOutUser } from './student'
+import { getTeacher, getVideo } from './getData'
+import { uploadTransacction } from './transacction'
+import { messageHandler } from './states'
+export {
+  loginStudent, singup, setStudentAccont, logOutUser,
+  getTeacher, getVideo,
+  uploadTransacction,
+  messageHandler
 }

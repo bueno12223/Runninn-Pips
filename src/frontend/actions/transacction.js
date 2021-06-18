@@ -7,7 +7,7 @@ export const uploadTransacction = (payload, redirectUrl) => async (dispatch) => 
   // preparamos los datos paua subirlos y convertirlos en una URL
   const bodyFormData = new FormData()
   bodyFormData.append('image', payload.img)
-  // petcion de guardar la image y obtener URL
+  // petcion de guardar la image y obtener URL, dura 7 dias
   try {
     const img = await axios({
       method: 'post',

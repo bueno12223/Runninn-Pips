@@ -4,10 +4,10 @@ import ReferredTree from '../components/home/referredTree'
 import { setStudentAccont } from '../actions'
 import { connect } from 'react-redux'
 
-function cuenta ({ ammount, userID, userName, email, message }) {
+function cuenta ({ ammount, userID, userName, email, message, upline, downline }) {
   return (
     <article>
-      <ReferredTree ammount={ammount} />
+      <ReferredTree ammount={ammount} upline={upline} downline={downline} />
       <SetAccount {...{ userID, userName, email, message, setStudentAccont }} />
     </article>
   )

@@ -9,7 +9,7 @@ function home ({ videos }) {
     <>
       <Hero />
       <CardList title='Omar Sosa' to='OmarSosa' videos={omarSosa} />
-      <CardList title='Jair Powel' to='Jair Powel' videos={JairPower} />
+      <CardList title='Jair Powel' to='JairPower' videos={JairPower} />
       <CardList title='Omar Sosa FX' to='OmarSosaFx' videos={OmarSosaFx} />
     </>
   )

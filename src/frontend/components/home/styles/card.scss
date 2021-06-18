@@ -25,7 +25,7 @@
         grid-template-rows: 10% 10%;
         grid-row-gap: 80%;
         &__title, &__text, &__time {
-            backdrop-filter: blur(15px);
+            backdrop-filter:brightness(0.5);
             color: $white;
             width: fit-content;
             height: max-content;

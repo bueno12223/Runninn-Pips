@@ -6,7 +6,7 @@ function cardList ({ videos, title, to }) {
   return (
     <>
       <section className='cardList'>
-        <Link to={`/teacher/${to}`} className='cardList-link'><h1 className='cardList-title'>{title}</h1></Link>
+        <Link to={to} className='cardList-link'><h1 className='cardList-title'>{title}</h1></Link>
         <div className='cardList-container'>
 
           {

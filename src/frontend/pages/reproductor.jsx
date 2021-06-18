@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import Comment from '../components/home/comment'
 import { connect } from 'react-redux'
 import { getVideo } from '../actions'
-import Loader from 'react-loader-spinner'
-
+import Loader from '../components/general/loader'
 import './styles/reproductor.scss'
 function reproductor (props) {
   const { id } = props.match.params
@@ -16,20 +15,7 @@ function reproductor (props) {
   getVideo(id).then(e => setVideo(e)).catch(e => console.log(e))
   if (!video) {
     return (
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        minHeight: 60 + 'vh'
-      }}
-      >
-        <Loader
-          type='Puff'
-          color='#e42421'
-          height={100}
-          width={100}
-          timeout={3000}
-        />
-      </div>
+      <Loader />
     )
   }
   return (

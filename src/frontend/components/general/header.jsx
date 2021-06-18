@@ -13,7 +13,7 @@ function header ({ userID, logOutUser }) {
   }
   return (
     <header className='lheader'>
-      <Link to='/'>
+      <Link to={userID ? '/home' : '/'}>
         <img src={logo} alt='logo' className='lheader-logo' />
       </Link>
       <img src={menuIcon} className='lheader-menu' alt='menu icon' onClick={() => setDisplay(!display)} />

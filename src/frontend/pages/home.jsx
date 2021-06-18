@@ -8,9 +8,9 @@ function home ({ videos }) {
   return (
     <>
       <Hero />
-      <CardList title='Omar Sosa' to='OmarSosa' videos={omarSosa} />
-      <CardList title='Jair Powel' to='JairPower' videos={JairPower} />
-      <CardList title='Omar Sosa FX' to='OmarSosaFx' videos={OmarSosaFx} />
+      <CardList title='Omar Sosa' to='/teacher/OmarSosa' videos={omarSosa} />
+      <CardList title='Jair Powel' to='/teacher/JairPower' videos={JairPower} />
+      <CardList title='Omar Sosa FX' to='/teacher/OmarSosaFx' videos={OmarSosaFx} />
     </>
   )
 }

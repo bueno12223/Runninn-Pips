@@ -86,6 +86,7 @@ export const getTeacher = (payload, redirectUrl) => async (dispatch) => {
       url: `/video/teacher/${payload}`
     })
     dispatch(registerData({ name: 'teacher', data: teacher.data.teacher }))
+    return teacher.data.teacher
   } catch (e) {
     console.log(e)
   }

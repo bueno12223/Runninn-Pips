@@ -7,7 +7,7 @@ function pagos ({ isLogged }) {
   if (isLogged) {
     return (
       <>
-        <h1 className='pagos-title__main pagos-title'>Tu cuenta ya esta actuva  &#128526;</h1>
+        <h1 className='pagos-title__main pagos-title'>Tu cuenta ya esta activa  &#128526;</h1>
         <p className='pagos-text'>No tienes nada que hacer aquí, espera que se tu cuenta expire para realizar nuevamente el pago</p>
       </>
     )

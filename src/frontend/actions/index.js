@@ -102,3 +102,33 @@ export const getVideo = (payload, redirectUrl) => async (dispatch) => {
     console.log(e)
   }
 }
+// ************ CUENTA ****************
+// configurar los datos de la cuenta
+export const setStudentAccont = (payload, redirectUrl) => async (dispatch) => {
+  try {
+    // mandamos los datos al server
+    const result = await axios({
+      method: 'PUT',
+      data: payload,
+      url: `/student/${payload.userID}`
+    })
+    // enviamos un mensaje de success con la respuesta del servidor
+    console.log(result.data)
+    dispatch(messageHandler({ message: result.data.message, success: true }))
+  } catch (e) {
+    console.log(e)
+    // si es 400 es porque un dato esta repetido
+    const keys = Object.keys(e.response.data.key)
+    if (e.response.status === 400) {
+      // si no es UserID por logica es el correo, son los unicos 2 datos unicos
+      if (keys[0] === 'userID') {
+        return dispatch(messageHandler({ message: 'Ya existe una cuenta con este usuario', success: false }))
+      }
+      return dispatch(messageHandler({ message: 'Ya existe una cuenta con este correo', success: false }))
+    }
+    // si no es 400 es porque la contraseña es incorrecta
+    if (e.response.status === 401) {
+      return dispatch(messageHandler({ message: 'error del servidor, intenta mas tarde', success: false }))
+    }
+  }
+}

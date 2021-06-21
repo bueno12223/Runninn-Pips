@@ -18,12 +18,11 @@ const studentRoutes = (app) => {
       })
       res.status(200).header(result.headers).json({ data: result.data.result })
     } catch (e) {
-      console.log(e)
       res.status(e.response.status).json(e.response.data)
     }
   })
   // registrar usuario
-  app.post('/register', async (req, res) => {
+  router.post('/register', async (req, res) => {
     const { userID, password, email, userName, upline = '' } = req.body
     try {
       await axios({
@@ -37,7 +36,7 @@ const studentRoutes = (app) => {
       res.status(e.response.status).json(e.response.data)
     }
   })
-  // conffigurar datos del usuario
+  // configurar datos del usuario
   router.put('/:id', async (req, res) => {
     const { id } = req.params
     const data = req.body

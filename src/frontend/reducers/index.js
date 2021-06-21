@@ -2,6 +2,7 @@ const reducer = (state, action) => {
   switch (action.type) {
     case 'REGISTER_REQUEST':
       return {
+        ...state,
         ...action.payload
       }
     case 'REGISTER_DATA':

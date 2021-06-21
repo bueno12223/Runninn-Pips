@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Hello from '../assets/icons/hello'
 import { connect } from 'react-redux'
 import { loginStudent } from '../actions'
+import DisplayMesage from '../components/general/displayMessage'
 import './styles/login.scss'
 function login ({ loginStudent }) {
   const [form, setForm] = useState({
@@ -24,7 +25,7 @@ function login ({ loginStudent }) {
     <section className='login-container'>
       <article className='login'>
         <h2 className='login-title'>Bienvenido de vuelta!!, por favor inicia sesión</h2>
-        {/* <span className={`login-message ${messageClassname()}`}>{message}</span> */}
+        <DisplayMesage />
         <form className='login-form' onSubmit={(e) => handleSubmit(e)}>
           <input onChange={e => handleChangue(e)} className='login-form__input' type='text' name='userID' placeholder='Usuario' required />
           <input onChange={e => handleChangue(e)} className='login-form__input' type='password' name='password' placeholder='Contraseña' required />
@@ -45,12 +46,7 @@ function login ({ loginStudent }) {
     </section>
   )
 }
-const mapStateToProps = {
+const mapDistpachToProps = {
   loginStudent
 }
-const mapDispachToProps = state => {
-  return {
-    message: state.message
-  }
-}
-export default connect(mapDispachToProps, mapStateToProps)(login)
+export default connect(null, mapDistpachToProps)(login)

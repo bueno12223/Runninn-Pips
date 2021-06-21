@@ -1,8 +1,22 @@
 import React from 'react'
-
-function referredTree ({ ammount }) {
+import './styles/referredTree.scss'
+function referredTree ({ ammount, downline, upline }) {
   return (
-    <h2>{ammount}</h2>
+    <>
+      <section className='referred'>
+        <h2 className='referred-title'>Tu saldo disponible es</h2>
+        <h2 className='referred-title__b referred-title'>{ammount}$</h2>
+        <h4 className='referred-title'>Fuiste referido por {upline}, y referiste a</h4>
+        {downline.length
+          ? (
+            <ul lassName='referred-list'>
+              {downline.map(e => (<li className='referred-listItem' key={e._id}>{e.userID}, {e.updated}</li>))}
+            </ul>
+            )
+          : <h3 className='referred-title'>Aún no has invitado a nadie &#128517;</h3>}
+
+      </section>
+    </>
   )
 }
 

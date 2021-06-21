@@ -11,7 +11,7 @@ function cuenta (props) {
   const { setStudentAccont, messageHandler } = props
   return (
     <article>
-      <ReferredTree ammount={ammount} upline={upline} downline={downline} />
+      <ReferredTree {...{ downline, upline, ammount }} />
       <SetAccount {...{ userID, userName, email, setStudentAccont, messageHandler }} />
     </article>
   )

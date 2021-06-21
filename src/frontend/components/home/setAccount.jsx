@@ -10,7 +10,9 @@ function setAccount ({ email, userID, userName, setStudentAccont, messageHandler
     newUserID: '',
     userName: '',
     password1: '',
-    password2: ''
+    password2: '',
+    bankAccount: '',
+    bankData: ''
   })
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -36,6 +38,9 @@ function setAccount ({ email, userID, userName, setStudentAccont, messageHandler
         <p className='setAccount-formText'>Actualiza tu contraseña</p>
         <input className='setAccount-formInput' type='password' name='password1' onChange={(e) => onChange(e)} placeholder='nueva contraseña' />
         <input className='setAccount-formInput' type='password' name='password2' onChange={(e) => onChange(e)} placeholder='repite la nueva contraseña' />
+        <p className='setAccount-formText'>Para recibir pagos ingresa tus datos para transferrir, ahorro o corriente y nombre del banco</p>
+        <input className='setAccount-formInput' type='number' name='bankAccount' onChange={(e) => onChange(e)} placeholder='numero de cuenta' />
+        <input className='setAccount-formInput' type='text' name='bankData' onChange={(e) => onChange(e)} placeholder='tipo de cuenta y banco' />
         <DisplayMessage />
         <input className='setAccount-formInput__submit' type='submit' name='' />
       </form>

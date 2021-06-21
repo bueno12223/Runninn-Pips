@@ -45,14 +45,20 @@ export const singup = (payload, redirectUrl) => async (dispatch) => {
 export const setStudentAccont = (payload, redirectUrl) => async (dispatch) => {
   try {
     // mandamos los datos al server
+    const { email, newUserID, userName, password1 } = payload
     const result = await axios({
       method: 'PUT',
-      data: payload,
+      data: { email, userID: newUserID, userName, password: password1 },
       url: `/student/${payload.userID}`
     })
     // enviamos un mensaje de success con la respuesta del servidor
     console.log(result.data)
     dispatch(messageHandler({ message: result.data.message, success: true }))
+    // despues de 5s con el mensaje de success hacemos que inice sesión nuevamente
+    // setTimeout(() =>
+    //   dispatch(logOutUser()),
+    // 5000
+    // )
   } catch (e) {
     console.log(e)
     // si es 400 es porque un dato esta repetido

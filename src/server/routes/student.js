@@ -39,18 +39,18 @@ const studentRoutes = (app) => {
   })
   // conffigurar datos del usuario
   router.put('/:id', async (req, res) => {
-    const id = req.params
+    const { id } = req.params
     const data = req.body
     const { 'connect.sid': sesionID } = req.cookies
     try {
       const result = await axios({
         method: 'PUT',
-        url: `${process.env.API_URL}/${id}`,
+        url: `${process.env.API_URL}/student/${id}`,
         data,
         headers: { Cookie: `connect.sid=${sesionID}` },
         withCredentials: true
       })
-      res.status(result.response.status).json({ ...result.response.data })
+      res.status(result.status).json({ ...result.data })
     } catch (e) {
       console.log(e)
       res.status(e.response.status).json({ ...e.response.data })

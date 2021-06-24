@@ -17,9 +17,8 @@
         width: 80%;
         margin: auto;
         margin-top: 17px;
-
         &__register {
-            grid-template-rows: repeat(6, 1fr);
+            grid-template-rows: repeat(7, 1fr);
         }
         &__input {
             grid-column: 4 span;
@@ -27,6 +26,7 @@
             margin-bottom: 10px;
             border-radius: 10px;
             padding-left: 5px;
+            outline: none;
         }
         &__text {
             @extend %text;

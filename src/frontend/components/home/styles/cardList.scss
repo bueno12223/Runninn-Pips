@@ -7,6 +7,9 @@
         font-size: 2em;
         margin-bottom: 20px;
         font-weight: bold;
+        &:hover {
+            color: $red;
+        }
     }
     &-link {
         text-decoration: none;

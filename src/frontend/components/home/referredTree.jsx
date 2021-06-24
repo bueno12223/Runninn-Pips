@@ -9,8 +9,8 @@ function referredTree ({ ammount, downline, upline }) {
         <h4 className='referred-title'>Fuiste referido por {upline}, y referiste a</h4>
         {downline.length
           ? (
-            <ul lassName='referred-list'>
-              {downline.map(e => (<li className='referred-listItem' key={e._id}>{e.userID}, {e.updated}</li>))}
+            <ul className='referred-list'>
+              {downline.map(e => (<li className='referred-listItem' key={e._id}>{e.userID}, {new Date(e.updated).toLocaleDateString('en-US')}</li>))}
             </ul>
             )
           : <h3 className='referred-title'>Aún no has invitado a nadie &#128517;</h3>}

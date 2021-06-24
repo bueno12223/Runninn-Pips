@@ -19,4 +19,16 @@
         @extend %text;
         font-size: 1em;
     }
+    &-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        list-style: none;
+        &Item {
+            border: 1px solid $grey;
+            padding: 5px;
+            font-size: 1.5em;
+        }
+    }
 }

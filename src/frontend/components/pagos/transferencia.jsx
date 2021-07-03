@@ -17,7 +17,6 @@ function transferencia ({ uploadTransacction, userID, message: { message, succes
     return ''
   }
   const copyToClipboard = (text) => {
-    console.log('text', text)
     const textField = document.createElement('textarea')
     textField.innerText = text
     document.body.appendChild(textField)

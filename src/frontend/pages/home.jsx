@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import CardList from '../components/home/cardList'
 import Hero from '../components/home/hero'
 
-function home ({ videos }) {
+function home ({ videos, search }) {
   const { omarSosa, OmarSosaFx, JairPower } = videos
+  console.log(search)
   return (
     <>
       <Hero />
@@ -15,6 +16,9 @@ function home ({ videos }) {
   )
 }
 const mapStateToProps = state => {
-  return { videos: state.videos }
+  return {
+    videos: state.videos,
+    search: state.search || []
+  }
 }
 export default connect(mapStateToProps, null)(home)

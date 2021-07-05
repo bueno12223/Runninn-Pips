@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import { registerData } from './states'
 export const getTeacher = (payload, redirectUrl) => async (dispatch) => {
   try {
     const teacher = await axios({
@@ -18,6 +18,17 @@ export const getVideo = (payload, redirectUrl) => async (dispatch) => {
       url: `/video/${payload}`
     })
     return video.data.data
+  } catch (e) {
+    console.log(e)
+  }
+}
+export const searchVideo = (payload, redirectUrl) => async (dispatch) => {
+  try {
+    const { data } = await axios({
+      method: 'GET',
+      url: `/video/search?q=${payload}`
+    })
+    dispatch(registerData({ data, name: 'search' }))
   } catch (e) {
     console.log(e)
   }

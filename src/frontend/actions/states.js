@@ -7,3 +7,8 @@ export const messageHandler = (payload) => ({
   type: 'MESSAGE_HANDLER',
   payload
 })
+
+export const registerData = (payload) => ({
+  type: 'REGISTER_DATA',
+  payload
+})

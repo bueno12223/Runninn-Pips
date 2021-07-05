@@ -5,11 +5,15 @@ const videos = (app) => {
   app.use('/video', router)
   router.get('/search', async (req, res) => {
     const params = req.query
+    const { 'connect.sid': sesionID } = req.cookies
     try {
       const result = await axios({
         method: 'GET',
-        url: `${process.env.API_URL}/video/search?params=${params}`
+        url: `${process.env.API_URL}/video/search?params=${params}`,
+        headers: { Cookie: `connect.sid=${sesionID}` },
+        withCredentials: true
       })
+      console.log(result.data)
       res.status(200).json({ result })
     } catch (e) {
       res.status(e.response.status).json(e.response.data)

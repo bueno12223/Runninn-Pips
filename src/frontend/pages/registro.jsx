@@ -6,14 +6,18 @@ import facebook from '../assets/icons/facebook.svg'
 import DisplayMesage from '../components/general/displayMessage'
 import { connect } from 'react-redux'
 import './styles/login.scss'
-function registro ({ singup, messageHandler }) {
+function registro ({ singup, messageHandler, location }) {
+  // obtenemos el query con el upline
+  const query = new URLSearchParams(location.search)
+  const upline = query.get('upline')
+
   const [form, setForm] = useState({
     email: '',
     userName: '',
     userID: '',
     password: '',
     password2: '',
-    upline: ''
+    upline: upline || ''
   })
   const handleChangue = e => {
     setForm({
@@ -39,7 +43,6 @@ function registro ({ singup, messageHandler }) {
           <input onChange={(e) => handleChangue(e)} className='login-form__input' type='text' name='userID' placeholder='Nombre de usuario' />
           <input onChange={(e) => handleChangue(e)} className='login-form__input' type='password' name='password' placeholder='Contraseña' required />
           <input onChange={(e) => handleChangue(e)} className='login-form__input' type='password' name='password2' placeholder='repite la contraseña' required />
-          <input onChange={(e) => handleChangue(e)} className='login-form__input' type='text' name='upline' placeholder='usuario de quien te refirió' />
           <input className='login-form__button' type='Submit' />
           <Link className='login-form__button-white'>Iniciar Sesión</Link>
           <button className='login-form__button-facebook'>
@@ -52,6 +55,7 @@ function registro ({ singup, messageHandler }) {
       <article className='login__left'>
         <Hello className='login__left-img' />
       </article>
+      <Link to='/registro/17' />
     </section>
   )
 }

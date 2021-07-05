@@ -1,8 +1,9 @@
 import React from 'react'
 import Search from '../../assets/icons/search.svg'
+import { searchVideo } from '../../actions'
 import './styles/hero.scss'
 import { connect } from 'react-redux'
-function hero ({ userName }) {
+function hero ({ userName, searchVideo }) {
   return (
     <article className='hero'>
       <div className='hero-data'>
@@ -10,7 +11,7 @@ function hero ({ userName }) {
       </div>
       <div className='hero-search'>
         <img src={Search} alt='' />
-        <input className='hero-search__input' type='text' placeholder='¿Qué estas buscando?' />
+        <input className='hero-search__input' type='text' placeholder='¿Qué estas buscando?' onChange={(e) => searchVideo(e.target.value)} />
       </div>
     </article>
   )
@@ -20,4 +21,7 @@ const mapStateToProps = (state) => {
     userName: state.userName
   }
 }
-export default connect(mapStateToProps, null)(hero)
+const mapDispatchToProps = {
+  searchVideo
+}
+export default connect(mapStateToProps, mapDispatchToProps)(hero)

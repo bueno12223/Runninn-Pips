@@ -18,7 +18,7 @@
         margin: auto;
         margin-top: 17px;
         &__register {
-            grid-template-rows: repeat(7, 1fr);
+            grid-template-rows: repeat(6, 1fr);
         }
         &__input {
             grid-column: 4 span;

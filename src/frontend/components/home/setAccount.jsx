@@ -12,7 +12,8 @@ function setAccount ({ email, userID, userName, setStudentAccont, messageHandler
     password1: '',
     password2: '',
     bankAccount: '',
-    bankData: ''
+    bankData: '',
+    telegramID: ''
   })
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -41,6 +42,8 @@ function setAccount ({ email, userID, userName, setStudentAccont, messageHandler
         <p className='setAccount-formText'>Para recibir pagos ingresa tus datos para transferrir, ahorro o corriente y nombre del banco</p>
         <input className='setAccount-formInput' type='number' name='bankAccount' onChange={(e) => onChange(e)} placeholder='numero de cuenta' />
         <input className='setAccount-formInput' type='text' name='bankData' onChange={(e) => onChange(e)} placeholder='tipo de cuenta y banco' />
+        <p className='setAccount-formText'>Para poder entrar al canal de telegram escribe tu id de telegram, si no sabes cual es dale click <a href='https://msng.link/o/?userinfobot=tg'>aquí</a> y escribe /start, escribe tu id tal cual como te la dieron</p>
+        <input className='setAccount-formInput' type='text' name='telegramID' onChange={(e) => onChange(e)} placeholder='id de telegram' />
         <DisplayMessage />
         <input className='setAccount-formInput__submit' type='submit' name='' />
       </form>

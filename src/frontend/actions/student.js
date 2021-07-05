@@ -45,10 +45,10 @@ export const singup = (payload, redirectUrl) => async (dispatch) => {
 export const setStudentAccont = (payload, redirectUrl) => async (dispatch) => {
   try {
     // mandamos los datos al server
-    const { email, userID, userName, password1, newUserID, bankAccount, bankData } = payload
+    const { email, userID, userName, password1, newUserID, bankAccount, bankData, telegramID } = payload
     const result = await axios({
       method: 'PUT',
-      data: { email, userID: newUserID, userName, password: password1, bankData, bankAccount },
+      data: { email, userID: newUserID, userName, password: password1, bankData, bankAccount, telegramID },
       url: `/student/${userID}`
     })
     // enviamos un mensaje de success con la respuesta del servidor

@@ -13,10 +13,9 @@ const videos = (app) => {
         headers: { Cookie: `connect.sid=${sesionID}` },
         withCredentials: true
       })
-      console.log(result.data)
       res.status(200).json({ result })
     } catch (e) {
-      res.status(e.response.status).json(e.response.data)
+      res.status(400).json(e.response.data)
     }
   })
   router.get('/teacher/:id', async (req, res) => {
@@ -43,7 +42,7 @@ const videos = (app) => {
       })
       res.status(200).json({ data: result.data.result[0] })
     } catch (e) {
-      res.status(e.response.status).json(e.response.data)
+      res.status(400).json(e.response.data)
     }
   })
 }

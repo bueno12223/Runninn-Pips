@@ -14,7 +14,7 @@ function teacher (props) {
     )
   }
   return (
-    <CardList title={id} videos={videos} to='/home' />
+    <CardList title='regresar' videos={videos} to='/home' />
   )
 }
 

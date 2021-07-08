@@ -24,7 +24,7 @@ function header ({ userID, logOutUser }) {
         <Link to='/' onClick={() => setDisplay(!display)}>Ayuda</Link>
         <span />
         <Link to={userID ? '/home' : '/login'} className='lheader-links__button' onClick={() => setDisplay(!display)}>{userID ? 'Home' : 'Iniciar Sesión'}</Link>
-        <Link to={userID ? '/login' : '/registro'} className='lheader-links__button' onClick={() => handleOnClick()}>{userID ? 'Cerrar Sesión' : 'Registrarme'}</Link>
+        <Link to={userID ? '/login' : '/registro'} className='lheader-links__button' onClick={() => userID && handleOnClick()}>{userID ? 'Cerrar Sesión' : 'Registrarme'}</Link>
       </div>
     </header>
   )

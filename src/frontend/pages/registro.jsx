@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Hello from '../assets/icons/hello'
@@ -25,12 +26,48 @@ function registro ({ singup, messageHandler, location }) {
       [e.target.name]: e.target.value
     })
   }
+  const haveAUpercase = (texto) => {
+    const letrasMayusculas = 'ABCDEFGHYJKLMNÑOPQRSTUVWXYZ'
+    for (let i = 0; i < texto.length; i++) {
+      if (letrasMayusculas.indexOf(texto.charAt(i), 0) != -1) {
+        return true
+      }
+    }
+    return false
+  }
+  const haveAnumber = texto => {
+    const numeros = '0123456789'
+    for (let i = 0; i < texto.length; i++) {
+      if (numeros.indexOf(texto.charAt(i), 0) != -1) {
+        return true
+      }
+    }
+    return false
+  }
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (form.password === form.password2) {
-      return singup(form, '/login')
+    if (form.password !== form.password2) {
+      return messageHandler({ message: 'las contraseñas no son iguales', success: false })
     }
-    return messageHandler({ message: 'las contraseñas no son iguales', success: false })
+    if (form.password.length < 8) {
+      return messageHandler({ message: 'la contraseña debe tener minimo 8 carácteres', success: false })
+    }
+    if (form.password.userID < 6) {
+      return messageHandler({ message: 'el nombre de usuario debe tener minimo 6 carácteres', success: false })
+    }
+    if (!haveAnumber(form.password)) {
+      return messageHandler({ message: 'la contraseñas debe tener minimo una número', success: false })
+    }
+    if (!haveAUpercase(form.password)) {
+      return messageHandler({ message: 'la contraseñas debe tener minimo una lentra en mayúscula', success: false })
+    }
+    if (haveAUpercase(form.userID)) {
+      return messageHandler({ message: 'el nombre de usuario no puede tener mayúsculas', success: false })
+    }
+    if (!haveAnumber(form.userID)) {
+      return messageHandler({ message: 'el nombre de usuario debe tener commo minimo 1 número', success: false })
+    }
+    return singup(form, '/login')
   }
   return (
     <section className='login-container'>

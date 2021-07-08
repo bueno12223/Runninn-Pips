@@ -25,9 +25,9 @@ function transferencia ({ uploadTransacction, userID }) {
     <section className='transferencia' id='transferencia'>
       <h2 className='transferencia-title'>Transferencia</h2>
       <div className='transferencia-info'>
-        <button className='transferencia-info__copy' onClick={() => copyToClipboard('0404040440404')}>Copiar</button>
+        <button className='transferencia-info__copy' onClick={() => copyToClipboard('0401988079729')}>Copiar</button>
         <h3>banco general, ahorro</h3>
-        <p>0404040440404</p>
+        <p>0401988079729</p>
         <p>Running Trader</p>
       </div>
       <p className='transferencia-text'>Sube una captura de la transferencia para validarla, el proceso puede tomar de 1h hasta 2 días.</p>

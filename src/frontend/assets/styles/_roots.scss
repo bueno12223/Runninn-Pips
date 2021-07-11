@@ -23,7 +23,6 @@ $green: #2fab73;
 }
 %text {
     font-size: 1.4em;
-    margin: 30px;
     text-align: justify;
     line-height: 30px;
 }
@@ -57,4 +56,10 @@ $green: #2fab73;
         color: $white;
     }
 }
-
+%input {
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid $grey;
+    padding: 10px;
+    background-color: unset;
+}

@@ -32,18 +32,19 @@
         }
     }
     &-text {
-        font-size: 1.3em;
-        text-align: center;
-        width: 90%;
-        margin: 10px auto;
+        @extend %text;
     }
     &-input {
-        width: 0.1px;
-        height: 0.1px;
-        opacity: 0;
-        overflow: hidden;
-        position: absolute;
-        z-index: -1;
+        @extend %input;
+        margin-bottom: 20px;
+        &__invisible{
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
     }
     &-label {
         @extend %ligth-button;

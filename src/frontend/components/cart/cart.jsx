@@ -30,8 +30,18 @@ function cart () {
         <p className='cart-text cart__small'>País</p>
         <input type='number' name='cvv' className='cart-input cart__small' onChange={setForm} maxLength={3} required />
         <CountryInput handleChangue={setForm} className='cart-input cart__small' />
-        <p className='cart-text'>Código postal</p>
-        <input type='text' name='zipCode' className='cart-input' onChange={setForm} maxLength='32' required />
+        <p className='cart-text cart__small'>Código postal</p>
+        <p className='cart-text cart__small'>Ciudad</p>
+        <input type='text' name='zipCode' className='cart-input cart__small' onChange={setForm} maxLength='32' required />
+        <input type='text' name='city' className='cart-input cart__small' maxLength='32' required />
+        <p className='cart-text'>Dirección de facturación</p>
+        <input type='text' name='billingAddr' className='cart-input' maxLength='64' required />
+        <p className='cart-text'>Calle, departamento o estado</p>
+        <input type='text' name='addrLine1' className='cart-input' maxLength='64' required />
+        <p className='cart-text'>Detalles opcionales</p>
+        <input type='text' name='addrLine2' className='cart-input' maxLength='32' />
+        <p className='cart-text'>Número de téfono con código del país</p>
+        <input type='number' name='phoneNumber' className='cart-input' maxLength='16' required />
         <input type='submit' className='cart-submit' value='Enviar' />
       </form>
     </>

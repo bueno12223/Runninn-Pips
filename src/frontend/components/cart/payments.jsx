@@ -7,7 +7,7 @@ import Paypal from '../../assets/icons/cart/paypal'
 import SelectedPayment from './selectedPayment'
 
 export const payments = (props) => {
-  const [select, setSelected] = useState('')
+  const [select, setSelected] = useState('tarjeta')
   return (
     <section className='payment-container'>
       <ul className='payment-rail'>

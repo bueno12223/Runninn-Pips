@@ -3,18 +3,14 @@ import Cart from './cart'
 import Paypal from './paypal'
 import Transfer from './transfer'
 function selectedPaymen ({ select }) {
-  switch (select) {
-    case 'tarjeta':
-      return <Cart />
-
-    case 'paypal':
-      return <Paypal />
-
-    case 'transferencia':
-      return <Transfer />
-
-    default:
-      return <Cart />
+  if (select === 'tarjeta') {
+    return <Cart />
+  }
+  if (select === 'Paypal') {
+    return <Paypal />
+  }
+  if (select === 'banco') {
+    return <Transfer />
   }
 }
 export default selectedPaymen

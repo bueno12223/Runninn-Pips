@@ -8,13 +8,13 @@ function table () {
         <thead>
           <tr>
             <th className='table-item__text table-item'>premium x30 días</th>
-            <th className='table-item__price table-item'> 120.00$</th>
+            <th className='table-item__price table-item'> 140.00$</th>
           </tr>
         </thead>
         <tfoot>
           <tr lassName='table-row'>
             <th className='table-item__text table-item'> <b>Total</b></th>
-            <th className='table-item__price table-item'> <b>120.00$</b></th>
+            <th className='table-item__price table-item'> <b>140.00$</b></th>
           </tr>
         </tfoot>
       </table>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Hello from '../assets/icons/hello'
 import { connect } from 'react-redux'
 import { loginStudent } from '../actions'
-import DisplayMesage from '../components/general/displayMessage'
+import DisplayMesage from '../components/global/displayMessage'
 import './styles/login.scss'
 function login ({ loginStudent }) {
   const [form, setForm] = useState({

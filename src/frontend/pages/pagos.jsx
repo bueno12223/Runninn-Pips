@@ -1,7 +1,6 @@
 import React from 'react'
-import Table from '../components/pagos/table'
-import BotonDePago from '../components/pagos/botonesDePago'
-import Transferencia from '../components/pagos/transferencia'
+import Table from '../components/cart/table'
+import Payment from '../components/cart/payments'
 function pagos ({ isLogged }) {
   const userID = window.localStorage.getItem('userID')
   if (isLogged) {
@@ -18,9 +17,8 @@ function pagos ({ isLogged }) {
       <p className='pagos-text'>Para poder volver a accerder a la plataforma nesecitarás renovar tu cuenta</p>
       <section className='pagos-container'>
         <Table />
-        <BotonDePago />
+        <Payment />
       </section>
-      <Transferencia userID={userID} />
     </>
   )
 }

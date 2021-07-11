@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import CardList from '../components/home/cardList'
-import Loader from '../components/general/loader'
+import Loader from '../components/global/loader'
 import { getTeacher } from '../actions'
 import { connect } from 'react-redux'
 function teacher (props) {

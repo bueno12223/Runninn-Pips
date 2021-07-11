@@ -1,10 +1,10 @@
 import React from 'react'
-import Hero from '../components/landing/hero'
-import Description from '../components/landing/descriptions'
-import Plans from '../components/landing/plans'
-import Locations from '../components/landing/locations'
-import Suscribe from '../components/landing/suscribe'
-import Testiomonial from '../components/landing/testimonial'
+import Hero from '../components/layout/hero'
+import Description from '../components/layout/descriptions'
+import Plans from '../components/layout/plans'
+import Locations from '../components/layout/locations'
+import Suscribe from '../components/layout/suscribe'
+import Testiomonial from '../components/layout/testimonial'
 function landing () {
   return (
     <>

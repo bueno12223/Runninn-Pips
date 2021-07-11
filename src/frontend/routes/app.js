@@ -8,7 +8,7 @@ import Reproductor from '../pages/reproductor'
 import Pagos from '../pages/pagos'
 import Teacher from '../pages/teacher'
 import Cuenta from '../pages/cuenta'
-import Layout from '../components/general/layout'
+import Layout from '../components/global/layout'
 import NotFound from '../pages/404'
 import '../assets/styles/app.scss'
 const App = ({ isLogged }) => (

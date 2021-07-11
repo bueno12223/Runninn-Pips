@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Comment from '../components/home/comment'
 import { connect } from 'react-redux'
 import { getVideo } from '../actions'
-import Loader from '../components/general/loader'
+import Loader from '../components/global/loader'
 import './styles/reproductor.scss'
 function reproductor (props) {
   const { id } = props.match.params

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Hello from '../assets/icons/hello'
 import { singup, messageHandler } from '../actions'
 import facebook from '../assets/icons/facebook.svg'
-import DisplayMesage from '../components/general/displayMessage'
+import DisplayMesage from '../components/global/displayMessage'
 import { connect } from 'react-redux'
 import './styles/login.scss'
 function registro ({ singup, messageHandler, location }) {

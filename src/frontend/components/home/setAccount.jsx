@@ -1,6 +1,6 @@
 import React from 'react'
 import useForm from '../../hooks/useForm'
-import DisplayMessage from '../general/displayMessage'
+import DisplayMessage from '../global/displayMessage'
 import { connect } from 'react-redux'
 import './styles/setAccount.scss'
 function setAccount ({ email, userID, userName, setStudentAccont, messageHandler }) {

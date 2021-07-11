@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import DisplayMesage from '../general/displayMessage'
-import Loader from '../general/loader'
+import DisplayMesage from '../global/displayMessage'
+import Loader from '../global/loader'
 import { connect } from 'react-redux'
 import { uploadTransacction } from '../../actions'
 import './styles/transferenicia.scss'

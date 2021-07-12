@@ -13,5 +13,18 @@ const transacctions = (app) => {
       res.status(e.response.status).json(e.response.data)
     }
   })
+  app.post('/payments', async (req, res) => {
+    const data = req.body
+    try {
+      const result = await axios({
+        method: 'POST',
+        data,
+        url: `${process.env.API_URL}/payments`
+      })
+      res.status(result.status).json(result.data)
+    } catch (e) {
+      console.log(e)
+    }
+  })
 }
 export default transacctions

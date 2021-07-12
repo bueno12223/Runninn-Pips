@@ -25,3 +25,16 @@ export const uploadTransacction = (payload, redirectUrl) => async (dispatch) => 
     dispatch(messageHandler({ message: 'error al notificar la transacción, intenta mas tarde', success: false }))
   }
 }
+export const validatePayment = (payload, redirectUrl) => async (dispatch) => {
+  try {
+    const { data: { message } } = await axios({
+      method: 'post',
+      url: '/payments',
+      data: payload
+    })
+    dispatch(messageHandler({ message, success: true }))
+  } catch (e) {
+    console.log(e)
+    dispatch(messageHandler({ message: 'error al realizar la transacción, intenta mas tarde', success: false }))
+  }
+}

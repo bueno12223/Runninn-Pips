@@ -45,6 +45,10 @@
         margin: auto;
         grid-column: 2 span;
         margin-top: 30px;
+        &__loading {
+            background-color: $soft-red;
+            padding: 4px 31.5%;
+        }
     }
 
 }

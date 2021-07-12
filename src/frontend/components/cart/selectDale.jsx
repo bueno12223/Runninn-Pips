@@ -7,6 +7,7 @@ function selectDale ({ name, className, handleChangue, maxNum = [1, 12] }) {
   }
   return (
     <select name={name} onChange={handleChangue} className={className} maxLength='2' required>
+      <option value='-' defaultValue>-</option>
       {
           options.map(num => (<option value={num} key={num}>{num}</option>))
       }

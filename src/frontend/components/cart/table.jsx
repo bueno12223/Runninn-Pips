@@ -18,7 +18,7 @@ function table ({ additionalCharges }) {
           </tr>
         </tbody>
         <tfoot>
-          <tr lassName='table-row'>
+          <tr className='table-row'>
             <th className='table-item__text table-item'> <b>Total</b></th>
             <th className='table-item__price table-item'> <b>{parseFloat(Math.round(14000.00 + additionalCharges * 100) / 100).toFixed(2)}$</b></th>
           </tr>

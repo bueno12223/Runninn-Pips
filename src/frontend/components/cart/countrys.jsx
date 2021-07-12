@@ -2,7 +2,7 @@ import React from 'react'
 
 function countrys ({ handleChangue, className }) {
   return (
-    <select name='pais' onChange={handleChangue} className={className} maxLength='64' required>
+    <select name='country' onChange={handleChangue} className={className} maxLength='64' required>
       <option defaultFrom value='Elegir' id='AF'>Elegir opción</option>
       <option value='Afganistán' id='AF'>Afganistán</option>
       <option value='Albania' id='AL'>Albania</option>

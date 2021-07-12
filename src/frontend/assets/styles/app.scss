@@ -16,3 +16,18 @@ body {
     max-width: 1200px;
     margin: 0 auto;
 }
+.title {
+    @extend %title;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+}
+.text {
+    @extend %text;
+    width: 80%;
+    margin: 0 auto;
+}
+.secundary-title {
+    font-size: 2em;
+    text-align: center;
+}

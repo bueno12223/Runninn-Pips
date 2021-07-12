@@ -8,6 +8,7 @@ import Reproductor from '../pages/reproductor'
 import Pagos from '../pages/pagos'
 import Teacher from '../pages/teacher'
 import Cuenta from '../pages/cuenta'
+import Policy from '../pages/policy'
 import Layout from '../components/global/layout'
 import NotFound from '../pages/404'
 import '../assets/styles/app.scss'
@@ -23,6 +24,7 @@ const App = ({ isLogged }) => (
         <Route exact path='/teacher/:id' component={(props) => isLogged ? <Teacher {...props} /> : <Login />} />
         <Route exact path='/pagos' component={() => <Pagos isLogged={isLogged} />} />
         <Route exact path='/cuenta' component={isLogged ? Cuenta : Login} />
+        <Route exact path='/politicas' render={Policy} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

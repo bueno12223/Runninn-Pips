@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import Table from '../components/cart/table'
-import Payment from '../components/cart/payments'
 import Plans from '../components/layout/plans'
 import DisplayMesage from '../components/global/displayMessage'
+import Skrill from '../components/cart/skrill'
 import './styles/pagos.scss'
 function pagos ({ isLogged }) {
-  const [additionalCharges, setAditionals] = useState(0.00)
   const [totalCharges, setTotal] = useState(140.00)
   const userID = window.localStorage.getItem('userID')
   if (isLogged) {
@@ -22,8 +21,8 @@ function pagos ({ isLogged }) {
       <p className='text mb'>Para poder volver a accerder a la plataforma nesecitarás renovar tu cuenta, primero selecciona tu plan preferido y luego selecciona el método de pago que mas te convenga</p>
       <Plans onClick={setTotal} to='/pagos' />
       <section className='pagos-container mt'>
-        <Table additionalCharges={additionalCharges} totalCharges={totalCharges} />
-        <Payment setAditionals={setAditionals} />
+        <Table totalCharges={totalCharges} />
+        <Skrill totalCharges={totalCharges} />
         <DisplayMesage />
       </section>
     </>

@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import PaymentRail from './paymentRail'
 import Card from '../../assets/icons/cart/cart'
 import Bank from '../../assets/icons/cart/bank'
-import Paypal from '../../assets/icons/cart/paypal'
 import SelectedPayment from './selectedPayment'
 
 export const payments = ({ setAditionals }) => {
@@ -19,7 +18,6 @@ export const payments = ({ setAditionals }) => {
     <section className='payment-container'>
       <ul className='payment-rail'>
         <PaymentRail name='tarjeta' Icon={Card} setSelected={handleSelected} select={select} />
-        <PaymentRail name='Paypal' Icon={Paypal} setSelected={handleSelected} select={select} />
         <PaymentRail name='banco' Icon={Bank} setSelected={handleSelected} select={select} />
       </ul>
       <SelectedPayment select={select} />

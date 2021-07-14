@@ -55,10 +55,14 @@ function registro ({ singup, messageHandler, location }) {
         <DisplayMesage />
         <form className='login-form login-form__register' onSubmit={e => handleSubmit(e)}>
           <input onChange={(e) => handleChangue(e)} className='login-form__input' type='email' name='email' placeholder='Email' required />
-          <input onChange={(e) => handleChangue(e)} className='login-form__input' type='text' name='userName' placeholder='Nombre completo' required />
-          <input onChange={(e) => handleChangue(e)} className='login-form__input' type='text' name='userID' placeholder='Nombre de usuario' />
+          <input onChange={(e) => handleChangue(e)} className='login-form__input' type='text' name='userID' placeholder='Nombre de usuario' required />
+          <input onChange={(e) => handleChangue(e)} className='login-form__input' type='text' name='userName' placeholder='Nombre y apellido' required />
           <input onChange={(e) => handleChangue(e)} className='login-form__input' type='password' name='password' placeholder='Contraseña' required />
           <input onChange={(e) => handleChangue(e)} className='login-form__input' type='password' name='password2' placeholder='repite la contraseña' required />
+          <div className='login-form__check'>
+            <input type='checkbox' name='checkbox' className='login-form__check' id='checkbox' required />
+            <p className='text'>Aceto los términos y condiciones</p>
+          </div>
           <input className='login-form__button' type='Submit' />
           <Link className='login-form__button-white'>Iniciar Sesión</Link>
         </form>

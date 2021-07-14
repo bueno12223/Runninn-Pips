@@ -21,7 +21,8 @@ const transacctions = (app) => {
         data,
         url: `${process.env.API_URL}/payments`
       })
-      res.status(result.status).json(result.data)
+      console.log(result)
+      res.sendStatus(200)
     } catch (e) {
       console.log(e)
     }

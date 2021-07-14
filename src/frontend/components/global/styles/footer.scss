@@ -1,22 +1,15 @@
 @import '../../../assets/styles/roots';
 .lfooter {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 30% 25% 10% auto;
-    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 6em;
     width: 70%;
-    justify-items: center;
-    svg {
-        width: 20px;
-        height: 20px;
-        margin-top: 10px;
-    }
-    p {
-        @extend %text;
-        grid-column: 3 span;
-        margin: 10px 0;
+    gap: 10px;
+    justify-content: center;
+    &-text {
+        width: 100% !important;
+        text-align: center !important;
     }
     a {
         font-size: 1.2em;

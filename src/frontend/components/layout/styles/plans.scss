@@ -1,29 +1,18 @@
 @import '../../../assets/styles/roots';
 
 .plans {
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    justify-items: center;
+    display: flex;
+    overflow-x: auto;
     gap: 5px;
     margin: 0 20px;
-    @include response-to(920px) {
-        grid-template-rows: auto;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
     &-card {
-        margin: 0 auto;
         display: flex;
         align-items: center;
         flex-direction: column;
-        display: -ms-flexbox;
-        flex-direction: column;
-        max-width: 330px;
-        width: 100%;
+        min-width: 330px;
         border: 2px solid $grey;
         border-radius: 10px;
         padding: 3rem;
-        margin-bottom: 20px;
         &:hover {
             border-color: $red;
         }

@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 // components
 import SelectDale from './selectDale'
 import CountryInput from './countrys'
-import DisplayMesage from '../global/displayMessage'
 import Loader from '../global/loader'
 // hooks or actions
 import useForm from '../../hooks/useForm'
@@ -80,7 +79,6 @@ function cart ({ name, email, validatePayment }) {
         <input type='text' name='addrLine1' className='cart-input' maxLength='64' required onChange={setAdress} />
         <p className='cart-text'>Detalles opcionales</p>
         <input type='text' name='addrLine2' className='cart-input' maxLength='32' onChange={setAdress} />
-        <DisplayMesage />
         <button className={`cart-submit ${loading && 'cart-submit__loading'}`} value='Enviar' onClick={(e) => handleSubmit(e)}>{loading ? <Loader color='#fff' height={35} width={35} /> : 'Enviar'}</button>
       </form>
     </>

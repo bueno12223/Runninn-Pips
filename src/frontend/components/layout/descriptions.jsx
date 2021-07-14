@@ -10,7 +10,6 @@ function descriptions () {
       <p>Con tu accseso premium puedes tener todas estas herramientas listas para cuando las nesecites</p>
       <ul className='description-list'>
         <li><Check /> Acceso a todos los cursos</li>
-        <li><Check /> Señales de Trading </li>
         <li><Check /> Ideas de inversiones </li>
         <li><Check /> Mentorias grupales todas las semanas</li>
         <li><Check /> La información mas actualizada de la industria</li>

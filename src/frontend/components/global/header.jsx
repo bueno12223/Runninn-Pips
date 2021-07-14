@@ -20,8 +20,8 @@ function header ({ userID, logOutUser }) {
       <div className='lheader-links' style={{ left: display ? '0%' : '100%' }}>
         <Link to={userID ? '/cuenta' : '/'} onClick={() => setDisplay(!display)}>{userID ? 'Cuenta' : 'Acerca de'}</Link>
         <Link to='/pagos' onClick={() => setDisplay(!display)}>Pagos</Link>
-        <Link to='/' onClick={() => setDisplay(!display)}>Testimonios</Link>
         <Link to='/' onClick={() => setDisplay(!display)}>Ayuda</Link>
+        <Link to='/politicas' onClick={() => setDisplay(!display)}>Políticas</Link>
         <span />
         <Link to={userID ? '/home' : '/login'} className='lheader-links__button' onClick={() => setDisplay(!display)}>{userID ? 'Home' : 'Iniciar Sesión'}</Link>
         <Link to={userID ? '/login' : '/registro'} className='lheader-links__button' onClick={() => userID && handleOnClick()}>{userID ? 'Cerrar Sesión' : 'Registrarme'}</Link>

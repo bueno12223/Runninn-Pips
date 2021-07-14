@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import facebook from '../assets/icons/facebook.svg'
 import { Link } from 'react-router-dom'
 import Hello from '../assets/icons/hello'
 import { connect } from 'react-redux'
@@ -33,11 +32,6 @@ function login ({ loginStudent }) {
           <Link className='login-form__text login-form__text-left' to='/login'>Recuerdame</Link>
           <input className='login-form__button' type='Submit' />
           <Link to='/registro' className='login-form__button-white'>Registrarme</Link>
-          <button className='login-form__button-facebook'>
-            <img src={facebook} alt='' />
-            {'   '}
-            Iniciar Sesión con <br /> Facebook
-          </button>
         </form>
       </article>
       <article className='login__left'>

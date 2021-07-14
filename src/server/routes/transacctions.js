@@ -14,11 +14,10 @@ const transacctions = (app) => {
     }
   })
   app.post('/payments', async (req, res) => {
-    const data = req.body
     try {
       const result = await axios({
         method: 'POST',
-        data,
+        data: req,
         url: `${process.env.API_URL}/payments`
       })
       console.log(result)

@@ -63,12 +63,14 @@ const setResponse = (html, preloadedState, manifest) => {
   const mainStyles = manifest ? manifest['vendors.css'] : 'assets/app.css'
   const mainBuild = manifest ? manifest['main.js'] : 'assets/app.js'
   const vendorBuild = manifest ? manifest['vendors.js'] : 'assets/vendor.js'
+  const logo = manifest ? manifest['assets/logo-s.jpg'] : 'assets/logo-s.jpg'
   return (`
   <!DOCTYPE html>
   <html>
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="${logo}" />
       <title>Running trader</title>
       <link rel="stylesheet" href='${mainStyles}' type="text/css">
     </head>
@@ -88,13 +90,13 @@ const renderApp = async (req, res) => {
   let InitalState = {
     userID: '',
     message: { message: '' },
-    videos: []
+    videos: {}
   }
   let isLogged = false
   const { 'connect.sid': sesionID, id } = req.cookies
   if (sesionID && id) {
     try {
-      const result = await axios({
+      const { data: { user, videos } } = await axios({
         method: 'POST',
         url: `${process.env.API_URL}/student`,
         data: { id },
@@ -103,15 +105,9 @@ const renderApp = async (req, res) => {
         withCredentials: true
       })
       isLogged = true
-      const videos = await axios({
-        method: 'GET',
-        url: `${process.env.API_URL}/video`,
-        // eslint-disable-next-line quote-props
-        headers: { 'Cookie': `connect.sid=${sesionID}` },
-        withCredentials: true
-      })
-      InitalState = { ...result.data.data, videos: videos.data, message: { message: '' } }
+      InitalState = { ...user, videos, message: { message: '' } }
     } catch (e) {
+      console.log(e)
     }
   }
   const store = createStore(reducer, InitalState)

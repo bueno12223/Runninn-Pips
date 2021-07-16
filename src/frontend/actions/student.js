@@ -1,33 +1,32 @@
 import axios from 'axios'
 import { registerRequest, messageHandler } from './states'
-import { history } from 'react-router-dom'
 // inicar sesion
-export const loginStudent = (payload, redirectUrl) => async (dispatch) => {
+export const loginStudent = (payload, redirectFunc) => async (dispatch) => {
   try {
     const data = await axios.post('/student/login', payload)
     if (data.status === 200) {
       const date = new Date(Date.now() + 86400e3)
       document.cookie = `id=${data.data.data._id};expires=${date}; secure`
       dispatch(registerRequest(data.data))
-      history.push(redirectUrl)
+      redirectFunc('/home')
     }
   } catch (e) {
     if (e.response.status === 500) {
       window.localStorage.setItem('userID', JSON.stringify(payload.userID))
-      history.push('/pagos')
+      redirectFunc('/pagos')
     }
     dispatch(messageHandler({ message: 'Usuario o contraseña incorrecta', success: false }))
   }
 }
 
 // registrarse
-export const singup = (payload, redirectUrl) => async (dispatch) => {
+export const singup = (payload, redirectFunc) => async (dispatch) => {
   try {
     const result = await axios.post('/student/register', payload)
     if (result.status === 201) {
       dispatch(messageHandler(result.data))
       setTimeout(() => {
-        history.push(redirectUrl)
+        redirectFunc('/login')
       }
       , 2000)
     }
@@ -77,8 +76,8 @@ export const setStudentAccont = (payload, redirectUrl) => async (dispatch) => {
 }
 
 // cerrar sesión eleiminando las cookies
-export const logOutUser = (payload, redirectUrl) => async (dispatch) => {
+export const logOutUser = (payload, redirectFunc) => async (dispatch) => {
   document.cookie = 'id='
   document.cookie = 'connect.sid='
-  history.push('/login')
+  redirectFunc('/login')
 }

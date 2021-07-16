@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { registerRequest, messageHandler } from './states'
+import { history } from 'react-router-dom'
 // inicar sesion
 export const loginStudent = (payload, redirectUrl) => async (dispatch) => {
   try {
@@ -8,12 +9,12 @@ export const loginStudent = (payload, redirectUrl) => async (dispatch) => {
       const date = new Date(Date.now() + 86400e3)
       document.cookie = `id=${data.data.data._id};expires=${date}; secure`
       dispatch(registerRequest(data.data))
-      window.location.href = redirectUrl
+      history.push(redirectUrl)
     }
   } catch (e) {
     if (e.response.status === 500) {
       window.localStorage.setItem('userID', JSON.stringify(payload.userID))
-      window.location.href = '/pagos'
+      history.push('/pagos')
     }
     dispatch(messageHandler({ message: 'Usuario o contraseña incorrecta', success: false }))
   }
@@ -24,9 +25,9 @@ export const singup = (payload, redirectUrl) => async (dispatch) => {
   try {
     const result = await axios.post('/student/register', payload)
     if (result.status === 201) {
-      dispatch(messageHandler({ message: 'Usuario creado correctamente', success: true }))
+      dispatch(messageHandler(result.data))
       setTimeout(() => {
-        window.location.href = redirectUrl
+        history.push(redirectUrl)
       }
       , 2000)
     }
@@ -79,5 +80,5 @@ export const setStudentAccont = (payload, redirectUrl) => async (dispatch) => {
 export const logOutUser = (payload, redirectUrl) => async (dispatch) => {
   document.cookie = 'id='
   document.cookie = 'connect.sid='
-  window.location.href = '/login'
+  history.push('/login')
 }

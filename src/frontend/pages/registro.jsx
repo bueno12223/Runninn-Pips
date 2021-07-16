@@ -1,30 +1,24 @@
 /* eslint-disable eqeqeq */
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Hello from '../assets/icons/hello'
 import { singup, messageHandler } from '../actions'
 import DisplayMesage from '../components/global/displayMessage'
+import useForm from '../hooks/useForm'
 import { connect } from 'react-redux'
 import './styles/login.scss'
 function registro ({ singup, messageHandler, location }) {
   // obtenemos el query con el upline
   const query = new URLSearchParams(location.search)
   const upline = query.get('upline')
-
-  const [form, setForm] = useState({
+  const [form, setForm] = useForm({
     email: '',
     userName: '',
     userID: '',
     password: '',
     password2: '',
-    upline: upline || ''
+    upline
   })
-  const handleChangue = e => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
-    })
-  }
   const haveAUpercase = (texto) => {
     const letrasMayusculas = 'ABCDEFGHYJKLMNÑOPQRSTUVWXYZ'
     for (let i = 0; i < texto.length; i++) {
@@ -46,7 +40,8 @@ function registro ({ singup, messageHandler, location }) {
     if (haveAUpercase(form.userID)) {
       return messageHandler({ message: 'el nombre de usuario no puede tener mayúsculas', success: false })
     }
-    return singup(form, '/login')
+    console.log(form)
+    // return singup(form, '/login')
   }
   return (
     <section className='login-container'>
@@ -54,23 +49,22 @@ function registro ({ singup, messageHandler, location }) {
         <h2 className='login-title'>Bienvenido!!, por favor llena los siguientes datos</h2>
         <DisplayMesage />
         <form className='login-form login-form__register' onSubmit={e => handleSubmit(e)}>
-          <input onChange={(e) => handleChangue(e)} className='login-form__input' type='email' name='email' placeholder='Email' required />
-          <input onChange={(e) => handleChangue(e)} className='login-form__input' type='text' name='userID' placeholder='Nombre de usuario' required />
-          <input onChange={(e) => handleChangue(e)} className='login-form__input' type='text' name='userName' placeholder='Nombre y apellido' required />
-          <input onChange={(e) => handleChangue(e)} className='login-form__input' type='password' name='password' placeholder='Contraseña' required />
-          <input onChange={(e) => handleChangue(e)} className='login-form__input' type='password' name='password2' placeholder='repite la contraseña' required />
+          <input onChange={setForm} className='login-form__input' type='email' name='email' placeholder='Email' required />
+          <input onChange={setForm} className='login-form__input' type='text' name='userID' placeholder='Nombre de usuario' required />
+          <input onChange={setForm} className='login-form__input' type='text' name='userName' placeholder='Nombre y apellido' required />
+          <input onChange={setForm} className='login-form__input' type='password' name='password' placeholder='Contraseña' required />
+          <input onChange={setForm} className='login-form__input' type='password' name='password2' placeholder='repite la contraseña' required />
           <div className='login-form__check'>
             <input type='checkbox' name='checkbox' className='login-form__check' id='checkbox' required />
             <p className='text'>Aceto los términos y condiciones</p>
           </div>
-          <input className='login-form__button' type='Submit' />
-          <Link className='login-form__button-white'>Iniciar Sesión</Link>
+          <input className='login-form__button' type='Submit' value='Enviar' />
+          <Link to='/login' className='login-form__button-white'>Iniciar Sesión</Link>
         </form>
       </article>
       <article className='login__left'>
         <Hello className='login__left-img' />
       </article>
-      <Link to='/registro/17' />
     </section>
   )
 }

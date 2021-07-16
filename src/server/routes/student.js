@@ -23,18 +23,13 @@ const studentRoutes = (app) => {
   })
   // registrar usuario
   router.post('/register', async (req, res) => {
-    const { userID, password, email, userName, upline = '' } = req.body
-    try {
-      await axios({
-        data: { userID, password, email, userName, upline },
-        url: `${process.env.API_URL}/student/register`,
-        method: 'POST'
-      })
-      res.status(201).json({ message: 'creado correctamente' })
-    } catch (e) {
-      console.log(e)
-      res.status(e.response.status).json(e.response.data)
-    }
+    const { userID, password, email, userName, upline } = req.body
+    const { data } = await axios({
+      data: { userID, password, email, userName, upline },
+      url: `${process.env.API_URL}/student/register`,
+      method: 'POST'
+    })
+    res.status(201).json(data)
   })
   // configurar datos del usuario
   router.put('/:id', async (req, res) => {

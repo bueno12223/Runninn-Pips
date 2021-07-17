@@ -1,6 +1,6 @@
 /* eslint-disable eqeqeq */
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import Hello from '../assets/icons/hello'
 import { singup, messageHandler } from '../actions'
 import DisplayMesage from '../components/global/displayMessage'
@@ -19,6 +19,7 @@ function registro ({ singup, messageHandler, location }) {
     password2: '',
     upline
   })
+  const history = useHistory()
   const haveAUpercase = (texto) => {
     const letrasMayusculas = 'ABCDEFGHYJKLMNÑOPQRSTUVWXYZ'
     for (let i = 0; i < texto.length; i++) {
@@ -28,8 +29,7 @@ function registro ({ singup, messageHandler, location }) {
     }
     return false
   }
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (form.password !== form.password2) {
       return messageHandler({ message: 'las contraseñas no son iguales', success: false })
@@ -40,8 +40,12 @@ function registro ({ singup, messageHandler, location }) {
     if (haveAUpercase(form.userID)) {
       return messageHandler({ message: 'el nombre de usuario no puede tener mayúsculas', success: false })
     }
-    console.log(form)
-    // return singup(form, '/login')
+    await singup(form, history)
+    setTimeout(() => {
+      messageHandler({})
+      history.push('/login')
+    }
+    , 2000)
   }
   return (
     <section className='login-container'>

@@ -1,24 +1,22 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import CardList from '../components/home/cardList'
+import { useSelector } from 'react-redux'
 import Hero from '../components/home/hero'
 
-function home ({ videos, search }) {
-  const { omarSosa, OmarSosaFx, JairPower } = videos
-  console.log(search)
+function home () {
+  const videos = useSelector(state => state.videos)
+  console.log(videos)
+  if (videos == null) {
+    return (
+      <>
+        <h1 className='title'>Tu cuenta no esta activa</h1>
+        <p className='text'>Por favor dirigete a pagos para volver a acceder a todos los videos</p>
+      </>
+    )
+  }
   return (
     <>
       <Hero />
-      <CardList title='Omar Sosa' to='/teacher/OmarSosa' videos={omarSosa} />
-      <CardList title='Jair Powel' to='/teacher/JairPowell' videos={JairPower} />
-      <CardList title='Omar Sosa FX' to='/teacher/OmarSosaFx' videos={OmarSosaFx} />
     </>
   )
 }
-const mapStateToProps = state => {
-  return {
-    videos: state.videos,
-    search: state.search || []
-  }
-}
-export default connect(mapStateToProps, null)(home)
+export default home

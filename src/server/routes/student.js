@@ -7,7 +7,7 @@ const studentRoutes = (app) => {
   router.post('/login', async (req, res) => {
     const { userID, password } = req.body
     try {
-      const result = await axios({
+      const { data, headers } = await axios({
         url: `${process.env.API_URL}/student/login`,
         method: 'POST',
         withCredentials: true,
@@ -16,20 +16,26 @@ const studentRoutes = (app) => {
           password
         }
       })
-      res.status(200).header(result.headers).json({ data: result.data.result })
+      res.status(200).header(headers).json({ ...data })
     } catch (e) {
+      console.log(e)
       res.status(e.response.status).json(e.response.data)
     }
   })
   // registrar usuario
   router.post('/register', async (req, res) => {
     const { userID, password, email, userName, upline } = req.body
-    const { data } = await axios({
-      data: { userID, password, email, userName, upline },
-      url: `${process.env.API_URL}/student/register`,
-      method: 'POST'
-    })
-    res.status(201).json(data)
+    try {
+      const { data } = await axios({
+        data: { userID, password, email, userName, upline },
+        url: `${process.env.API_URL}/student/register`,
+        method: 'POST'
+      })
+      res.status(201).json(data)
+    } catch (e) {
+      console.error(e)
+      res.status(e.response.status).json({ ...e.response.data })
+    }
   })
   // configurar datos del usuario
   router.put('/:id', async (req, res) => {

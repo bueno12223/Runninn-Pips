@@ -8,7 +8,7 @@ ENV ENV production
 
 ENV PORT 3000
 
-ENV API_URL https://running-pips-api.herokuapp.com
+ENV API_URL https://api-f5djmx67nq-uc.a.run.app
 
 RUN npm install --only=production
 

@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable global-require */
 import express from 'express'
 import dotenv from 'dotenv'
@@ -63,14 +64,12 @@ const setResponse = (html, preloadedState, manifest) => {
   const mainStyles = manifest ? manifest['vendors.css'] : 'assets/app.css'
   const mainBuild = manifest ? manifest['main.js'] : 'assets/app.js'
   const vendorBuild = manifest ? manifest['vendors.js'] : 'assets/vendor.js'
-  const logo = manifest ? manifest['assets/logo-s.jpg'] : 'assets/logo-s.jpg'
   return (`
   <!DOCTYPE html>
   <html>
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" href="${logo}" />
       <title>Running trader</title>
       <link rel="stylesheet" href='${mainStyles}' type="text/css">
     </head>
@@ -88,13 +87,12 @@ const setResponse = (html, preloadedState, manifest) => {
 
 const renderApp = async (req, res) => {
   let InitalState = {
-    userID: '',
+    user: null,
     message: { message: '' },
-    videos: {}
+    videos: null
   }
-  let isLogged = false
-  const { 'connect.sid': sesionID, id } = req.cookies
-  if (sesionID && id) {
+  const { 'connect.sid': sesionID = undefined, id = undefined } = req.cookies
+  if (sesionID != undefined && id != '') {
     try {
       const { data: { user, videos } } = await axios({
         method: 'POST',
@@ -104,8 +102,7 @@ const renderApp = async (req, res) => {
         headers: { 'Cookie': `connect.sid=${sesionID}` },
         withCredentials: true
       })
-      isLogged = true
-      InitalState = { ...user, videos, message: { message: '' } }
+      InitalState = { user, videos, message: { message: '' } }
     } catch (e) {
       console.log(e)
     }
@@ -115,7 +112,7 @@ const renderApp = async (req, res) => {
   const html = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={{}}>
-        {renderRoutes(serverRoutes(isLogged))}
+        {renderRoutes(serverRoutes())}
       </StaticRouter>
     </Provider>
   )

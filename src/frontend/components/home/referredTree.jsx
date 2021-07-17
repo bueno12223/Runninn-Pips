@@ -1,12 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import './styles/referredTree.scss'
-function referredTree ({ ammount, downline, upline }) {
+function referredTree () {
+  const downline = useSelector(state => state.user.downline)
   return (
     <>
       <section className='referred'>
-        <h2 className='referred-title'>Tu saldo disponible es</h2>
-        <h2 className='referred-title__b referred-title'>{ammount}$</h2>
-        <h4 className='referred-title'>Fuiste referido por {upline}, y referiste a</h4>
+        <h4 className='title'>Así va tu referidos.</h4>
         {downline.length
           ? (
             <ul className='referred-list'>

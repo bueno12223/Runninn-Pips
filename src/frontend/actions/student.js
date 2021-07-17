@@ -1,21 +1,17 @@
 import axios from 'axios'
-import { registerRequest, messageHandler } from './states'
+import { messageHandler, registerData } from './states'
 // inicar sesion
 export const loginStudent = (payload, redirectFunc) => async (dispatch) => {
   try {
-    const data = await axios.post('/student/login', payload)
-    if (data.status === 200) {
-      const date = new Date(Date.now() + 86400e3)
-      document.cookie = `id=${data.data.data._id};expires=${date}; secure`
-      dispatch(registerRequest(data.data))
-      redirectFunc('/home')
-    }
+    const { data: { user, videos } } = await axios.post('/student/login', payload)
+    const date = new Date(Date.now() + 86400e3)
+    document.cookie = `id=${user._id};expires=${date}; secure`
+    dispatch(registerData({ data: user, name: 'user' }))
+    dispatch(registerData({ data: videos, name: 'videos' }))
+    redirectFunc.push('/home')
   } catch (e) {
-    if (e.response.status === 500) {
-      window.localStorage.setItem('userID', JSON.stringify(payload.userID))
-      redirectFunc('/pagos')
-    }
-    dispatch(messageHandler({ message: 'Usuario o contraseña incorrecta', success: false }))
+    console.log(e)
+    return dispatch(messageHandler(e.response.data))
   }
 }
 
@@ -25,12 +21,9 @@ export const singup = (payload, redirectFunc) => async (dispatch) => {
     const result = await axios.post('/student/register', payload)
     if (result.status === 201) {
       dispatch(messageHandler(result.data))
-      setTimeout(() => {
-        redirectFunc('/login')
-      }
-      , 2000)
     }
   } catch (e) {
+    console.log(e)
     if (e.response.status === 400) {
       const keys = Object.keys(e.response.data.key)
       if (keys[0] === 'userID') {
@@ -76,8 +69,10 @@ export const setStudentAccont = (payload, redirectUrl) => async (dispatch) => {
 }
 
 // cerrar sesión eleiminando las cookies
-export const logOutUser = (payload, redirectFunc) => async (dispatch) => {
+export const logOutUser = (redirectFunc) => async (dispatch) => {
   document.cookie = 'id='
   document.cookie = 'connect.sid='
+  dispatch(registerData({ data: null, name: 'videos' }))
+  dispatch(registerData({ data: null, name: 'user' }))
   redirectFunc('/login')
 }

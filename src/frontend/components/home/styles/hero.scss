@@ -1,7 +1,11 @@
 @import '../../../assets/styles/roots';
 .hero {
-    display: grid;
-    grid-area: repeat(2, auto);
+    display: flex;
+    width: 62%;
+    margin: auto;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: nowrap;
     &-data {
         display: flex;
         justify-content: space-between;
@@ -19,23 +23,26 @@
     }
     &-search {
         width: 80%;
-        margin: auto;
-        border: 1px black solid;
+        background-color: $grey;
         border-radius: 10px;
         padding: 8px 5px;
         display: flex;
         align-items: center;
         max-width: 550px;
+        min-width: 260px;
         &__input {
             outline: none;
             border: unset;
             margin-left: 3px;
-            max-width: 60%;
+            background-color: $grey;
             width: 100%;
         }
         &__input, &__input::placeholder {
             font-family: 'Open Sans', sans-serif;
             color: $dark;
         }
+    }
+    &-icon:hover path {
+        fill: $dark;
     }
 }

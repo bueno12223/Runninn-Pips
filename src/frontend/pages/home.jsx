@@ -1,10 +1,16 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Hero from '../components/home/hero'
-
+import SuperCardRail from '../components/home/superCardRail'
+import './styles/home.scss'
 function home () {
   const videos = useSelector(state => state.videos)
-  console.log(videos)
+  const cardEducator = [
+    { img: null, title: 'Omar Sosa', to: '/home/omar', text: 'Tendencias, estructura de mercado y fundamentos del tradiing' },
+    { img: null, title: 'Jair Powel', to: '/home/jair', text: 'Tendencias, estructura de mercado y fundamentos del tradiing' },
+    { img: null, title: 'Omar Sosa jr', to: '/home/omarjr', text: 'Tendencias, estructura de mercado y fundamentos del tradiing' },
+    { img: null, title: 'Omar Sosa jr', to: '/home/omarjr', text: 'Tendencias, estructura de mercado y fundamentos del tradiing' }
+  ]
   if (videos == null) {
     return (
       <>
@@ -16,6 +22,7 @@ function home () {
   return (
     <>
       <Hero />
+      <SuperCardRail cardData={cardEducator} mainTitle='Educadores' />
     </>
   )
 }

@@ -23,7 +23,7 @@ const App = () => {
           <Route exact path='/' component={Landing} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/registro' component={Registro} />
-          <Route exact path='/referidos' component={Referidos} />
+          <Route exact path='/referidos' component={isLogged ? Referidos : Login} />
           <Route exact path='/home' component={isLogged ? Home : Login} />
           <Route exact path='/home/:id' render={(props) => isLogged ? <Reproductor {...props} /> : <Login />} />
           <Route exact path='/teacher/:id' component={(props) => isLogged ? <Teacher {...props} /> : <Login />} />

@@ -7,6 +7,11 @@ function footer () {
       <p className='text lfooter-text'>Somos una empresa de educación en estrategias de inversión para los mercados financiero</p>
       <p className=' lfooter-text text'>© 2021 Running Trader, todos los derechos reservados</p>
       <p className='text lfooter-text'>AL navegar en esta página estas de acuerdo con nuestros términos y condiciones.</p>
+      <div>Iconos diseñados e ilustraciones diseñados por
+        <a href='https://storyset.com/people'>Storyset</a>
+        <a href='https://www.freepik.com' title='Freepik'>Freepik</a> from <a href='https://www.flaticon.es/' title='Flaticon'>www.flaticon.es</a>
+        Foto default de Burak Kebapci en Pexels
+      </div>
       <Link to='/politicas'>Sobre nosotros</Link>
       <Link to='/politicas#privacidad'>Políticas de Privacidad</Link>
       <Link to='/politicas#intelectual'>Derechos de Propiedad Intelectual</Link>

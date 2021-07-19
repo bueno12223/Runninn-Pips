@@ -5,6 +5,9 @@ $media-mid: 680px;
     flex-wrap: nowrap;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 25px;
+    width: 80%;
+    margin: auto;
     @include response-to($media-mid) {
         display: grid;
         grid-template-columns: 40% 1fr;

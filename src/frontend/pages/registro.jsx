@@ -1,7 +1,7 @@
 /* eslint-disable eqeqeq */
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import Hello from '../assets/icons/hello'
+import hello from '../assets/icons/layout/login.svg'
 import { singup, messageHandler } from '../actions'
 import DisplayMesage from '../components/global/displayMessage'
 import useForm from '../hooks/useForm'
@@ -67,7 +67,7 @@ function registro ({ singup, messageHandler, location }) {
         </form>
       </article>
       <article className='login__left'>
-        <Hello className='login__left-img' />
+        <img src={hello} className='login__left-img' alt='imagen de saludo' />
       </article>
     </section>
   )

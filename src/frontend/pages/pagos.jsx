@@ -7,7 +7,7 @@ import Skrill from '../components/cart/skrill'
 import './styles/pagos.scss'
 function pagos ({ isLogged }) {
   const [totalCharges, setTotal] = useState(140.00)
-  const userID = useSelector(state => state.user.userID)
+  const { userID } = useSelector(state => state.user.userID)
   return (
     <>
       <h1 className='title'>{isLogged ? `${userID} Parece que tu cuenta aún no esta activa` : 'Estos son todos los métodos de pago que usamos'}</h1>

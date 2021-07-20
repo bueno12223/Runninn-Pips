@@ -8,7 +8,6 @@ function setAccount ({ setStudentAccont, messageHandler }) {
   const [value, onChange] = useForm({
     email: '',
     userID,
-    newUserID: '',
     userName: '',
     password1: '',
     password2: '',
@@ -31,8 +30,6 @@ function setAccount ({ setStudentAccont, messageHandler }) {
       <form className='setAccount-form' onSubmit={(e) => handleSubmit(e)}>
         <p className='setAccount-formText'>Tu correo actual es {email}</p>
         <input className='setAccount-formInput' type='email' name='email' onChange={(e) => onChange(e)} placeholder='nuevo correo' />
-        <p className='setAccount-formText'>Tu usuario actual es {userID}</p>
-        <input className='setAccount-formInput' type='text' name='newUserID' onChange={(e) => onChange(e)} placeholder='nuevo nombre de usuario' />
         <p className='setAccount-formText'>Tu nombre actual es {userName}</p>
         <input className='setAccount-formInput' type='text' name='userName' onChange={(e) => onChange(e)} placeholder='nuevo nombre' />
         <p className='setAccount-formText'>Actualiza tu contraseña</p>

@@ -21,7 +21,7 @@ function header ({ user, logOutUser }) {
       <img src={menuIcon} className='lheader-menu' alt='menu icon' onClick={() => setDisplay(!display)} />
       <div className='lheader-links' style={{ left: display ? '0%' : '100%' }}>
         <Link to={user ? '/cuenta' : '/'} onClick={() => setDisplay(!display)}>{user ? 'Cuenta' : 'Acerca de'}</Link>
-        <Link to='/pagos' onClick={() => setDisplay(!display)}>Pagos</Link>
+        <Link to={user ? '/transacciones' : '/pagos'} onClick={() => setDisplay(!display)}>{user ? 'transacciones' : 'Pagos'}</Link>
         <Link to={user ? '/referidos' : '/'} onClick={() => setDisplay(!display)}>{user ? 'Referidos' : 'Ayuda'}</Link>
         <Link to='/politicas' onClick={() => setDisplay(!display)}>Políticas</Link>
         <span />

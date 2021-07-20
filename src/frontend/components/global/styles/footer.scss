@@ -11,7 +11,11 @@
         width: 100% !important;
         text-align: center !important;
     }
-    a {
-        font-size: 1.2em;
+    &-thanks {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        font-size: 0.8em;
+        align-items: center;
     }
 }

@@ -1,4 +1,4 @@
-import omarPhoto from '../assets/images/home/omar.jpeg'
+import omarPhoto from '../assets/images/home/omar.jpg'
 
 const useGetTeacherData = (teacherID) => {
   const teacherData = [

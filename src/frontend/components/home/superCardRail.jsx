@@ -1,10 +1,10 @@
 import React from 'react'
 import SuperCard from './superCard'
 import './styles/superCard.scss'
-function superCardRail ({ cardData, mainTitle }) {
+function superCardRail ({ cardData }) {
   return (
     <>
-      <h2 className='superCard-mainTitle'>{mainTitle}</h2>
+      <h2 className='superCard-mainTitle'>Cursos mas vistos</h2>
       <div className='superCard-container'>
         {
               cardData.map((data) => (

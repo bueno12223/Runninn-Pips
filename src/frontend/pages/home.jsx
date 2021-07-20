@@ -6,10 +6,10 @@ import './styles/home.scss'
 function home () {
   const videos = useSelector(state => state.videos)
   const cardEducator = [
-    { img: null, title: 'Omar Sosa', to: '/home/omar', text: 'Tendencias, estructura de mercado y fundamentos del tradiing' },
-    { img: null, title: 'Jair Powel', to: '/home/jair', text: 'Tendencias, estructura de mercado y fundamentos del tradiing' },
-    { img: null, title: 'Omar Sosa jr', to: '/home/omarjr', text: 'Tendencias, estructura de mercado y fundamentos del tradiing' },
-    { img: null, title: 'Omar Sosa jr', to: '/home/omarjr', text: 'Tendencias, estructura de mercado y fundamentos del tradiing' }
+    { img: null, title: 'trading institucional', teacherID: 'Omar Sosa', to: '/home/omar', text: 'Tendencias, estructura de mercado', num: '40min' },
+    { img: null, title: 'trading institucional 1', teacherID: 'Omar Sosa', to: '/home/jair', text: 'Tendencias, estructura de mercado', num: '40min' },
+    { img: null, title: 'trading institucional 2', teacherID: 'Omar Sosa', to: '/home/omarjr', text: 'Tendencias, estructura de mercado', num: '40min' },
+    { img: null, title: 'trading institucional 3', to: '/home/omarjr', teacherID: 'Omar Sosa', text: 'Tendencias, estructura de mercado', num: '40min' }
   ]
   if (videos == null) {
     return (

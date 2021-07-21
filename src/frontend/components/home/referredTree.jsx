@@ -7,7 +7,7 @@ function referredTree () {
     <>
       <section className='referred'>
         <h4 className='title'>Así va tu referidos.</h4>
-        {downline.length
+        {downline
           ? (
             <ul className='referred-list'>
               {downline.map(e => (<li className='referred-listItem' key={e._id}>{e.userID}, {new Date(e.updated).toLocaleDateString('en-US')}</li>))}

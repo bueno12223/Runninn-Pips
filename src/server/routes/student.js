@@ -18,8 +18,8 @@ const studentRoutes = (app) => {
       })
       res.status(200).header(headers).json({ ...data })
     } catch (e) {
-      console.log(e)
-      res.status(e.response.status).json(e.response.data)
+      console.log(e.response.data)
+      res.sendStatus(e.response.status)
     }
   })
   // registrar usuario

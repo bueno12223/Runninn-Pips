@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { useLocation } from 'react-router-dom'
+import { messageHandler } from '../../actions'
 import './styles/displayMessage.scss'
-function displayMessage ({ message: { message, success }, className = '' }) {
+function displayMessage ({ message: { message, success }, className = '', messageHandler }) {
+  const location = useLocation()
+  // cada vex que la ruta actual cambia, borra el mensaje
+  useEffect(() => {
+    messageHandler({ message: '' })
+  }, [location])
   // decide si el class del mensaje si fue exitosio o no
   function messageClassname () {
     if (message) {
@@ -22,4 +29,7 @@ const mapStateToProps = state => {
     message: state.message
   }
 }
-export default connect(mapStateToProps, null)(displayMessage)
+const mapDispatchToProps = {
+  messageHandler
+}
+export default connect(mapStateToProps, mapDispatchToProps)(displayMessage)

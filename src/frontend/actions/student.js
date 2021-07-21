@@ -10,8 +10,11 @@ export const loginStudent = (payload, redirectFunc) => async (dispatch) => {
     dispatch(registerData({ data: videos, name: 'videos' }))
     redirectFunc.push('/home')
   } catch (e) {
-    console.log(e)
-    return dispatch(messageHandler(e.response.data))
+    if (e.response.status === 401) {
+      return dispatch(messageHandler({ message: 'Usuario o contraseña incorrecta', success: false }))
+    }
+    console.error(e)
+    return dispatch(messageHandler({ message: 'Error del servidor, intenta mas tarde', success: false }))
   }
 }
 
@@ -61,10 +64,7 @@ export const setStudentAccont = (payload, redirectUrl) => async (dispatch) => {
       }
       return dispatch(messageHandler({ message: 'Ya existe una cuenta con este correo', success: false }))
     }
-    // si no es 400 es porque la contraseña es incorrecta
-    if (e.response.status === 401) {
-      return dispatch(messageHandler({ message: 'error del servidor, intenta mas tarde', success: false }))
-    }
+    return dispatch(messageHandler({ message: 'error del servidor, intenta mas tarde', success: false }))
   }
 }
 

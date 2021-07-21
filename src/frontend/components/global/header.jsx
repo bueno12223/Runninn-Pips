@@ -15,7 +15,7 @@ function header ({ user, logOutUser }) {
   const history = useHistory()
   return (
     <header className='lheader'>
-      <Link to={user ? '/home' : '/'}>
+      <Link to='/'>
         <img src={logo} alt='logo' className='lheader-logo' />
       </Link>
       <img src={menuIcon} className='lheader-menu' alt='menu icon' onClick={() => setDisplay(!display)} />

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import Hero from '../components/home/hero'
 import SuperCardRail from '../components/home/superCardRail'
 import './styles/home.scss'
@@ -15,7 +16,7 @@ function home () {
     return (
       <>
         <h1 className='title'>Tu cuenta no esta activa</h1>
-        <p className='text'>Por favor dirigete a pagos para volver a acceder a todos los videos</p>
+        <p className='text'>Por favor dirigete a  <Link to='/pagos'> pagos</Link> para volver a acceder a todos los videos</p>
       </>
     )
   }

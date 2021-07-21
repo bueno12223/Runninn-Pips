@@ -16,6 +16,7 @@ import NotFound from '../pages/404'
 import '../assets/styles/app.scss'
 const App = () => {
   const isLogged = !!(useSelector(state => state.user))
+  const isActive = !!(useSelector(state => state.videos))
   return (
     <BrowserRouter>
       <Layout>
@@ -24,10 +25,10 @@ const App = () => {
           <Route exact path='/login' component={Login} />
           <Route exact path='/registro' component={Registro} />
           <Route exact path='/referidos' component={isLogged ? Referidos : Login} />
-          <Route exact path='/home' component={isLogged ? Home : Login} />
-          <Route exact path='/home/:id' render={(props) => isLogged ? <Reproductor {...props} /> : <Login />} />
-          <Route exact path='/teacher/:id' component={(props) => isLogged ? <Teacher {...props} /> : <Login />} />
-          <Route exact path='/pagos' component={() => <Pagos isLogged={isLogged} />} />
+          <Route exact path='/home' component={isLogged && isActive ? Home : Pagos} />
+          <Route exact path='/video/:id' render={(props) => isLogged && isActive ? <Reproductor {...props} /> : <Login />} />
+          <Route exact path='/educador/:id' component={(props) => isLogged && isActive ? <Teacher {...props} /> : <Login />} />
+          <Route exact path='/pagos' component={() => <Pagos />} />
           <Route exact path='/cuenta' component={isLogged ? Cuenta : Login} />
           <Route exact path='/politicas' render={Policy} />
           <Route component={NotFound} />

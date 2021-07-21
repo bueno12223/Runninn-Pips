@@ -19,7 +19,8 @@ function setAccount ({ setStudentAccont, messageHandler }) {
     if (value.password1 !== value.password2 && value.password1) {
       return messageHandler({ message: 'las contraseñas no son iguales', success: false })
     }
-    if (value.password1.length >= 8) {
+    // eslint-disable-next-line eqeqeq
+    if (value.password1.length < 8 && value.password1) {
       return messageHandler({ message: 'La contraseña debe tener minimo 8 carácteres, sin espacios', success: false })
     }
     return setStudentAccont(value, '/login')

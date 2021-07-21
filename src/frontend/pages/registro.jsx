@@ -41,11 +41,6 @@ function registro ({ singup, messageHandler, location }) {
       return messageHandler({ message: 'el nombre de usuario no puede tener mayúsculas', success: false })
     }
     await singup(form, history)
-    setTimeout(() => {
-      messageHandler({})
-      history.push('/login')
-    }
-    , 2000)
   }
   return (
     <section className='login-container'>

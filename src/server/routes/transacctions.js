@@ -15,12 +15,11 @@ const transacctions = (app) => {
   })
   app.post('/payments', async (req, res) => {
     try {
-      const result = await axios({
+      await axios({
         method: 'POST',
-        data: req,
+        data: req.body,
         url: `${process.env.API_URL}/payments`
       })
-      console.log(result)
       res.sendStatus(200)
     } catch (e) {
       console.log(e)

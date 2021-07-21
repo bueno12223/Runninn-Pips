@@ -12,6 +12,7 @@ import Cuenta from '../pages/cuenta'
 import Policy from '../pages/policy'
 import Layout from '../components/global/layout'
 import Referidos from '../pages/referidos'
+import Transacciones from '../pages/transacciones'
 import NotFound from '../pages/404'
 import '../assets/styles/app.scss'
 const App = () => {
@@ -30,7 +31,8 @@ const App = () => {
           <Route exact path='/educador/:id' component={(props) => isLogged && isActive ? <Teacher {...props} /> : <Login />} />
           <Route exact path='/pagos' component={() => <Pagos />} />
           <Route exact path='/cuenta' component={isLogged ? Cuenta : Login} />
-          <Route exact path='/politicas' render={Policy} />
+          <Route exact path='/politicas' component={Policy} />
+          <Route exact path='/transacciones' component={Transacciones} />
           <Route component={NotFound} />
         </Switch>
       </Layout>

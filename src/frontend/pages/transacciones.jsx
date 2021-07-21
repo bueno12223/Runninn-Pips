@@ -1,15 +1,23 @@
 import React from 'react'
-import TransCard from '../components/home/transCard'
-import { useSelector } from 'react-router-dom'
-function transacciones () {
-  const transactions = useSelector(state => state.user.transactions)
+import { connect } from 'react-redux'
+import TransCard from '../components/home/TransCard'
+function transacciones ({ transactions }) {
+  if (transactions === []) {
+    return <h1 className='title'>Aun no hay transacciones registradas en tu cuenta</h1>
+  }
   return (
-    <ul>
-      {transactions.map(data => (
-        <TransCard key={data._id} {...data} />
-      ))}
-    </ul>
+    <>
+      <h1 className='title'>Transacciones</h1>
+      <p className='text mb'>Los pagos de referido tardar de 3 a 5 días</p>
+      <ul className='transaccionCard-list'>
+        {transactions.map(data => (
+          <TransCard key={data._id} {...data} />
+        ))}
+      </ul>
+    </>
   )
 }
-
-export default transacciones
+const mapStateToProps = (state) => ({
+  transactions: state.user.transactions
+})
+export default connect(mapStateToProps, null)(transacciones)

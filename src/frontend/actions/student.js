@@ -22,19 +22,24 @@ export const loginStudent = (payload, redirectFunc) => async (dispatch) => {
 export const singup = (payload, redirectFunc) => async (dispatch) => {
   try {
     const result = await axios.post('/student/register', payload)
-    if (result.status === 201) {
-      dispatch(messageHandler(result.data))
+    dispatch(messageHandler(result.data))
+    setTimeout(() => {
+      redirectFunc.push('/login')
     }
+    , 2000)
   } catch (e) {
     console.log(e)
     if (e.response.status === 400) {
       const keys = Object.keys(e.response.data.key)
       if (keys[0] === 'userID') {
         return dispatch(messageHandler({ message: 'Ya existe una cuenta con este usuario', success: false }))
+      } else if (keys[0] === 'email') {
+        return dispatch(messageHandler({ message: 'Ya existe una cuenta con este correo', success: false }))
+      } else {
+        return dispatch(messageHandler({ message: 'El link de referidos es incorrecto', success: false }))
       }
-      return dispatch(messageHandler({ message: 'Ya existe una cuenta con este correo', success: false }))
     }
-    dispatch(messageHandler({ message: 'error del servidor, intenta mas tarde', success: false }))
+    return dispatch(messageHandler({ message: 'error del servidor, intenta mas tarde', success: false }))
   }
 }
 // configurar los datos de la cuenta

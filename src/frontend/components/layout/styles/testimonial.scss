@@ -13,7 +13,7 @@
         margin-top: 7px;
     }
     &-list {
-        overflow-y: auto;
+        overflow-x: auto;
         display: flex;
         margin: 0 10px;
         gap: 10px;
@@ -24,11 +24,12 @@
             justify-items: center;
             align-items: center;
             grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: 20% 1fr;
+            grid-template-rows: 60px 1fr;
             min-width: 94vw;
             border: 2px solid $grey;
             border-radius: 10px;
             padding: 1rem;
+            height: 378px;
             @include response-to(380px) {
                 min-width: 367px;
                 max-width: 400px;
@@ -48,7 +49,15 @@
                 grid-column: 3 span;
                 text-align: justify;
                 margin-bottom: 5px;
+                line-height: 18px;
+                font-style: italic;
+                align-self: baseline;
             }
         }
+    }
+    &-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
     }
 }

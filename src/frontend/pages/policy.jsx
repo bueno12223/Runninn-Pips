@@ -4,7 +4,7 @@ function policy () {
   return (
     <section>
       <h1 className='title'>Política de Términos y Condiciones de Running Trader</h1>
-      <p className='text mb'>Bienvenido a Running Trader. Estos términos y condiciones describen las reglas y regulaciones para el uso del sitio web running-trader.herokuapp.com.
+      <p className='text mb'>Bienvenido a Running Trader. Estos términos y condiciones describen las reglas y regulaciones para el uso del sitio web runningtrader.com.
 
         Runningtrader es un  producto educativo que incluye contenido de capacitación interactivo digital y en línea para analizar, aprender y discutir información general y genérica relacionada con inversiones y estrategias. No somos una empresa de Captación de fondos y/o de capitales.
 
@@ -16,11 +16,11 @@ function policy () {
 
         Running Trader se encuentra en la Provincia de PANAMÁ, Distrito de PANAMÁ, corregimiento de BETANIA, Calle Las 200, Casa 202xc, Camino Real.
 
-        Al acceder a este sitio web, aceptas estos términos y condiciones en su totalidad. No continúes usando el sitio web running-trader.herokuapp.com si no aceptas todos los términos y condiciones establecidos en esta página.
+        Al acceder a este sitio web, aceptas estos términos y condiciones en su totalidad. No continúes usando el sitio web runningtrader.com si no aceptas todos los términos y condiciones establecidos en esta página.
 
         La siguiente terminología se aplica a estos Términos y Condiciones, Declaración de Privacidad y Aviso legal y cualquiera o todos los Acuerdos: el Cliente, Usted y Su se refieren a usted, la persona que accede a este sitio web y acepta los términos y condiciones de la Compañía. La Compañía, Nosotros mismos, Nosotros y Nuestro, se refiere a nuestra Compañía. Parte, Partes o Nosotros, se refiere en conjunto al Cliente y a nosotros mismos, o al Cliente o a nosotros mismos.
 
-        Todos los términos se refieren a la oferta, aceptación y consideración del pago necesario para efectuar el proceso de nuestra asistencia al Cliente de la manera más adecuada, ya sea mediante reuniones formales de una duración fija, o por cualquier otro medio, con el propósito expreso de conocer las necesidades del Cliente con respecto a la provisión de los servicios/productos declarados de la Compañía, de acuerdo con y sujeto a la ley vigente de running-trader.herokuapp.com
+        Todos los términos se refieren a la oferta, aceptación y consideración del pago necesario para efectuar el proceso de nuestra asistencia al Cliente de la manera más adecuada, ya sea mediante reuniones formales de una duración fija, o por cualquier otro medio, con el propósito expreso de conocer las necesidades del Cliente con respecto a la provisión de los servicios/productos declarados de la Compañía, de acuerdo con y sujeto a la ley vigente de runningtrader.com
 
         Cualquier uso de la terminología anterior u otras palabras en singular, plural, mayúsculas y/o, él/ella o ellos, se consideran intercambiables y, por lo tanto, se refieren a lo mismo.
       </p>
@@ -38,26 +38,26 @@ function policy () {
 
         Indique su ID de consentimiento y la fecha en que se comunicó con nosotros con respecto a su consentimiento.
 
-        Su consentimiento se aplica a los siguientes dominios: running-trader.herokuapp.com
+        Su consentimiento se aplica a los siguientes dominios: runningtrader.com
       </p>
       <h2 id='intelectual' className='secundary-title'>Derechos de Propiedad Intelectual</h2>
       <p className='text mb'>
-        Todos los derechos de propiedad intelectual de la página Web running-trader.herokuapp.com son de propiedad de Running Trader . Se prohíbe el uso de cualquier derecho de propiedad intelectual sin contar con el consentimiento previo, expreso y por escrito de aquella.
+        Todos los derechos de propiedad intelectual de la página Web runningtrader.com son de propiedad de Running Trader . Se prohíbe el uso de cualquier derecho de propiedad intelectual sin contar con el consentimiento previo, expreso y por escrito de aquella.
       </p>
       <h2 id='derechos' className='secundary-title'>Derechos de autor</h2>
       <p className='text mb'>Este sitio se encuentra protegido por la normativa vigente sobre derechos de autor. Todos los derechos involucrados, como por ejemplo su contenido y su diseño visual, son de titularidad de Running Trader, por lo que se encuentra estrictamente prohibido su empleo, modificación, reproducción, distribución, transmisión o comercialización de los derechos involucrados sin el permiso previo, expreso y por escrito de Running Trader, salvo los casos de derechos de cita, empleo para finalidades educativas y los demás usos honrados reconocidos.</p>
       <h2 id='licencia' className='secundary-title'>Licencia</h2>
       <p className='text mb'>A menos que se indique lo contrario, Running Trader y/o sus licenciatarios les pertenecen los derechos de propiedad intelectual de todo el material en Running Trader.
 
-        Todos los derechos de propiedad intelectual están reservados. Puedes ver y/o imprimir páginas desde running-trader.herokuapp.com para tu uso personal sujeto a las restricciones establecidas en estos términos y condiciones.
+        Todos los derechos de propiedad intelectual están reservados. Puedes ver y/o imprimir páginas desde runningtrader.com para tu uso personal sujeto a las restricciones establecidas en estos términos y condiciones.
 
         Esta Prohibido:
 
-        Volver a publicar material desde running-trader.herokuapp.com
+        Volver a publicar material desde runningtrader.com
 
-        Vender, alquilar u otorgar una sub-licencia de material desde running-trader.herokuapp.com
+        Vender, alquilar u otorgar una sub-licencia de material desde runningtrader.com
 
-        Reproducir, duplicar o copiar material desde running-trader.herokuapp.com
+        Reproducir, duplicar o copiar material desde runningtrader.com
 
         Redistribuir contenido de Running Trader, a menos de que el contenido se haga específicamente para la redistribución.
       </p>
@@ -78,7 +78,7 @@ function policy () {
 
         En lo que respecta Running Trader
 
-        Limita o excluye nuestra o su responsabilidad por muerte o lesiones personales resultantes del mal uso de la información proporcionada desde running-trader.herokuapp.com
+        Limita o excluye nuestra o su responsabilidad por muerte o lesiones personales resultantes del mal uso de la información proporcionada desde runningtrader.com
 
         Limita o excluye nuestra o su responsabilidad por fraude o tergiversación fraudulenta.
 

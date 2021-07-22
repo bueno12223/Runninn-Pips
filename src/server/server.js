@@ -64,6 +64,7 @@ const setResponse = (html, preloadedState, manifest) => {
   const mainStyles = manifest ? manifest['vendors.css'] : 'assets/app.css'
   const mainBuild = manifest ? manifest['main.js'] : 'assets/app.js'
   const vendorBuild = manifest ? manifest['vendors.js'] : 'assets/vendor.js'
+  const logo = manifest ? manifest['runningtrade.svg'] : 'assets/runningtrade.svg'
   return (`
   <!DOCTYPE html>
   <html>
@@ -72,6 +73,7 @@ const setResponse = (html, preloadedState, manifest) => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Running trader</title>
       <link rel="stylesheet" href='${mainStyles}' type="text/css">
+      <link rel="icon" href="${logo}">
     </head>
     <body>
       <div id="app">${html}</div>

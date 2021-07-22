@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../../assets/images/logo-s.jpg'
+import logo from '../../assets/images/runningtrade.svg'
 import { Link } from 'react-router-dom'
 import menuIcon from '../../assets/icons/menu.svg'
 import './styles/header.scss'

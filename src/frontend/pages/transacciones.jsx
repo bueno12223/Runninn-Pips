@@ -8,7 +8,7 @@ function transacciones ({ transactions }) {
   return (
     <>
       <h1 className='title'>Transacciones</h1>
-      <p className='text mb'>Los pagos de referido tardar de 3 a 5 días</p>
+      <p className='text mb'>Los pagos de referido tardan de 3 a 5 días</p>
       <ul className='transaccionCard-list'>
         {transactions.map(data => (
           <TransCard key={data._id} {...data} />

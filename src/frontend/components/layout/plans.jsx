@@ -5,47 +5,54 @@ import box from '../../assets/icons/box.svg'
 import './styles/plans.scss'
 function plans ({ to = '/registro', onClick = () => {} }) {
   return (
-    <section className='plans'>
-      <Card
-        desc={[
-          'Accseso a todos los cursos de la plataforma por 1 mes',
-          'Ideas de inversiones',
-          'Capacitaciones semanales y mentorias grupales',
-          'Acceso al sistema de referidos'
-        ]}
-        isCheck={check}
-        price={140}
-        tile='Plan inversor inteligente'
-        to={to}
-        onClick={onClick}
-      />
-      <Card
-        desc={[
-          'Accseso a todos los cursos de la plataforma por 6 meses',
-          'Ideas de inversiones',
-          'Capacitaciones semanales y mentorias grupales',
-          'Acceso al sistema de referidos'
-        ]}
-        isCheck={check}
-        price={700}
-        tile='Plan inversor profesional'
-        to={to}
-        onClick={onClick}
-      />
-      <Card
-        desc={[
-          'Accseso a todos los cursos de la plataforma por un año',
-          'Ideas de inversiones',
-          'Capacitaciones semanales y mentorias grupales',
-          'Acceso al sistema de referidos'
-        ]}
-        isCheck={check}
-        price={1400}
-        tile='Plan top trader'
-        to={to}
-        onClick={onClick}
-      />
-    </section>
+    <>
+      <h2 className='plans-title'>Escoge tu plan</h2>
+      <p className='text'>Explora todas tus optiones y elige el que mas te beneficie, se parte de nosotros </p>
+      <section className='plans'>
+        <Card
+          desc={[
+            'Accseso a todos los beneficios por 1 mes',
+            'Reuniones de anális en vivo',
+            'Cursos nuevos semanalmente y mentorias grupales',
+            'Acceso al sistema de referidos',
+            'Mentorías personalizada'
+          ]}
+          isCheck={check}
+          price={140}
+          tile='Plan inversor inteligente'
+          to={to}
+          onClick={onClick}
+        />
+        <Card
+          desc={[
+            'Accseso a todos los cursos de la plataforma por 6 meses',
+            'Reuniones de anális en vivo',
+            'Cursos nuevos semanalmente y mentorias grupales',
+            'Acceso al sistema de referidos',
+            'Mentorías personalizada'
+          ]}
+          isCheck={check}
+          price={700}
+          tile='Plan inversor profesional'
+          to={to}
+          onClick={onClick}
+        />
+        <Card
+          desc={[
+            'Accseso a todos los cursos de la plataforma por un año',
+            'Reuniones de anális en vivo',
+            'Cursos nuevos semanalmente y mentorias grupales',
+            'Acceso al sistema de referidos',
+            'Mentorías personalizada'
+          ]}
+          isCheck={check}
+          price={1400}
+          tile='Plan top trader'
+          to={to}
+          onClick={onClick}
+        />
+      </section>
+    </>
   )
 }
 function Card ({ desc, isCheck, price, tile, to, onClick }) {

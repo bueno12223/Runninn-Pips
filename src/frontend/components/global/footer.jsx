@@ -17,6 +17,7 @@ function footer () {
         <p className='text'>Iconos diseñados e ilustraciones diseñados por</p>
         <br />
         <a href='https://storyset.com/people'>Storyset</a>
+        <a href='https://storyset.com/data'>Data illustrations by Storyset</a>
         <a href='https://www.freepik.com' title='Freepik'>Freepik</a>
         <a href='https://www.flaticon.es/' title='Flaticon'>flaticon</a>
         <p className='text'>Foto default de Burak Kebapci en Pexels</p>

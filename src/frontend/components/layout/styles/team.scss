@@ -1,0 +1,14 @@
+.team {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &-img {
+        height: auto;
+        width: 65%;
+    }
+    &-button {
+        max-width: 478px
+    }
+}
+

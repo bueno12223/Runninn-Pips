@@ -2,42 +2,38 @@
 $media-mid: 680px;
 .lhero {
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     margin-bottom: 25px;
-    width: 80%;
+    width: 92%;
     margin: auto;
-    @include response-to($media-mid) {
-        display: grid;
-        grid-template-columns: 40% 1fr;
-        justify-items: center;
-    }
     &-img {
-        width: 320px;
+        width: 100%;
         height: auto;
         @include response-to(760px) {
-            width: 450px;
+            width: 49%;
         }
-        @include response-to(900px) {
-            width: 500px;
-        }
-    }
-    &-title {
-        @extend %title;
-        font-size: 7vw;
-        @include response-to($media-mid) {
-            order: -1;
-            font-size: 6em;
-            margin-left: 0;
-        }
-        
-    }
-    &-text{
-        @extend %text;
     }
     &-button {
         @extend %button;
         padding: 15px;
     }
+    &-data {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        @include response-to(760px) {
+            width: 49%;
+        }
+        &Title {
+            font-size: 11vw;
+            text-align: center;
+            @include response-to(760px) {
+                font-size: 5em;
+            }
+        }
+    }
+    
 }

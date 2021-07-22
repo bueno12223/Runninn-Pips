@@ -1,0 +1,28 @@
+@import '../../../assets/styles/roots';
+.educador {
+    &-list {
+        display: flex;
+        overflow-x: auto;
+        list-style: none;
+        gap: 40px;
+        margin: 20px auto;
+        max-width: 825px;
+        padding: 0 10px;
+        &Item {
+            cursor: pointer;
+            border:  2px solid $red;
+            height: 100px;
+            min-width: 100px;
+            border-radius: 100px;
+            background-position: cover;
+            overflow: hidden;
+            scroll-snap-align: center;
+            transition: 450ms;
+            transform-origin: center left;
+        }
+        &Img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}

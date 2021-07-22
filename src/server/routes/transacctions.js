@@ -22,7 +22,20 @@ const transacctions = (app) => {
       })
       res.sendStatus(200)
     } catch (e) {
-      console.log(e)
+      console.error(e)
+    }
+  })
+  app.post('/message', async (req, res) => {
+    try {
+      await axios({
+        method: 'POST',
+        data: req.body,
+        url: `${process.env.API_URL}/message`
+      })
+      res.sendStatus(200)
+    } catch (e) {
+      console.error(e)
+      res.sendStatus(400)
     }
   })
 }

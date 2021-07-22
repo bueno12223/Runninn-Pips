@@ -1,20 +1,34 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import './styles/suscribe.scss'
-function suscribe () {
+import useForm from '../../hooks/useForm'
+import { sendMessage } from '../../actions'
+import DisplayMesage from '../global/displayMessage'
+import { connect } from 'react-redux'
+function suscribe ({ sendMessage }) {
+  const [form, setForm] = useForm({
+    email: '',
+    name: '',
+    number: ''
+  })
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    sendMessage(form)
+  }
   return (
     <>
       <section className='suscribe'>
-        <Link className='lhero-button' to='/registro'>Registarme ahora!!</Link>
         <h2>¿Aún tienes duda?</h2>
         <p>LLena estos datos y te contactaremos!</p>
-        <input type='email' placeholder='email' />
-        <input type='text' placeholder='nombre' />
-        <input type='number' placeholder='numero de contacto' />
-        <a href='/'>Suscribirse</a>
+        <input type='email' placeholder='email' name='email' onChange={setForm} />
+        <input type='text' placeholder='nombre' name='name' onChange={setForm} />
+        <input type='number' placeholder='numero de contacto' name='number' onChange={setForm} />
+        <a href='/' onClick={handleSubmit}>Enviar</a>
+        <DisplayMesage />
       </section>
     </>
   )
 }
-
-export default suscribe
+const mapDispatchToProps = {
+  sendMessage
+}
+export default connect(null, mapDispatchToProps)(suscribe)

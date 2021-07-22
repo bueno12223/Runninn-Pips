@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Hero from '../components/home/hero'
+import EducatorList from '../components/home/EducatorList'
 import SuperCardRail from '../components/home/superCardRail'
 import './styles/home.scss'
 function home () {
@@ -23,6 +24,7 @@ function home () {
   return (
     <>
       <Hero />
+      <EducatorList />
       <SuperCardRail cardData={cardEducator} mainTitle='Educadores' />
     </>
   )

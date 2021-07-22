@@ -12,6 +12,7 @@
     object-fit: cover;
     overflow: hidden;
     &-img {
+        filter: brightness(0.5);
         width: 100%;
         height: 100%;
         position: absolute;
@@ -22,8 +23,7 @@
         overflow-x: auto;
         margin: 10px auto;
         justify-content: center;
-        width: 80%;
-        gap: 10px;
+        gap: 20px;
     }
     &-mainTitle {
         font-size: 2em;

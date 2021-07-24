@@ -6,13 +6,10 @@ import EducatorList from '../components/home/EducatorList'
 import SuperCardRail from '../components/home/superCardRail'
 import './styles/home.scss'
 function home () {
+  const ranked = useSelector(state => state.ranked)
+  console.log(ranked)
   const videos = useSelector(state => state.videos)
-  const cardEducator = [
-    { img: null, title: 'trading institucional', teacherID: 'Omar Sosa', to: '/home/omar', text: 'Tendencias, estructura de mercado', num: '40min' },
-    { img: null, title: 'trading institucional 1', teacherID: 'Omar Sosa', to: '/home/jair', text: 'Tendencias, estructura de mercado', num: '40min' },
-    { img: null, title: 'trading institucional 2', teacherID: 'Omar Sosa', to: '/home/omarjr', text: 'Tendencias, estructura de mercado', num: '40min' },
-    { img: null, title: 'trading institucional 3', to: '/home/omarjr', teacherID: 'Omar Sosa', text: 'Tendencias, estructura de mercado', num: '40min' }
-  ]
+  const search = useSelector(state => state.search)
   if (videos == null) {
     return (
       <>
@@ -25,7 +22,9 @@ function home () {
     <>
       <Hero />
       <EducatorList />
-      <SuperCardRail cardData={cardEducator} mainTitle='Educadores' />
+      {search
+        ? <SuperCardRail cardData={search.length ? search : 'error'} />
+        : <SuperCardRail cardData={ranked} title='Videos mas vistos' />}
     </>
   )
 }

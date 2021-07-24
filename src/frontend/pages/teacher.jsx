@@ -1,24 +1,25 @@
-import React, { useState } from 'react'
-import CardList from '../components/home/cardList'
-import Loader from '../components/global/loader'
-import { getTeacher } from '../actions'
-import { connect } from 'react-redux'
+import React from 'react'
+import Hero from '../components/home/hero'
+import EducatorList from '../components/home/EducatorList'
+import SelectedTeacher from '../components/home/selectedTeacher'
+import SuperCardRail from '../components/home/superCardRail'
+import { connect, useSelector } from 'react-redux'
 function teacher (props) {
-  const { id } = props.match.params
-  const { getTeacher } = props
-  const [videos, setVideos] = useState(null)
-  getTeacher(id).then(e => setVideos(e)).catch(e => console.log(e))
-  if (!videos) {
-    return (
-      <Loader />
-    )
-  }
+  const { teacher } = props.match.params
+  const search = useSelector(state => state.search)
   return (
-    <CardList title='regresar' videos={videos} to='/home' />
+    <>
+      <Hero />
+      <EducatorList teacher={teacher} />
+      {search
+        ? <SuperCardRail cardData={search.length ? search : 'error'} />
+        : <SelectedTeacher teacherID={teacher} />}
+
+    </>
   )
 }
 
-const mapDispatchToProps = {
-  getTeacher
-}
-export default connect(null, mapDispatchToProps)(teacher)
+const mapDispatchToProps = state => ({
+  videos: state.videos
+})
+export default connect(mapDispatchToProps, null)(teacher)

@@ -62,17 +62,6 @@
                 border-radius: 10px;
                 font-size: 1.5em;
             }
-            &-facebook {
-                @extend %button;
-                background-color: #4064ac;
-                border: none;
-                padding: 0;
-                grid-column: 5 span;
-                box-shadow: none;
-                padding: 5px;
-                margin-top: 15px;
-                max-width: 250px;
-            }
         }
     }
 }
@@ -106,7 +95,4 @@
 
     }
     
-}
-.loading_input {
-    background-color: #e424216b;
 }

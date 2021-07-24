@@ -1,10 +1,12 @@
 import React from 'react'
-
-function EducatorCard ({ img }) {
+import { Link } from 'react-router-dom'
+function EducatorCard ({ img, teacher }) {
   return (
 
     <li className='educador-listItem'>
-      <img className='educador-listImg' src={img} alt='Imagen de educador' />
+      <Link to={`/educador/${teacher}`}>
+        <img className='educador-listImg' src={img} alt='Imagen de educador' />
+      </Link>
     </li>
   )
 }

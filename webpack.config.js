@@ -17,8 +17,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   entry,
-  mode: process.env.ENV,
-  devtool: 'source-map',
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'src/server/public'),
     filename: isDev ? 'assets/app.js' : 'assets/app-[fullhash].js',

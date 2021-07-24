@@ -6,7 +6,6 @@ const reducer = (state, action) => {
         ...action.payload
       }
     case 'REGISTER_DATA':
-      console.log(action.payload)
       return {
         ...state,
         [action.payload.name]: action.payload.data

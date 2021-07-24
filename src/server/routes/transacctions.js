@@ -38,5 +38,18 @@ const transacctions = (app) => {
       res.sendStatus(400)
     }
   })
+  app.get('/update/:id', async (req, res) => {
+    const { id } = req.params
+    try {
+      await axios({
+        method: 'POST',
+        url: `${process.env.API_URL}/teacher/folder/${id}`
+      })
+    } catch (e) {
+      console.error(e)
+      return res.sendStatus(400)
+    }
+    return res.sendStatus(204)
+  })
 }
 export default transacctions

@@ -91,12 +91,22 @@ const renderApp = async (req, res) => {
   let InitalState = {
     user: null,
     message: { message: '' },
-    videos: null
+    videos: {
+      OmarSosa: [],
+      NormaQuintero: [],
+      IsmaelOrtega: [],
+      JulioOrtiz: [],
+      JairPowell: [],
+      OmarSosaFx: [],
+      CoraliaPinzon: []
+    }
+
   }
+  const ranked = []
   const { 'connect.sid': sesionID = undefined, id = undefined } = req.cookies
   if (sesionID != undefined && id != '') {
     try {
-      const { data: { user, videos } } = await axios({
+      const { data: { user, videos: preVideos } } = await axios({
         method: 'POST',
         url: `${process.env.API_URL}/student`,
         data: { id },
@@ -104,7 +114,19 @@ const renderApp = async (req, res) => {
         headers: { 'Cookie': `connect.sid=${sesionID}` },
         withCredentials: true
       })
-      InitalState = { user, videos, message: { message: '' } }
+      if (preVideos) {
+        // eslint-disable-next-line prefer-const
+        const profesorNames = ['OmarSosa', 'NormaQuintero', 'IsmaelOrtega', 'JulioOrtiz', 'JairPowell', 'OmarSosaFx', 'CoraliaPinzon']
+        profesorNames.forEach((name) => {
+          // eslint-disable-next-line camelcase
+          const result = preVideos.filter(({ profesor_id }) => profesor_id === name)
+          ranked.push(result[0])
+          InitalState.videos[name] = result.sort((a, b) => {
+            return a.order - b.order
+          })
+        })
+      }
+      InitalState = { ranked, user, videos: preVideos ? InitalState.videos : preVideos, message: { message: '' } }
     } catch (e) {
       console.log(e)
     }

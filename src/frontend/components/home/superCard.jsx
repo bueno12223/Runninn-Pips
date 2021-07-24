@@ -1,12 +1,15 @@
+/* eslint-disable camelcase */
 import React from 'react'
-import def from '../../assets/images/home/default.jpg'
+import { Link } from 'react-router-dom'
 import TeacherHero from './TeacherHero'
-function superCard ({ img, text, to, teacherID, num }) {
+function superCard ({ otherKey, profesor_id, duration, thumbnail, title, idx }) {
   return (
-    <article className='superCard'>
-      <TeacherHero {...{ teacherID, num, text }} />
-      <img className='superCard-img' src={img || def} alt='' />
-    </article>
+    <Link to={`/${profesor_id}/${otherKey} `}>
+      <article className='superCard'>
+        <TeacherHero {...{ profesor_id, duration, title }} />
+        <img className='superCard-img' src={thumbnail.substring(0, thumbnail.length - 6)} alt='' />
+      </article>
+    </Link>
   )
 }
 

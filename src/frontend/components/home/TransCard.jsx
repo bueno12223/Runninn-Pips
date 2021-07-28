@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React from 'react'
 import './styles/transaccionCard.scss'
-function TransCard ({ start_date, end_date, payment_type, amount, description, mb_transaccion_id, _id, status }) {
+function TransCard ({ startDate, endDate, amount, description, transaccionID, _id, status }) {
   const setStatusClass = () => {
     switch (status) {
       case 'completado':
@@ -18,9 +18,12 @@ function TransCard ({ start_date, end_date, payment_type, amount, description, m
   return (
     <div className='transaccionCard'>
       <h3 className='transaccionCard-title'>{description}</h3>
-      <p>Tipo de pago: {payment_type}</p>
-      <p>Fecha del pago: {start_date} <br /> {end_date}</p>
-      <p>Id de transacción: {mb_transaccion_id || _id}</p>
+      <p>Tipo de pago: Paypal</p>
+      <p>Fecha del pago: {startDate}</p>
+      {
+          endDate && <p>Fecha final de acceso:{endDate}</p>
+      }
+      <p>Id de transacción: {_id}</p>
       <p>cantidad: {amount} USD</p>
       <div className='transaccionCard__whitCircle'><p>Estado: {status}</p> <span className={`transaccionCard-circle ${setStatusClass()}`} /></div>
     </div>

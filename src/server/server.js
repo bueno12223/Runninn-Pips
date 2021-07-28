@@ -82,6 +82,7 @@ const setResponse = (html, preloadedState, manifest) => {
       </script>
       <script src='${mainBuild}' type="text/javascript"></script>
       <script src="${vendorBuild}" type="text/javascript"></script>
+      <script src="https://www.paypal.com/sdk/js?client-id=AfMEqJwOIsI2ScDCxgZh1CLV1zAJFMb7qUEpIGp5mVdMYl0QYjX2BWlgLvsDKqVCV1Sh7xDNIVBmfjYx&currency=USD"></script>
     </body>
   </html>
   `)
@@ -102,6 +103,8 @@ const renderApp = async (req, res) => {
     }
 
   }
+  let isLogged = false
+  let isActive = false
   const ranked = []
   const { 'connect.sid': sesionID = undefined, id = undefined } = req.cookies
   if (sesionID != undefined && id != '') {
@@ -114,7 +117,9 @@ const renderApp = async (req, res) => {
         headers: { 'Cookie': `connect.sid=${sesionID}` },
         withCredentials: true
       })
+      isLogged = true
       if (preVideos) {
+        isActive = true
         // eslint-disable-next-line prefer-const
         const profesorNames = ['OmarSosa', 'NormaQuintero', 'IsmaelOrtega', 'JulioOrtiz', 'JairPowell', 'OmarSosaFx', 'CoraliaPinzon']
         profesorNames.forEach((name) => {
@@ -136,7 +141,7 @@ const renderApp = async (req, res) => {
   const html = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={{}}>
-        {renderRoutes(serverRoutes())}
+        {renderRoutes(serverRoutes(isLogged, isActive))}
       </StaticRouter>
     </Provider>
   )

@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import Table from '../components/cart/table'
 import Plans from '../components/layout/plans'
 import { useSelector } from 'react-redux'
-import Skrill from '../components/cart/skrill'
+import DisplayMesage from '../components/global/displayMessage'
+import Paypal from '../components/cart/paypal'
 import './styles/pagos.scss'
 function pagos () {
   const [totalCharges, setTotal] = useState(140.00)
+  const [checkout, setCheckOut] = useState(false)
   const isLogged = !!(useSelector(state => state.user))
   return (
     <>
@@ -15,9 +17,15 @@ function pagos () {
       <section className='pagos-container mt'>
         <Table totalCharges={totalCharges} />
         {
-            isLogged &&
-            (<Skrill totalCharges={totalCharges} />)
-        }
+        checkout
+          ? <button
+              onClick={() => {
+                setCheckOut(true)
+              }}
+            />
+          : <Paypal amount={totalCharges} />
+}
+        <DisplayMesage />
       </section>
     </>
   )

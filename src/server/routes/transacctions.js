@@ -14,6 +14,7 @@ const transacctions = (app) => {
     }
   })
   app.post('/payments', async (req, res) => {
+    console.log(req.body, 2)
     try {
       await axios({
         method: 'POST',

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import TransCard from '../components/home/TransCard'
-function transacciones ({ transactions }) {
+function transacciones ({ transactions = [] }) {
   if (transactions === []) {
     return <h1 className='title'>Aun no hay transacciones registradas en tu cuenta</h1>
   }
@@ -18,6 +18,6 @@ function transacciones ({ transactions }) {
   )
 }
 const mapStateToProps = (state) => ({
-  transactions: state.user.transactions
+  transactions: state.user ? state.user.transactions : []
 })
 export default connect(mapStateToProps, null)(transacciones)

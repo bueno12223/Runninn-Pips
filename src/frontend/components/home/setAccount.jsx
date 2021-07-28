@@ -1,10 +1,11 @@
 import React from 'react'
 import useForm from '../../hooks/useForm'
 import DisplayMessage from '../global/displayMessage'
+import { messageHandler } from '../../actions'
 import { connect, useSelector } from 'react-redux'
 import './styles/setAccount.scss'
 function setAccount ({ setStudentAccont, messageHandler }) {
-  const { email, userID, userName } = useSelector(state => state.user)
+  const { email, userID, userName, telegram } = useSelector(state => state.user)
   const [value, onChange] = useForm({
     email: '',
     userID,
@@ -39,13 +40,19 @@ function setAccount ({ setStudentAccont, messageHandler }) {
         <input className='setAccount-formInput' type='password' name='password2' onChange={(e) => onChange(e)} placeholder='repite la nueva contraseña' />
         <p className='text'>Para poder entrar al canal de telegram escribe tu id de telegram, si no sabes cual es dale click <a href='https://msng.link/o/?userinfobot=tg'>aquí</a> y escribe /start, escribe tu id tal cual como te la dieron</p>
         <input className='setAccount-formInput' type='text' name='telegramID' onChange={(e) => onChange(e)} placeholder='id de telegram' />
-        <DisplayMessage />
         <input className='setAccount-formInput__submit' type='submit' value='Enviar' />
+        <DisplayMessage />
       </form>
+      {
+          telegram.telegramInUse && <p className='text'>Haz click <a href={telegram.telegramLink}>aquí</a> para entrar al grupo de señales</p>
+      }
     </section>
   )
 }
 const mapStateToProps = state => ({
   message: state.message
 })
-export default connect(mapStateToProps, null)(setAccount)
+const mapDispatchToProps = {
+  messageHandler
+}
+export default connect(mapStateToProps, mapDispatchToProps)(setAccount)

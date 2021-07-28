@@ -1,16 +1,20 @@
 /* eslint-disable eqeqeq */
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import hello from '../assets/icons/layout/login.svg'
+import Loader from '../components/global/loader'
 import { singup, messageHandler } from '../actions'
 import DisplayMesage from '../components/global/displayMessage'
 import useForm from '../hooks/useForm'
+import useValidateForm from '../hooks/useValidateForm'
 import { connect } from 'react-redux'
 import './styles/login.scss'
 function registro ({ singup, messageHandler, location }) {
   // obtenemos el query con el upline
   const query = new URLSearchParams(location.search)
   const upline = query.get('upline')
+  const [loading, setLoading] = useState(false)
+  const validate = useValidateForm()
   const [form, setForm] = useForm({
     email: '',
     userName: '',
@@ -20,34 +24,23 @@ function registro ({ singup, messageHandler, location }) {
     upline
   })
   const history = useHistory()
-  const haveAUpercase = (texto) => {
-    const letrasMayusculas = 'ABCDEFGHYJKLMNÑOPQRSTUVWXYZ'
-    for (let i = 0; i < texto.length; i++) {
-      if (letrasMayusculas.indexOf(texto.charAt(i), 0) != -1) {
-        return true
-      }
-    }
-    return false
-  }
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (form.password !== form.password2) {
       return messageHandler({ message: 'las contraseñas no son iguales', success: false })
     }
-    if (form.password.length < 8) {
-      return messageHandler({ message: 'la contraseña debe tener minimo 8 carácteres', success: false })
-    }
-    if (haveAUpercase(form.userID)) {
-      return messageHandler({ message: 'el nombre de usuario no puede tener mayúsculas', success: false })
-    }
+    setLoading(true)
+    validate(form)
     await singup(form, history)
+    setLoading(false)
   }
   return (
     <section className='login-container'>
       <article className='login'>
         <h2 className='login-title'>Bienvenido!!, por favor llena los siguientes datos</h2>
+        <p className='text' style={{ fontSize: 11 + 'px', lineHeight: 16 + 'px' }}>El mismo correo con el que se registra recibirá los pagos de referidos y hará los pagos con Paypal</p>
         <DisplayMesage />
-        <form className='login-form login-form__register' onSubmit={e => handleSubmit(e)}>
+        <form className='login-form login-form__register'>
           <input onChange={setForm} className='login-form__input' type='email' name='email' placeholder='Email' required />
           <input onChange={setForm} className='login-form__input' type='text' name='userID' placeholder='Nombre de usuario' required />
           <input onChange={setForm} className='login-form__input' type='text' name='userName' placeholder='Nombre y apellido' required />
@@ -55,9 +48,9 @@ function registro ({ singup, messageHandler, location }) {
           <input onChange={setForm} className='login-form__input' type='password' name='password2' placeholder='repite la contraseña' required />
           <div className='login-form__check'>
             <input type='checkbox' name='checkbox' className='login-form__check' id='checkbox' required />
-            <p className='text'>Aceto los términos y condiciones</p>
+            <p className='text' style={{ textAlign: 'left' }}>Aceto los términos y condiciones</p>
           </div>
-          <input className='login-form__button' type='Submit' value='Enviar' />
+          <button className='login-form__button' type='button' onClick={e => handleSubmit(e)}>{loading ? (<Loader color='#FFF' width={40} height={40} />) : 'Registrarse'}</button>
           <Link to='/login' className='login-form__button-white'>Iniciar Sesión</Link>
         </form>
       </article>

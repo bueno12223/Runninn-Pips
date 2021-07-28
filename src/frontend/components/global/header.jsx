@@ -8,11 +8,11 @@ import { logOutUser } from '../../actions'
 import { connect } from 'react-redux'
 function header ({ user, logOutUser }) {
   const [display, setDisplay] = useState(false)
+  const history = useHistory()
   const handleOnClick = () => {
     setDisplay(!display)
     logOutUser(history)
   }
-  const history = useHistory()
   return (
     <header className='lheader'>
       <Link to='/'>

@@ -28,7 +28,7 @@ const App = () => {
           <Route exact path='/referidos' component={isLogged ? Referidos : Login} />
           <Route exact path='/home' component={isLogged && isActive ? Home : Pagos} />
           <Route exact path='/:teacher/:id' render={(props) => isLogged && isActive ? <Reproductor {...props} /> : <Login />} />
-          <Route exact path='/educador/:teacher' component={(props) => isLogged && isActive ? <Teacher {...props} /> : <Login />} />
+          <Route exact path='/home/educador/:teacher' component={(props) => isLogged && isActive ? <Teacher {...props} /> : <Login />} />
           <Route exact path='/pagos' component={() => <Pagos />} />
           <Route exact path='/cuenta' component={isLogged ? Cuenta : Login} />
           <Route exact path='/politicas' component={Policy} />

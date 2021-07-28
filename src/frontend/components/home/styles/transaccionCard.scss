@@ -1,9 +1,11 @@
 @import '../../../assets/styles/roots'; 
 .transaccionCard {
     padding: 20px;
-    border: 2px solid $grey;
-    border-radius: 10px;
     font-size: 1.5em;
+    border-bottom: 1px solid;
+    &:hover {
+        background-color: $grey;
+    }
     &-list {
         display: flex;
         flex-direction: column;

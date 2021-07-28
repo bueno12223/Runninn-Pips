@@ -6,15 +6,36 @@ export const loginStudent = (payload, redirectFunc) => async (dispatch) => {
     const { data: { user, videos } } = await axios.post('/student/login', payload)
     const date = new Date(Date.now() + 86400e3)
     document.cookie = `id=${user._id};expires=${date}; secure`
+    const ranked = []
+    const final = {
+      OmarSosa: [],
+      NormaQuintero: [],
+      IsmaelOrtega: [],
+      JulioOrtiz: [],
+      JairPowell: [],
+      OmarSosaFx: [],
+      CoraliaPinzon: []
+    }
+    if (videos) {
+      const profesorNames = ['OmarSosa', 'NormaQuintero', 'IsmaelOrtega', 'JulioOrtiz', 'JairPowell', 'OmarSosaFx', 'CoraliaPinzon']
+      profesorNames.forEach((name) => {
+        // eslint-disable-next-line camelcase
+        const result = videos.filter(({ profesor_id }) => profesor_id === name)
+        ranked.push(result[0])
+        final[name] = result.sort((a, b) => {
+          return a.order - b.order
+        })
+      })
+    }
     dispatch(registerData({ data: user, name: 'user' }))
-    dispatch(registerData({ data: videos, name: 'videos' }))
+    dispatch(registerData({ data: videos ? final : videos, name: 'videos' }))
+    dispatch(registerData({ data: ranked, name: 'ranked' }))
     redirectFunc.push('/home')
   } catch (e) {
-    if (e.response.status === 401) {
-      return dispatch(messageHandler({ message: 'Usuario o contraseña incorrecta', success: false }))
+    if (e.response.status !== 401) {
+      return dispatch(messageHandler({ message: 'Error del servidor, intente mas tarde', success: false }))
     }
-    console.error(e)
-    return dispatch(messageHandler({ message: 'Error del servidor, intenta mas tarde', success: false }))
+    return dispatch(messageHandler({ message: 'Usuario o contraseña incorrecta', success: false }))
   }
 }
 
@@ -79,5 +100,5 @@ export const logOutUser = (redirectFunc) => async (dispatch) => {
   document.cookie = 'connect.sid='
   dispatch(registerData({ data: null, name: 'videos' }))
   dispatch(registerData({ data: null, name: 'user' }))
-  redirectFunc('/login')
+  redirectFunc.push('/login')
 }

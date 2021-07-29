@@ -35,3 +35,32 @@
     }
 
 }
+// no deberia ir aqui pero weno ya esta :)
+.transaccionValidate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 15px;
+    &-button {
+        @extend %ligth-button;
+        width: 100%
+    }
+    &-input {
+        @extend %input;
+        width: 100%; 
+    }
+    
+}
+@media only screen and (min-width: 536px) {
+    .transaccionValidate {
+        &-button {
+            width: 40%;
+        }
+        &-input {
+            width: 50%;
+        }
+    }
+}

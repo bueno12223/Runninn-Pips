@@ -203,7 +203,7 @@ function policy () {
 
         Pagos
 
-        Acepta pagar las tarifas del curso que compra, y nos autoriza a cargar el importe de dichas tarifas en su tarjeta de crédito, o bien a procesarlo mediante cualquier otra forma de pago que www.Runningtrader.com coloque a disposición, adicional www.Runningtrader.com cuenta con  el metodo de pago por Skrill.
+        Acepta pagar las tarifas del curso que compra, y nos autoriza a cargar el importe de dichas tarifas en su tarjeta de crédito, o bien a procesarlo mediante cualquier otra forma de pago que www.Runningtrader.com coloque a disposición, adicional www.Runningtrader.com cuenta con  el metodo de pago por Paypal.
 
         Cuando realiza una compra, acepta que no debe utilizar un método de pago no válido o no autorizado. Si se produce un error con su método de pago, pero aún así obtiene acceso al curso en el que se ha inscrito, acepta pagarnos las tarifas correspondientes en el plazo de cinco (05) días a partir de la recepción de nuestra notificación.
 
@@ -213,7 +213,7 @@ function policy () {
 
         Todo usuario de la plataforma www.runningtrader.com poseerá un link de referidos único y exclusivo.
 
-        Los pagos por referidos se realizarán una vez la plataforma haya comprobado el pago del presentado (Referido) y se contará de cinco (5) a siete (7) días hábiles para realizar el pago de la comisión al presentante (Usted) por medio de la plataforma de pagos de skrill u otra forma de pago que www.runningtrader.com habilite. El pago por referidos se realizará sólo si el presentante está activo con los servicios de la plataforma de www.runningtrader.com al momento de que un presentado (referido) realice el pago por curso con el link de referido del presentante.
+        Los pagos por referidos se realizarán una vez la plataforma haya comprobado el pago del presentado (Referido) y se contará de cinco (5) a siete (7) días hábiles para realizar el pago de la comisión al presentante (Usted) por medio de la plataforma de pagos de Paypal u otra forma de pago que www.runningtrader.com habilite. El pago por referidos se realizará sólo si el presentante está activo con los servicios de la plataforma de www.runningtrader.com al momento de que un presentado (referido) realice el pago por curso con el link de referido del presentante.
 
         Www.runningtrader.com no se hace responsable por el mal manejo de los links para referidos, dícese con esto, no nos hacemos responsables de que su referido ( presentado) realice el pago utilizando un link de referidos incorrecto y/o incompleto.
 

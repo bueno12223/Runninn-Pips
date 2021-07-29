@@ -6,7 +6,6 @@ import Hero from '../components/home/hero'
 import './styles/reproductor.scss'
 function reproductor (props) {
   const { id, teacher } = props.match.params
-  console.log(id)
   const location = useLocation()
   const search = useSelector(state => state.search)
   const [video, setVideo] = useState({})
@@ -39,7 +38,7 @@ function reproductor (props) {
           </section>
           <h4 className='title'>Mas de este educador</h4>
           <SuperCardRail cardData={videos} />
-          </>}
+        </>}
     </>
   )
 }

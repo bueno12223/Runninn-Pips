@@ -2,11 +2,14 @@ import axios from 'axios'
 const transacctions = (app) => {
   app.post('/transaction', async (req, res) => {
     const { userID, url, userName } = req.body
+    const { 'connect.sid': sesionID = undefined } = req.cookies
     try {
       const result = await axios({
         method: 'POST',
         data: { userID, url, userName },
-        url: `${process.env.API_URL}/transaction`
+        url: `${process.env.API_URL}/transaction`,
+        headers: { Cookie: `connect.sid=${sesionID}` },
+        withCredentials: true
       })
       res.status(201).json({ data: result.data.result })
     } catch (e) {
@@ -14,7 +17,6 @@ const transacctions = (app) => {
     }
   })
   app.post('/payments', async (req, res) => {
-    console.log(req.body, 2)
     try {
       await axios({
         method: 'POST',

@@ -26,6 +26,7 @@ const transacctions = (app) => {
       res.sendStatus(200)
     } catch (e) {
       console.error(e)
+      res.sendStatus(400)
     }
   })
   app.post('/message', async (req, res) => {

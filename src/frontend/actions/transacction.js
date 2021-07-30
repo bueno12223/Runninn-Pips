@@ -2,9 +2,6 @@ import axios from 'axios'
 import { messageHandler } from './states'
 
 export const validatePayment = (payload, redirectUrl) => async (dispatch) => {
-  if (!payload.id) {
-    return dispatch(messageHandler({ message: 'Transaccion no encontrada', success: false }))
-  }
   try {
     await axios({
       method: 'post',

@@ -22,13 +22,16 @@ function PayPalBtn (props) {
             ]
           })
         },
+        onShippingChange: function (data, actions) {
+          return actions.resolve()
+        },
         onApprove: async (data, actions) => {
           const order = await actions.order.capture()
           await props.validatePayment({ id: order.id })
-          props.messageHandler({ message: 'Pago realizado correctamente, vuelva a iniciar sesión', success: true })
+          props.messageHandler({ message: 'Pago realizado correctamente,espeta un par de minutos y vuelva a iniciar sesión', success: true })
           setTimeout(() => {
             logOutUser(history)
-          }, 2000)
+          }, 3000)
         },
         onError: (err) => {
           console.error(err)

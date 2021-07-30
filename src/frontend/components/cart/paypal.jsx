@@ -6,8 +6,9 @@ function PayPalBtn (props) {
   return (
     <PayPalButton
       amount={props.amount}
+      shippingPreference='NO_SHIPPING'
       onSuccess={async (details, data) => {
-        window.alert('Transaction completed by ' + details.payer.name.given_name)
+        console.log(data.orderID)
         await props.validatePayment({ id: data.orderID })
         props.messageHandler({ message: 'Transaccion realizada correctamente', success: true })
         return window.fetch('/paypal-transaction-complete', {
@@ -18,7 +19,7 @@ function PayPalBtn (props) {
         })
       }}
       options={{
-        clientId: 'AfMEqJwOIsI2ScDCxgZh1CLV1zAJFMb7qUEpIGp5mVdMYl0QYjX2BWlgLvsDKqVCV1Sh7xDNIVBmfjYx'
+        clientId: 'AfRa9d0sXTSuHnmKXtBoFkpPEBnLVMh4CnquL6Rh6KFqLQg3ulClV96Ruyi8bTkPwmB0QZCmnnH9Cy2l'
       }}
       onError={(err) => {
         console.error(err)

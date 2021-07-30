@@ -82,7 +82,6 @@ const setResponse = (html, preloadedState, manifest) => {
       </script>
       <script src='${mainBuild}' type="text/javascript"></script>
       <script src="${vendorBuild}" type="text/javascript"></script>
-      <script src="https://www.paypal.com/sdk/js?client-id=AfMEqJwOIsI2ScDCxgZh1CLV1zAJFMb7qUEpIGp5mVdMYl0QYjX2BWlgLvsDKqVCV1Sh7xDNIVBmfjYx&currency=USD"></script>
     </body>
   </html>
   `)

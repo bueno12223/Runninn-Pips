@@ -27,7 +27,7 @@ function PayPalBtn (props) {
         },
         onApprove: async (data, actions) => {
           const order = await actions.order.capture()
-          await props.validatePayment({ id: order.id })
+          window.alert(order.id)
           props.messageHandler({ message: 'Pago realizado correctamente,espeta un par de minutos y vuelva a iniciar sesión', success: true })
           setTimeout(() => {
             logOutUser(history)

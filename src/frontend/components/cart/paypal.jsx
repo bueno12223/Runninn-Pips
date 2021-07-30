@@ -16,7 +16,7 @@ function PayPalBtn (props) {
                 description: `Accesso a la plataforma de Running Trader con el plan de ${props.amount}`,
                 amount: {
                   currency_code: 'USD',
-                  value: props.amount
+                  value: 1.00
                 }
               }
             ]

@@ -8,6 +8,7 @@
         margin: 20px auto;
         max-width: 962px;
         padding: 0 10px;
+        padding-bottom: 15px;
         &Item {
             cursor: pointer;
             border:  2px solid $red;
@@ -25,4 +26,18 @@
             width: 100%;
         }
     }
+}
+/* scroll */
+.educador-list::-webkit-scrollbar{
+    width: 10px;
+    background-color: transparent;
+    border-radius: 10px;
+}
+.educador-list::-webkit-scrollbar-track{
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+.educador-list::-webkit-scrollbar-thumb{ 
+    background-color: $grey;
+    border-radius: 10px;
 }

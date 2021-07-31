@@ -1,19 +1,24 @@
 import React from 'react'
 import Hero from '../components/home/hero'
 import EducatorList from '../components/home/EducatorList'
-import SelectedTeacher from '../components/home/selectedTeacher'
 import SuperCardRail from '../components/home/superCardRail'
+import Calendario from '../components/home/calendario'
 import { connect, useSelector } from 'react-redux'
 function teacher (props) {
   const { teacher } = props.match.params
-  const search = useSelector(state => state.search)
+  const { search, videos } = useSelector(state => state)
   return (
     <>
       <Hero />
-      <EducatorList teacher={teacher} />
+      <EducatorList teacherID={teacher} />
       {search
         ? <SuperCardRail cardData={search.length ? search : 'error'} />
-        : <SelectedTeacher teacherID={teacher} />}
+        : (
+          <>
+            <Calendario teacherID={teacher} />
+            <SuperCardRail cardData={videos[teacher]} />
+          </>
+          )}
 
     </>
   )

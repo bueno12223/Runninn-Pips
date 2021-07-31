@@ -10,7 +10,6 @@ const useForm = (initial) => {
       [e.target.name]: validation ? e.target.value.trim() : e.target.value
     })
     validate(value)
-    console.log(value)
   }
 
   return [

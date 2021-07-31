@@ -13,6 +13,7 @@ import reducer from '../frontend/reducers/index'
 import serverRoutes from '../frontend/routes/serverRoutes'
 import videos from './routes/videos'
 import getManifest from './getManifest'
+import resetPassword from './routes/resetPassword'
 import studentRoutes from './routes/student'
 import transacctions from './routes/transacctions'
 import cookieParser from 'cookie-parser'
@@ -150,6 +151,7 @@ const renderApp = async (req, res) => {
 app.set('x-powered-by', false)
 studentRoutes(app)
 transacctions(app)
+resetPassword(app)
 videos(app)
 app.get('*', renderApp)
 

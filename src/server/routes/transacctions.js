@@ -55,5 +55,18 @@ const transacctions = (app) => {
     }
     return res.sendStatus(204)
   })
+  app.post('/resetpassword', async (req, res) => {
+    try {
+      await axios({
+        method: 'POST',
+        url: `${process.env.API_URL}/resetpassword`,
+        data: req.body
+      })
+      res.sendStatus(200)
+    } catch (e) {
+      console.error(e)
+      return res.sendStatus(400)
+    }
+  })
 }
 export default transacctions

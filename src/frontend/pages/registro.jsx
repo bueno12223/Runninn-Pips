@@ -42,7 +42,7 @@ function registro ({ singup, messageHandler, location }) {
         <DisplayMesage />
         <form className='login-form login-form__register'>
           <input onChange={setForm} className='login-form__input' type='email' name='email' placeholder='Email' required />
-          <input onChange={setForm} className='login-form__input' type='text' name='userID' placeholder='Nombre de usuario' required />
+          <input onChange={setForm} className='login-form__input' type='text' name='userID' placeholder='ID de usuario' required />
           <input onChange={setForm} className='login-form__input' type='text' name='userName' placeholder='Nombre y apellido' required />
           <input onChange={setForm} className='login-form__input' type='password' name='password' placeholder='Contraseña' required />
           <input onChange={setForm} className='login-form__input' type='password' name='password2' placeholder='repite la contraseña' required />

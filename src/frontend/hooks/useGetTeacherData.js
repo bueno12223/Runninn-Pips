@@ -5,6 +5,9 @@ import IsmaelImg from '../assets/images/home/ismael.jpg'
 import JulioImg from '../assets/images/home/julio.jpg'
 import JairImg from '../assets/images/home/jair.jpg'
 import CoraliaImg from '../assets/images/home/coralia.jpg'
+import esterImg from '../assets/images/home/ester.jpg'
+import ruthImg from '../assets/images/home/ruth.jpg'
+
 const useGetTeacherData = (teacherID) => {
   const teacherData = [
     { img: omarPhoto, name: 'OmarSosa', desc: 'Trader institucional (avanzado)' },
@@ -13,7 +16,9 @@ const useGetTeacherData = (teacherID) => {
     { img: JulioImg, name: 'JulioOrtiz', desc: 'Trading de criptomonedas' },
     { img: JairImg, name: 'JairPowell', desc: 'Trader institucional (intermedio)' },
     { img: omarjrPhoto, name: 'OmarSosaFx', desc: 'Trader institucional' },
-    { img: CoraliaImg, name: 'CoraliaPinzon', desc: 'Referidos' }
+    { img: CoraliaImg, name: 'CoraliaPinzon', desc: 'Referidos' },
+    { img: esterImg, name: 'EsterMoonetti', desc: 'Educatrie di trading' },
+    { img: ruthImg, name: 'RuthYessenia', desc: 'Presentazione Runnintrader italiano' }
   ]
   switch (teacherID) {
     case 'OmarSosa':
@@ -30,6 +35,10 @@ const useGetTeacherData = (teacherID) => {
       return teacherData[5]
     case 'CoraliaPinzon':
       return teacherData[6]
+    case 'EsterMoon':
+      return teacherData[7]
+    case 'RuthYessenia':
+      return teacherData[8]
 
     default:
       return teacherData

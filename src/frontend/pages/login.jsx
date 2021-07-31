@@ -28,7 +28,7 @@ function login ({ loginStudent }) {
         <form className='login-form'>
           <input onChange={setForm} className='login-form__input' type='text' name='userID' placeholder='Usuario o email' autoComplete='userName' required />
           <input onChange={setForm} className='login-form__input' suggested='current-password' type='password' autoComplete='current-password' name='password' placeholder='Contraseña' required />
-          <Link className='login-form__text' to='/login'>¿Olvidaste tu contraseña?</Link>
+          <Link className='login-form__text' to='/recuperar'>¿Olvidaste tu contraseña?</Link>
           <Link className='login-form__text login-form__text-left' to='/login'>Recuerdame</Link>
           <button className='login-form__button' type='button' onClick={handleSubmit}>{loading ? (<Loader color='#FFF' width={40} height={40} />) : 'Entrar'}</button>
           <Link to='/registro' className='login-form__button-white'>Registrarme</Link>

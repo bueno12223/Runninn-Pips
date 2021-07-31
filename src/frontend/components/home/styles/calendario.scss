@@ -1,0 +1,34 @@
+@import '../../../assets/styles/roots';
+.calendario{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr 2fr;
+    justify-items: center;
+    width: 80%;
+    margin: 30px auto;
+    gap: 10px;
+    overflow-x: auto;
+    max-width: 856px;
+    &-text {
+        @extend %text;
+        grid-column: 1 span;
+        min-width: 1fr;
+        width: 78px;
+        text-align: center;
+    }
+    &Info-text {
+        border: 2px solid $grey;
+        border-radius: 10px;
+        width: 100%;
+        height: 69px;
+        min-width: 100px;
+        font-weight: bold;
+        font-size: 2em;
+        &__active {
+            text-align: center;
+            font-size: 1.5em;
+            padding-top: 21px;
+            background-color: $grey;
+        }
+    }
+}

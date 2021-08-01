@@ -40,7 +40,7 @@ function login ({ loginStudent }) {
           <button className='login-form__button' type='button' onClick={handleSubmit}>{loading ? (<Loader color='#FFF' width={40} height={40} />) : 'Entrar'}</button>
           <Link to='/registro' className='login-form__button-white'>Registrarme</Link>
         </form>
-        <Reaptcha explicit ref={capchat} sitekey='6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' onVerify={onVerify} onLoad={() => setLoad(true)} />
+        <Reaptcha explicit ref={capchat} sitekey='6Ld-Z9EbAAAAAB4vB5ocoJRFCQC-3JyYHKxOm21X' onVerify={onVerify} onLoad={() => setLoad(true)} />
       </article>
       <article className='login__left'>
         <img src={hello} className='login__left-img' alt='imagen de saludo' />

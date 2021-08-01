@@ -10,7 +10,6 @@ const useReaptcha = (capchat) => {
     dispatch({ type: 'MESSAGE_HANDLER', payload })
   }
   useEffect(() => {
-    console.log(failLogin >= 5, onLoad)
     setVerify(failLogin <= 5)
     failLogin >= 5 && onLoad && capchat.current.renderExplicitly()
   }, [onLoad, failLogin])

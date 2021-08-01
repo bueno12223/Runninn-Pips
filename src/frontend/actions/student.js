@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { messageHandler, registerData } from './states'
 // inicar sesion
-export const loginStudent = (payload, redirectFunc) => async (dispatch) => {
+export const loginStudent = (payload, redirectFunc, onFail) => async (dispatch) => {
   try {
     const { data: { user, videos } } = await axios.post('/student/login', payload)
     const date = new Date(Date.now() + 86400e3)
@@ -30,20 +30,23 @@ export const loginStudent = (payload, redirectFunc) => async (dispatch) => {
     dispatch(registerData({ data: user, name: 'user' }))
     dispatch(registerData({ data: videos ? final : videos, name: 'videos' }))
     dispatch(registerData({ data: ranked, name: 'ranked' }))
+    window.localStorage.removeItem('recaptcha')
     redirectFunc.push('/home')
   } catch (e) {
     if (e.response.status !== 401) {
       return dispatch(messageHandler({ message: 'Error del servidor, intente mas tarde', success: false }))
     }
+    onFail()
     return dispatch(messageHandler({ message: 'Usuario o contraseña incorrecta', success: false }))
   }
 }
 
 // registrarse
-export const singup = (payload, redirectFunc) => async (dispatch) => {
+export const singup = (payload, redirectFunc, onFail) => async (dispatch) => {
   try {
     const result = await axios.post('/student/register', payload)
     dispatch(messageHandler(result.data))
+    window.localStorage.removeItem('recaptcha')
     setTimeout(() => {
       redirectFunc.push('/login')
     }
@@ -52,6 +55,7 @@ export const singup = (payload, redirectFunc) => async (dispatch) => {
     console.log(e)
     if (e.response.status === 400) {
       const keys = Object.keys(e.response.data.key)
+      onFail()
       if (keys[0] === 'userID') {
         return dispatch(messageHandler({ message: 'Ya existe una cuenta con este usuario', success: false }))
       } else if (keys[0] === 'email') {

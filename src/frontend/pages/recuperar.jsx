@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import hello from '../assets/icons/layout/login.svg'
 import Loader from '../components/global/loader'
-import { resetPassword, validatePassword, messageHandler } from '../actions'
+import { resetPassword, validatePassword } from '../actions'
 import { connect } from 'react-redux'
 import DisplayMesage from '../components/global/displayMessage'
 import useForm from '../hooks/useForm'
+import useReaptcha from '../hooks/useReaptcha'
+import Reaptcha from 'reaptcha'
 import './styles/login.scss'
 
-function login ({ resetPassword, validatePassword, messageHandler }) {
+function login ({ resetPassword, validatePassword }) {
   const search = useLocation().search
   const token = new URLSearchParams(search).get('token')
   const [form, setForm] = useForm({
@@ -17,8 +19,13 @@ function login ({ resetPassword, validatePassword, messageHandler }) {
     password2: '',
     token
   })
+  const capchat = useRef(null)
+  const { verify, onFail, setLoad, onVerify, messageHandler } = useReaptcha(capchat)
   const [loading, setLoading] = useState(false)
   const handleSubmit = async (e) => {
+    if (!verify) {
+      return messageHandler({ message: 'recaptcha inválido, intentalo denuevo', success: false })
+    }
     setLoading(true)
     e.preventDefault()
     if (token) {
@@ -27,7 +34,7 @@ function login ({ resetPassword, validatePassword, messageHandler }) {
       }
       await validatePassword(form)
     } else {
-      await resetPassword(form)
+      await resetPassword(form, onFail)
     }
     setLoading(false)
   }
@@ -51,6 +58,7 @@ function login ({ resetPassword, validatePassword, messageHandler }) {
           <button className='login-form__button' type='button' onClick={handleSubmit}>{loading ? (<Loader color='#FFF' width={40} height={40} />) : 'Enviar'}</button>
           <Link to='/login' className='login-form__button-white'>Regresar</Link>
         </form>
+        <Reaptcha explicit ref={capchat} sitekey='6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' onVerify={onVerify} onLoad={() => setLoad(true)} />
       </article>
       <article className='login__left'>
         <img src={hello} className='login__left-img' alt='imagen de saludo' />
@@ -60,7 +68,6 @@ function login ({ resetPassword, validatePassword, messageHandler }) {
 }
 const mapDistpachToProps = {
   resetPassword,
-  validatePassword,
-  messageHandler
+  validatePassword
 }
 export default connect(null, mapDistpachToProps)(login)

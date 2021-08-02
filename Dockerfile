@@ -8,8 +8,6 @@ ENV ENV production
 
 ENV PORT 3000
 
-ENV API_URL https://api.runningtrader.com
-
 RUN npm install --only=production
 
 COPY . .

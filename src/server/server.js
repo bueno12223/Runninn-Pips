@@ -12,6 +12,7 @@ import { StaticRouter } from 'react-router-dom'
 import reducer from '../frontend/reducers/index'
 import serverRoutes from '../frontend/routes/serverRoutes'
 import videos from './routes/videos'
+import cors from 'cors'
 import getManifest from './getManifest'
 import resetPassword from './routes/resetPassword'
 import studentRoutes from './routes/student'
@@ -53,6 +54,9 @@ if (ENV === 'development') {
     console.log(data)
   })
 } else {
+  app.use(cors({
+    origin: 'http://localhost:8000'
+  }))
   app.use((req, res, next) => {
     if (!req.hashManifest) req.hashManifest = getManifest()
     next()
@@ -133,7 +137,6 @@ const renderApp = async (req, res) => {
       }
       InitalState = { ranked, user, videos: preVideos ? InitalState.videos : preVideos, message: { message: '' } }
     } catch (e) {
-      console.log(e)
     }
   }
   const store = createStore(reducer, InitalState)

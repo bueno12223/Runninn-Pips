@@ -5,7 +5,7 @@ import { messageHandler, validatePayment } from '../../actions'
 function PayPalBtn (props) {
   return (
     <PayPalButton
-      amount={1}
+      amount={props.amount}
       shippingPreference='NO_SHIPPING'
       onSuccess={async (details, data) => {
         console.log(data.orderID)

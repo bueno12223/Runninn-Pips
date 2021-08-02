@@ -27,6 +27,9 @@ function pagos () {
 }
         <DisplayMesage />
       </section>
+      <p className='text'> IMPORTANTE!!!! <br />
+        tienes que poner tu correo con el que creaste tu cuenta
+      </p>
     </>
   )
 }

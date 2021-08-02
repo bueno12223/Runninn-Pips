@@ -8,7 +8,7 @@ export const validatePayment = (payload, redirectUrl) => async (dispatch) => {
       url: '/payments',
       data: payload
     })
-    dispatch(messageHandler({ message: 'Pago realizado correctamente', success: true }))
+    dispatch(messageHandler({ message: 'Pago realizado correctamente, inicia sesión nuevamente', success: true }))
   } catch (e) {
     console.log(e)
     dispatch(messageHandler({ message: 'error del servidor, intente mas tarde', success: false }))

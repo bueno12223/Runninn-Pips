@@ -71,17 +71,17 @@ export const singup = (payload, redirectFunc, onFail) => async (dispatch) => {
 export const setStudentAccont = (payload, redirectUrl) => async (dispatch) => {
   try {
     // mandamos los datos al server
-    const { email, userID, userName, password1, newUserID, bankAccount, bankData, telegramID } = payload
+    const { email, userName, password1, userID } = payload
     const result = await axios({
       method: 'PUT',
-      data: { email, userID: newUserID, userName, password: password1, bankData, bankAccount, telegramID },
+      data: { email, userName, password: password1 },
       url: `/student/${userID}`
     })
     // enviamos un mensaje de success con la respuesta del servidor
     dispatch(messageHandler({ message: result.data.message, success: true }))
     // despues de 5s con el mensaje de success hacemos que inice sesión nuevamente
     setTimeout(() =>
-      dispatch(logOutUser()),
+      dispatch(logOutUser(redirectUrl)),
     5000
     )
   } catch (e) {

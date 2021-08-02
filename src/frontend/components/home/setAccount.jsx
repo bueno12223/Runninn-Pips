@@ -1,18 +1,20 @@
 import React from 'react'
 import useForm from '../../hooks/useForm'
 import DisplayMessage from '../global/displayMessage'
+import telegram from '../../assets/images/home/telegram.png'
+import { useHistory } from 'react-router-dom'
 import { messageHandler } from '../../actions'
 import { connect, useSelector } from 'react-redux'
 import './styles/setAccount.scss'
 function setAccount ({ setStudentAccont, messageHandler }) {
-  const { email, userID, userName, telegram } = useSelector(state => state.user)
+  const { email, userID, userName, telegram: { telegramToken } } = useSelector(state => state.user)
+  const history = useHistory()
   const [value, onChange] = useForm({
     email: '',
-    userID,
     userName: '',
+    userID,
     password1: '',
-    password2: '',
-    telegramID: ''
+    password2: ''
   })
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -24,7 +26,7 @@ function setAccount ({ setStudentAccont, messageHandler }) {
     if (value.password1.length < 8 && value.password1) {
       return messageHandler({ message: 'La contraseña debe tener minimo 8 carácteres, sin espacios', success: false })
     }
-    return setStudentAccont(value, '/login')
+    return setStudentAccont(value, history)
   }
   return (
     <section className='setAccount'>
@@ -38,14 +40,20 @@ function setAccount ({ setStudentAccont, messageHandler }) {
         <p className='text'>Actualiza tu contraseña</p>
         <input className='setAccount-formInput' type='password' name='password1' onChange={(e) => onChange(e)} placeholder='nueva contraseña' />
         <input className='setAccount-formInput' type='password' name='password2' onChange={(e) => onChange(e)} placeholder='repite la nueva contraseña' />
-        <p className='text'>Para poder entrar al canal de telegram escribe tu id de telegram, si no sabes cual es dale click <a href='https://msng.link/o/?userinfobot=tg'>aquí</a> y escribe /start, escribe tu id tal cual como te la dieron</p>
-        <input className='setAccount-formInput' type='text' name='telegramID' onChange={(e) => onChange(e)} placeholder='id de telegram' />
+
         <input className='setAccount-formInput__submit' type='submit' value='Enviar' />
         <DisplayMessage />
       </form>
       {
-          telegram.telegramInUse && <p className='text'>Haz click <a href={telegram.telegramLink}>aquí</a> para entrar al grupo de señales</p>
-      }
+            telegramToken &&
+              <>
+                <h2 className='tile'>Código de telegram : {telegramToken}</h2>
+                <h2 id='telegram' className='title' style={{ fontSize: 2 + 'em' }}>¿Cómo entrar a canal de telegram?</h2>
+                <p className='text'>Entra al bot de Running trader <a href='https://t.me/RunningTrader_bot'>aquí</a> y escribe lo siguiente <br /> [Id de usuario]{'     '}[Código] <br /> Ejemplo:<br /> demo12 9990</p>
+                <img src={telegram} alt='ejemplo de telegram' />
+                <p className='text'>Si te equivocas solo manda el mensaje nuevamente, puede tardar máximo 1h en responder</p>
+              </>
+        }
     </section>
   )
 }

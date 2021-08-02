@@ -13,6 +13,7 @@ import Policy from '../pages/policy'
 import Layout from '../components/global/layout'
 import Referidos from '../pages/referidos'
 import Recuperar from '../pages/recuperar'
+import preguntas from '../pages/preguntas'
 import Transacciones from '../pages/transacciones'
 import NotFound from '../pages/404'
 import '../assets/styles/app.scss'
@@ -34,6 +35,7 @@ const App = () => {
           <Route exact path='/cuenta' component={isLogged ? Cuenta : Login} />
           <Route exact path='/politicas' component={Policy} />
           <Route exact path='/transacciones' component={Transacciones} />
+          <Route exact path='/preguntas' component={preguntas} />
           <Route exact path='/recuperar' render={(props) => <Recuperar {...props} />} />
           <Route component={NotFound} />
         </Switch>

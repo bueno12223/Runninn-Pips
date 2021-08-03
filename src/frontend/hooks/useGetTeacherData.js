@@ -2,46 +2,32 @@ import omarPhoto from '../assets/images/home/omar.jpg'
 import omarjrPhoto from '../assets/images/home/omarjr.jpg'
 import NormaImg from '../assets/images/layout/norma.jpg'
 import IsmaelImg from '../assets/images/home/ismael.jpg'
-import JulioImg from '../assets/images/home/julio.jpg'
 import JairImg from '../assets/images/home/jair.jpg'
 import CoraliaImg from '../assets/images/home/coralia.jpg'
 import esterImg from '../assets/images/home/ester.jpg'
 import ruthImg from '../assets/images/home/ruth.jpg'
 
 const useGetTeacherData = (teacherID) => {
-  const teacherData = [
-    { img: omarPhoto, name: 'OmarSosa', desc: 'Trader institucional (avanzado)' },
-    { img: NormaImg, name: 'NormaQuintero', desc: 'Trader institucional (básico)' },
-    { img: IsmaelImg, name: 'IsmaelOrtega', desc: 'Trader institucional (intermedio)' },
-    { img: JulioImg, name: 'JulioOrtiz', desc: 'Trading de criptomonedas' },
-    { img: JairImg, name: 'JairPowell', desc: 'Trader institucional (intermedio)' },
-    { img: omarjrPhoto, name: 'OmarSosaFx', desc: 'Trader institucional' },
-    { img: CoraliaImg, name: 'CoraliaPinzon', desc: 'Referidos' },
-    { img: esterImg, name: 'EsterMoonetti', desc: 'Educatrie di trading' },
-    { img: ruthImg, name: 'RuthYessenia', desc: 'Presentazione Runnintrader italiano' }
-  ]
-  switch (teacherID) {
-    case 'OmarSosa':
-      return teacherData[0]
-    case 'NormaQuintero':
-      return teacherData[1]
-    case 'IsmaelOrtega':
-      return teacherData[2]
-    case 'JulioOrtiz':
-      return teacherData[3]
-    case 'JairPowell':
-      return teacherData[4]
-    case 'OmarSosaFx':
-      return teacherData[5]
-    case 'CoraliaPinzon':
-      return teacherData[6]
-    case 'EsterMoon':
-      return teacherData[7]
-    case 'RuthYessenia':
-      return teacherData[8]
-
-    default:
-      return teacherData
+  const teacherData = {
+    OmarSosa: { img: omarPhoto, desc: 'Trader institucional (avanzado)' },
+    NormaQuintero: { img: NormaImg, desc: 'Trader institucional (básico)' },
+    IsmaelOrtega: { img: IsmaelImg, desc: 'Trader institucional (intermedio)' },
+    JairPowell: { img: JairImg, desc: 'Trader institucional (intermedio)' },
+    OmarSosaFx: { img: omarjrPhoto, desc: 'Trader institucional' },
+    CoraliaPinzon: { img: CoraliaImg, desc: 'Presentadora de Running trader en español' },
+    EsterMoonetti: { img: esterImg, desc: 'Educatrie di trading' },
+    RuthYessenia: { img: ruthImg, desc: 'Presentazione Runnintrader italiano' }
   }
+  const arrayOfTeacher = () => {
+    const result = []
+    for (const name in teacherData) {
+      result.push({ ...teacherData[name], name })
+    }
+    return result
+  }
+  if (!teacherID) {
+    return arrayOfTeacher()
+  }
+  return { ...teacherData[teacherID], name: teacherID }
 }
 export default useGetTeacherData

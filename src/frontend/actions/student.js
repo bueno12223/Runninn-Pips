@@ -4,31 +4,29 @@ import { messageHandler, registerData } from './states'
 export const loginStudent = (payload, redirectFunc, onFail) => async (dispatch) => {
   try {
     const { data: { user, videos } } = await axios.post('/student/login', payload)
-    const date = new Date(Date.now() + 86400e3)
-    document.cookie = `id=${user._id};expires=${date}; secure`
     const ranked = []
-    const final = {
+    const teacherVideos = {
       OmarSosa: [],
       NormaQuintero: [],
       IsmaelOrtega: [],
-      JulioOrtiz: [],
       JairPowell: [],
       OmarSosaFx: [],
-      CoraliaPinzon: []
+      CoraliaPinzon: [],
+      EsterMoonetti: []
     }
     if (videos) {
-      const profesorNames = ['OmarSosa', 'NormaQuintero', 'IsmaelOrtega', 'JulioOrtiz', 'JairPowell', 'OmarSosaFx', 'CoraliaPinzon']
-      profesorNames.forEach((name) => {
+      for (const name in teacherVideos) {
         // eslint-disable-next-line camelcase
         const result = videos.filter(({ profesor_id }) => profesor_id === name)
         ranked.push(result[0])
-        final[name] = result.sort((a, b) => {
+        teacherVideos[name] = result.sort((a, b) => {
           return a.order - b.order
         })
-      })
+      }
     }
+    console.log(teacherVideos)
     dispatch(registerData({ data: user, name: 'user' }))
-    dispatch(registerData({ data: videos ? final : videos, name: 'videos' }))
+    dispatch(registerData({ data: videos ? teacherVideos : videos, name: 'videos' }))
     dispatch(registerData({ data: ranked, name: 'ranked' }))
     window.localStorage.removeItem('recaptcha')
     redirectFunc.push('/home')
@@ -100,7 +98,6 @@ export const setStudentAccont = (payload, redirectUrl) => async (dispatch) => {
 
 // cerrar sesión eleiminando las cookies
 export const logOutUser = (redirectFunc) => async (dispatch) => {
-  document.cookie = 'id='
   document.cookie = 'connect.sid='
   dispatch(registerData({ data: null, name: 'videos' }))
   dispatch(registerData({ data: null, name: 'user' }))

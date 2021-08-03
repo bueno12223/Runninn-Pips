@@ -3,7 +3,7 @@ import EducadorCard from './EducatorCard'
 import useGetTeacherData from '../../hooks/useGetTeacherData'
 import './styles/educatorList.scss'
 function EducatorList ({ teacher }) {
-  const educadors = useGetTeacherData()
+  const educadors = useGetTeacherData(null)
   return (
     <ul className='educador-list'>
       {educadors.map(({ img, name }) => (

@@ -1,7 +1,7 @@
 import React from 'react'
 import SuperCard from './superCard'
 import './styles/superCard.scss'
-function superCardRail ({ cardData, title, idx }) {
+function superCardRail ({ cardData, title = '', idx }) {
   if (cardData === 'error') {
     return (<h1 className='title'>No hemos encuentrado el video que buscabas</h1>)
   }

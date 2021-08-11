@@ -103,7 +103,6 @@ const renderApp = async (req, res) => {
       JairPowell: [],
       OmarSosaFx: [],
       CoraliaPinzon: [],
-      EsterMoonetti: [],
       RuthYessenia: []
     }
 

@@ -12,7 +12,6 @@ export const loginStudent = (payload, redirectFunc, onFail) => async (dispatch) 
       JairPowell: [],
       OmarSosaFx: [],
       CoraliaPinzon: [],
-      EsterMoonetti: [],
       RuthYessenia: []
     }
     if (videos) {

@@ -4,7 +4,6 @@ import NormaImg from '../assets/images/layout/norma.jpg'
 import IsmaelImg from '../assets/images/home/ismael.jpg'
 import JairImg from '../assets/images/home/jair.jpg'
 import CoraliaImg from '../assets/images/home/coralia.jpg'
-import esterImg from '../assets/images/home/ester.jpg'
 import ruthImg from '../assets/images/home/ruth.jpg'
 
 const useGetTeacherData = (teacherID) => {
@@ -15,7 +14,6 @@ const useGetTeacherData = (teacherID) => {
     JairPowell: { img: JairImg, desc: 'Trader institucional (intermedio)' },
     OmarSosaFx: { img: omarjrPhoto, desc: 'Trader institucional' },
     CoraliaPinzon: { img: CoraliaImg, desc: 'Presentadora de Running trader en español' },
-    EsterMoonetti: { img: esterImg, desc: 'Educatrie di trading' },
     RuthYessenia: { img: ruthImg, desc: 'Presentazione Runnintrader italiano' }
   }
   const arrayOfTeacher = () => {

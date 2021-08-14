@@ -7,8 +7,10 @@
     "dev": "nodemon src/server/index",
     "start": "node src/server/index",
     "build": "webpack-cli --config webpack.config.js",
-    "analize": "webpack --json > stats.json && webpack-bundle-analyzer stats.json",
-    "lint-fix": "standard --fix"
+    "analize": "webpack --config webpack.config.js --json > stats.json && webpack-bundle-analyzer stats.json",
+    "lint-fix": "standard --fix",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,7 @@
     "@babel/preset-react": "^7.13.13",
     "@babel/register": "^7.13.16",
     "@babel/runtime": "^7.14.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "asset-require-hook": "^1.2.0",
     "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
@@ -52,7 +55,12 @@
     "webpack-manifest-plugin": "^3.1.1"
   },
   "devDependencies": {
+    "babel-jest": "^27.0.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
     "figlet": "^1.5.0",
+    "jest": "^27.0.6",
+    "jest-svg-transformer": "^1.0.0",
     "nodemon": "^2.0.7",
     "standard": "^16.0.3",
     "url-loader": "^4.1.1",

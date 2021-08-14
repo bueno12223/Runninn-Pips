@@ -105,7 +105,6 @@ const renderApp = async (req, res) => {
       CoraliaPinzon: [],
       RuthYessenia: []
     }
-
   }
   let isLogged = false
   let isActive = false

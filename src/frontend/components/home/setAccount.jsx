@@ -1,7 +1,7 @@
 import React from 'react'
 import useForm from '../../hooks/useForm'
 import DisplayMessage from '../global/displayMessage'
-import telegram from '../../assets/images/home/telegram.png'
+import telegram from '../../assets/images/home/telegram.jpg'
 import { useHistory } from 'react-router-dom'
 import { messageHandler } from '../../actions'
 import { connect, useSelector } from 'react-redux'
@@ -49,9 +49,9 @@ function setAccount ({ setStudentAccont, messageHandler }) {
               <>
                 <h2 className='tile'>Código de telegram : {telegramToken}</h2>
                 <h2 id='telegram' className='title' style={{ fontSize: 2 + 'em' }}>¿Cómo entrar a canal de telegram?</h2>
-                <p className='text'>Entra al bot de Running trader <a href='https://t.me/RunningTrader_bot'>aquí</a> y escribe lo siguiente <br /> [Id de usuario]{'     '}[Código] <br /> Ejemplo:<br /> demo12 9990</p>
+                <p className='text'>Entra al bot de Running trader <a href='https://t.me/RunningTrader_bot'>aquí</a> y escribe lo siguiente <br /> /unirme [Id de usuario]{'     '}[Código] <br /> Ejemplo:<br /> demo12 3430</p>
                 <img src={telegram} alt='ejemplo de telegram' />
-                <p className='text'>Si te equivocas solo manda el mensaje nuevamente, puede tardar máximo 1h en responder</p>
+                <p className='text'>Si te equivocas solo manda el mensaje nuevamente</p>
               </>
         }
     </section>

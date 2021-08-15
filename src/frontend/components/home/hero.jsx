@@ -1,6 +1,5 @@
 import React from 'react'
 import Search from '../../assets/icons/search.svg'
-import { searchVideo } from '../../actions'
 import './styles/hero.scss'
 import { Link } from 'react-router-dom'
 import UserIcon from '../../assets/icons/home/user.js'
@@ -25,10 +24,8 @@ function hero () {
   const handleChange = (e) => {
     if (!e.target.value) {
       result = null
-      console.log('hey')
       return dispatch({ type: 'REGISTER_DATA', payload: { data: result, name: 'search' } })
     }
-    return searchVideo(e)
   }
   return (
     <article className='hero'>

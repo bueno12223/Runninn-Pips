@@ -11,7 +11,7 @@ import { renderRoutes } from 'react-router-config'
 import { StaticRouter } from 'react-router-dom'
 import reducer from '../frontend/reducers/index'
 import serverRoutes from '../frontend/routes/serverRoutes'
-import videos from './routes/videos'
+
 import cors from 'cors'
 import getManifest from './getManifest'
 import resetPassword from './routes/resetPassword'
@@ -103,6 +103,7 @@ const renderApp = async (req, res) => {
       JairPowell: [],
       OmarSosaFx: [],
       CoraliaPinzon: [],
+      EsterMoonetti: [],
       RuthYessenia: []
     }
   }
@@ -152,7 +153,6 @@ app.set('x-powered-by', false)
 studentRoutes(app)
 transacctions(app)
 resetPassword(app)
-videos(app)
 app.get('*', renderApp)
 
 app.listen(PORT, (err) => {

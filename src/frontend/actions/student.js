@@ -13,7 +13,8 @@ export const loginStudent = (payload, redirectFunc, onFail) => async (dispatch) 
       OmarSosaFx: [],
       CoraliaPinzon: [],
       EsterMoonetti: [],
-      RuthYessenia: []
+      RuthYessenia: [],
+      OmarSosaCursos: []
     }
     if (videos) {
       for (const name in teacherVideos) {

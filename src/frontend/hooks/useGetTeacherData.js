@@ -14,8 +14,9 @@ const useGetTeacherData = (teacherID) => {
     JairPowell: { img: JairImg, desc: 'Trader institucional (intermedio)' },
     OmarSosaFx: { img: omarjrPhoto, desc: 'Trader institucional' },
     CoraliaPinzon: { img: CoraliaImg, desc: 'Presentadora de Running trader en español' },
-    EsterMoonetti: { img: esterImg, desc: 'Educatrie di trading' },
-    RuthYessenia: { img: ruthImg, desc: 'Presentazione Runnintrader italiano' }
+    EsterMoonetti: { img: esterImg, desc: 'Educatrice di trading' },
+    RuthYessenia: { img: ruthImg, desc: 'Presentazione Runnintrader italiano' },
+    OmarSosaCursos: { img: omarPhoto, desc: 'Cursos de trading institucional' }
   }
   const arrayOfTeacher = () => {
     const result = []

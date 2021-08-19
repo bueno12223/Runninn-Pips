@@ -33,6 +33,7 @@ export const loginStudent = (payload, redirectFunc, onFail) => async (dispatch) 
     window.localStorage.removeItem('recaptcha')
     redirectFunc.push('/home')
   } catch (e) {
+    console.error(e)
     if (e.response.status !== 401) {
       return dispatch(messageHandler({ message: 'Error del servidor, intente mas tarde', success: false }))
     }

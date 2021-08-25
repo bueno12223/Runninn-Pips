@@ -70,13 +70,7 @@
                 background-color: unset;
                 width: 0%;
             }
-            & :nth-child(6) {
-                font-weight: bold;
-                &:hover {
-                    color: $dark;
-                }
-            }
-            & :last-child {
+            &__button-main {
                 border-radius: 1000px;
                 border: 1px solid $red;
                 color: $red;

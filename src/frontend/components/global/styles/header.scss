@@ -37,13 +37,13 @@
         width: 100%;
         font-size: 1.6rem;
         line-height: 23px;
-        & a, & button {
+        &__item {
             font-weight: bold;
             text-decoration: none;
             color: $white;
             margin: 20px;
         }
-        & span {
+        &__span {
             height: 5px;
             background-color: $white;
             width: 50px;
@@ -57,7 +57,7 @@
             background-color: unset;
             align-items: center;
             justify-content: flex-end;
-            a {
+            &__item {
                 color: $dark;
                 font-weight: 100;
                 margin: 10px;
@@ -66,23 +66,18 @@
                 }
             }
             height: 100%;
-            span {
+            &__span {
                 background-color: unset;
                 width: 0%;
             }
-            & :nth-child(6) {
-                font-weight: bold;
-                &:hover {
-                    color: $dark;
-                }
-            }
-            & :last-child {
+            &__button-main {
                 border-radius: 1000px;
                 border: 1px solid $red;
                 color: $red;
                 padding: 1.3rem 4.5rem;
                 transition: all 200ms ease;
                 font-weight: bold;
+                text-decoration: none;
                 &:hover {
                     background-color: $red;
                     color: $white;

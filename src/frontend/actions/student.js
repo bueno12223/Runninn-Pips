@@ -53,19 +53,16 @@ export const singup = (payload, redirectFunc, onFail) => async (dispatch) => {
     }
     , 2000)
   } catch (e) {
-    console.log(e)
-    if (e.response.status === 400) {
-      const keys = Object.keys(e.response.data.key)
-      onFail()
-      if (keys[0] === 'userID') {
-        return dispatch(messageHandler({ message: 'Ya existe una cuenta con este usuario', success: false }))
-      } else if (keys[0] === 'email') {
-        return dispatch(messageHandler({ message: 'Ya existe una cuenta con este correo', success: false }))
-      } else {
-        return dispatch(messageHandler({ message: 'El link de referidos es incorrecto', success: false }))
-      }
+    console.error(e)
+    const keys = e.response.data.key ? Object.keys(e.response.data.key) : null
+    onFail()
+    if (keys && keys[0] === 'userID') {
+      return dispatch(messageHandler({ message: 'Ya existe una cuenta con este usuario', success: false }))
+    } else if (keys && keys[0] === 'email') {
+      return dispatch(messageHandler({ message: 'Ya existe una cuenta con este correo', success: false }))
+    } else {
+      return dispatch(messageHandler({ message: 'El link de referidos es incorrecto', success: false }))
     }
-    return dispatch(messageHandler({ message: 'error del servidor, intenta mas tarde', success: false }))
   }
 }
 // configurar los datos de la cuenta

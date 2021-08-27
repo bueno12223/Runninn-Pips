@@ -34,7 +34,8 @@ const studentRoutes = (app) => {
       res.status(201).json(data)
     } catch (e) {
       console.error(e)
-      res.status(e.response.status).json({ ...e.response.data })
+      const status = e.response.status || 400
+      res.status(status).json({ ...e.response.data })
     }
   })
   // configurar datos del usuario

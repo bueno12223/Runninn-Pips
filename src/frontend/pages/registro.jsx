@@ -36,8 +36,8 @@ function registro ({ singup, location }) {
     if (form.password !== form.password2) {
       return messageHandler({ message: 'las contraseñas no son iguales', success: false })
     }
-    setLoading(true)
     validate(form)
+    setLoading(true)
     await singup(form, history, onFail)
     setLoading(false)
   }
@@ -45,7 +45,6 @@ function registro ({ singup, location }) {
     <section className='login-container'>
       <article className='login'>
         <h2 className='login-title'>Bienvenido!!, por favor llena los siguientes datos</h2>
-        <p className='text' style={{ fontSize: 11 + 'px', lineHeight: 16 + 'px' }}>El mismo correo con el que se registra recibirá los pagos de referidos y hará los pagos con Paypal</p>
         <DisplayMesage />
         <form className='login-form login-form__register mb'>
           <input onChange={setForm} className='login-form__input' type='email' name='email' placeholder='Email' required />

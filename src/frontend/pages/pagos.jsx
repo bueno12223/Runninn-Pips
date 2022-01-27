@@ -6,7 +6,7 @@ import DisplayMesage from '../components/global/displayMessage'
 import Paypal from '../components/cart/paypal'
 import './styles/pagos.scss'
 function pagos () {
-  const [totalCharges, setTotal] = useState(110)
+  const [totalCharges, setTotal] = useState(120)
   const [checkout, setCheckOut] = useState(false)
   const isLogged = !!(useSelector(state => state.user))
   return (

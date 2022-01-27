@@ -18,7 +18,7 @@ function plans ({ to = '/registro', onClick = () => {} }) {
             'Mentorías personalizada'
           ]}
           isCheck={check}
-          price={110}
+          price={120}
           tile='Plan inversor inteligente'
           to={to}
           onClick={onClick}

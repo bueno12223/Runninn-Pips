@@ -87,6 +87,7 @@ const setResponse = (html, preloadedState, manifest) => {
       </script>
       <script src='${mainBuild}' type="text/javascript"></script>
       <script src="${vendorBuild}" type="text/javascript"></script>
+      <script src="//code.jivosite.com/widget/xQW3PTMGmK" async></script>
     </body>
   </html>
   `)

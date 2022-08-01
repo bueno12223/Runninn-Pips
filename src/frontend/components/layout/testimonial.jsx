@@ -18,7 +18,6 @@ function testimonial () {
         <TestimonialCard {...testimonialData[0]} />
         <TestimonialCard {...testimonialData[1]} />
         <TestimonialCard {...testimonialData[2]} />
-        <TestimonialCard {...testimonialData[3]} />
       </ul>
     </article>
   )

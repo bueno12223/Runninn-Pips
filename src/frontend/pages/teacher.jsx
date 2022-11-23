@@ -6,17 +6,19 @@ import Calendario from '../components/home/calendario'
 import { connect, useSelector } from 'react-redux'
 function teacher (props) {
   const { teacher } = props.match.params
-  const { search, videos } = useSelector(state => state)
+  const { search } = useSelector(state => state)
+  const profesorVideos = props.profesorsVideos.find(profesorVideos => profesorVideos.profesor_id === teacher)
+  console.log(profesorVideos)
   return (
     <>
-      <Hero />
-      <EducatorList teacherID={teacher} />
+      <Hero profesorsVideos={props.profesorsVideos} />
+      <EducatorList profesorsVideos={props.profesorsVideos} />
       {search
-        ? <SuperCardRail cardData={search.length ? search : 'error'} />
+        ? <SuperCardRail cardData={search.length > 0 ? search : 'error'} />
         : (
           <>
-            <Calendario teacherID={teacher} />
-            <SuperCardRail cardData={videos[teacher]} />
+            <Calendario teacherCalendar={profesorVideos.calendar} />
+            <SuperCardRail cardData={profesorVideos.videos} />
           </>
           )}
 
@@ -25,6 +27,6 @@ function teacher (props) {
 }
 
 const mapDispatchToProps = state => ({
-  videos: state.videos
+  profesorsVideos: state.videos
 })
 export default connect(mapDispatchToProps, null)(teacher)

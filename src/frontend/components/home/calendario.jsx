@@ -1,10 +1,7 @@
 import React from 'react'
-import useGetTeacherCalendar from '../../hooks/useGetTeacherCalendar'
 import './styles/calendario.scss'
 
-function calendario ({ teacherID }) {
-  const getTeacherCalendar = useGetTeacherCalendar()
-  const data = getTeacherCalendar(teacherID) || []
+function calendario ({ teacherCalendar = [] }) {
   return (
     <section className='calendario'>
       <p className='calendario-text'>Lunes</p>
@@ -15,7 +12,7 @@ function calendario ({ teacherID }) {
       <p className='calendario-text'>Sábado</p>
       <p className='calendario-text'>Domingo</p>
       {
-            data.map((info, idx) => (
+            teacherCalendar.map((info, idx) => (
               <p key={info + idx} className={`calendarioInfo-text ${info ? 'calendarioInfo-text__active' : ''}`}>{info}</p>
             ))
         }

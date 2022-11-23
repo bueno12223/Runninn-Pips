@@ -1,11 +1,11 @@
 import React from 'react'
 import EducadorCard from './EducatorCard'
 import './styles/educatorList.scss'
-function EducatorList ({ profesors }) {
+function EducatorList ({ profesorsVideos }) {
   return (
     <ul className='educador-list'>
-      {profesors.map(({ photoUrl, id }) => (
-        <EducadorCard key={id} img={photoUrl} teacher={id} />
+      {profesorsVideos.map(({ photoUrl, profesor_id: profesorId }) => (
+        <EducadorCard key={profesorId} img={photoUrl} teacher={profesorId} />
       ))}
     </ul>
   )

@@ -5,7 +5,6 @@ function superCardRail ({ cardData, title = '', idx }) {
   if (cardData === 'error') {
     return (<h1 className='title'>No hemos encuentrado el video que buscabas</h1>)
   }
-  console.log(cardData)
   return (
     <>
       <h2 className='superCard-mainTitle'>{title}</h2>

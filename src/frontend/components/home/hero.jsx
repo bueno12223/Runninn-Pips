@@ -14,7 +14,7 @@ function hero ({ profesorsVideos }) {
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       const query = e.target.value
-      result = allVideos.find((videoData) => videoData.title.toLowerCase().includes(query.toLowerCase()))
+      result = allVideos.filter((videoData) => videoData.title.toLowerCase().includes(query.toLowerCase()))
       dispatch({ type: 'REGISTER_DATA', payload: { data: result, name: 'search' } })
     }
   }

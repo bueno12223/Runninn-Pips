@@ -7,18 +7,17 @@ import SuperCardRail from '../components/home/superCardRail'
 import './styles/home.scss'
 function home ({ profesorsVideos, search }) {
   const homeVideos = profesorsVideos.map(({ videos }) => videos[0])
-  const profesors = profesorsVideos.map(({ profesor_id: profesorId }) => profesorId)
   if (!homeVideos) {
     return (<h1>cargando</h1>)
   }
+  console.log(search)
   return (
     <>
       <Hero profesorsVideos={profesorsVideos} />
-      {/*
-      <EducatorList profesors={profesors} />
-   {search
-        ? <SuperCardRail cardData={search.length ? search : 'error'} />
-        : <SuperCardRail cardData={homeVideos} title='Videos mas vistos' />} */}
+      <EducatorList profesorsVideos={profesorsVideos} />
+      {search
+        ? <SuperCardRail cardData={search.length > 0 ? search : 'error'} />
+        : <SuperCardRail cardData={homeVideos} title='Videos mas vistos' />}
     </>
   )
 }

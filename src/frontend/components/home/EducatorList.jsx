@@ -1,14 +1,11 @@
 import React from 'react'
 import EducadorCard from './EducatorCard'
-import useGetTeacherData from '../../hooks/useGetTeacherData'
 import './styles/educatorList.scss'
-function EducatorList ({ teacher }) {
-  const educadors = useGetTeacherData(null)
+function EducatorList ({ profesors }) {
   return (
     <ul className='educador-list'>
-      {educadors.map(({ img, name }) => (
-        <EducadorCard key={name} img={img} teacher={name} />
-
+      {profesors.map(({ photoUrl, id }) => (
+        <EducadorCard key={id} img={photoUrl} teacher={id} />
       ))}
     </ul>
   )

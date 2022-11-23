@@ -3,33 +3,10 @@ import { messageHandler, registerData } from './states'
 // inicar sesion
 export const loginStudent = (payload, redirectFunc, onFail) => async (dispatch) => {
   try {
-    const { data: { user, videos } } = await axios.post('/student/login', payload)
-    const ranked = []
-    const teacherVideos = {
-      OmarSosa: [],
-      NormaQuintero: [],
-      IsmaelOrtega: [],
-      JairPowell: [],
-      OmarSosaFx: [],
-      CoraliaPinzon: [],
-      EsterMoonetti: [],
-      RuthYessenia: [],
-      OmarSosaCursos: []
-    }
-    if (videos) {
-      for (const name in teacherVideos) {
-        // eslint-disable-next-line camelcase
-        const result = videos.filter(({ profesor_id }) => profesor_id === name)
-        ranked.push(result[0])
-        teacherVideos[name] = result.sort((a, b) => {
-          return a.order - b.order
-        })
-      }
-    }
-    console.log(teacherVideos)
+    const { data: { user, videos, isActive } } = await axios.post('/student/login', payload)
     dispatch(registerData({ data: user, name: 'user' }))
-    dispatch(registerData({ data: videos ? teacherVideos : videos, name: 'videos' }))
-    dispatch(registerData({ data: ranked, name: 'ranked' }))
+    dispatch(registerData({ data: videos, name: 'videos' }))
+    dispatch(registerData({ data: isActive, name: 'isActive' }))
     window.localStorage.removeItem('recaptcha')
     redirectFunc.push('/home')
   } catch (e) {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Landing from '../pages/landing'
 import Home from '../pages/home'
@@ -19,7 +19,6 @@ import NotFound from '../pages/404'
 import '../assets/styles/app.scss'
 const App = () => {
   const isLogged = !!(useSelector(state => state.user))
-  const isActive = !!(useSelector(state => state.videos))
   return (
     <BrowserRouter>
       <Layout>
@@ -28,9 +27,9 @@ const App = () => {
           <Route exact path='/login' component={Login} />
           <Route exact path='/registro' component={Registro} />
           <Route exact path='/referidos' component={isLogged ? Referidos : Login} />
-          <Route exact path='/home' component={isLogged && isActive ? Home : Pagos} />
-          <Route exact path='/:teacher/:id' render={(props) => isLogged && isActive ? <Reproductor {...props} /> : <Login />} />
-          <Route exact path='/home/educador/:teacher' component={(props) => isLogged && isActive ? <Teacher {...props} /> : <Login />} />
+          <Route exact path='/home' component={isLogged ? Home : <Redirect to='/login' />} />
+          <Route exact path='/:teacher/:id' render={(props) => isLogged ? <Reproductor {...props} /> : <Redirect to='/login' />} />
+          <Route exact path='/home/educador/:teacher' component={(props) => isLogged ? <Teacher {...props} /> : <Redirect to='/login' />} />
           <Route exact path='/pagos' component={() => <Pagos />} />
           <Route exact path='/cuenta' component={isLogged ? Cuenta : Login} />
           <Route exact path='/politicas' component={Policy} />

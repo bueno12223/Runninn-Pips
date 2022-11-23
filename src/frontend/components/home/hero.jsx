@@ -3,21 +3,18 @@ import Search from '../../assets/icons/search.svg'
 import './styles/hero.scss'
 import { Link } from 'react-router-dom'
 import UserIcon from '../../assets/icons/home/user.js'
-import { useSelector, useDispatch } from 'react-redux'
-function hero () {
-  const videos = useSelector(state => state.videos)
-  let allVideos = []
-  for (const data in videos) {
-    allVideos = ([...allVideos, ...videos[data]])
-  }
+import { useDispatch } from 'react-redux'
+function hero ({ profesorsVideos }) {
+  const allVideos = profesorsVideos.reduce((acc = [], profesorsVideo) => {
+    acc = [...acc, ...profesorsVideo.videos]
+    return acc
+  }, [])
   let result
   const dispatch = useDispatch()
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      result = allVideos.filter((data) => data.title.toLowerCase().includes(e.target.value.toLowerCase()))
-      if (result.length === allVideos.length) {
-        dispatch({ type: 'REGISTER_DATA', payload: { data: null, name: 'search' } })
-      }
+      const query = e.target.value
+      result = allVideos.find((videoData) => videoData.title.toLowerCase().includes(query.toLowerCase()))
       dispatch({ type: 'REGISTER_DATA', payload: { data: result, name: 'search' } })
     }
   }

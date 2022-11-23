@@ -97,25 +97,13 @@ const renderApp = async (req, res) => {
   let InitalState = {
     user: null,
     message: { message: '' },
-    videos: {
-      OmarSosa: [],
-      NormaQuintero: [],
-      IsmaelOrtega: [],
-      JairPowell: [],
-      OmarSosaFx: [],
-      CoraliaPinzon: [],
-      EsterMoonetti: [],
-      RuthYessenia: [],
-      OmarSosaCursos: []
-    }
+    videos: {}
   }
   let isLogged = false
-  let isActive = false
-  const ranked = []
   const { 'connect.sid': sesionID = null } = req.cookies
   if (sesionID != null) {
     try {
-      const { data: { user, videos: preVideos } } = await axios({
+      const { data: { user, videos, isActive } } = await axios({
         method: 'POST',
         url: `${process.env.API_URL}/student`,
         // eslint-disable-next-line quote-props
@@ -123,20 +111,10 @@ const renderApp = async (req, res) => {
         withCredentials: true
       })
       isLogged = true
-      if (preVideos) {
-        isActive = true
-        // eslint-disable-next-line prefer-const
-        for (const name in InitalState.videos) {
-          // eslint-disable-next-line camelcase
-          const result = preVideos.filter(({ profesor_id }) => profesor_id === name)
-          ranked.push(result[0])
-          InitalState.videos[name] = result.sort((a, b) => {
-            return a.order - b.order
-          })
-        }
-      }
-      InitalState = { ranked, user, videos: preVideos ? InitalState.videos : preVideos, message: { message: '' } }
+      console.log('user', isActive)
+      InitalState = { user, videos, message: { message: '' }, isActive }
     } catch (e) {
+      console.error(e)
     }
   }
   const store = createStore(reducer, InitalState)
@@ -144,7 +122,7 @@ const renderApp = async (req, res) => {
   const html = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={{}}>
-        {renderRoutes(serverRoutes(isLogged, isActive))}
+        {renderRoutes(serverRoutes(isLogged, InitalState.isActive))}
       </StaticRouter>
     </Provider>
   )

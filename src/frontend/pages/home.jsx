@@ -1,40 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import Hero from '../components/home/hero'
 import EducatorList from '../components/home/EducatorList'
 import SuperCardRail from '../components/home/superCardRail'
 import './styles/home.scss'
-function home ({ ranked, search }) {
-  const [all, setAll] = useState(ranked)
-  useEffect(() => {
-    setAll(ranked)
-  }, [all])
-  if (ranked === []) {
-    return (
-      <>
-        <h1 className='title'>Tu cuenta no esta activa</h1>
-        <p className='text'>Por favor dirigete a  <Link to='/pagos'> pagos</Link> para volver a acceder a todos los videos</p>
-      </>
-    )
-  }
-  if (!all) {
+function home ({ profesorsVideos, search }) {
+  const homeVideos = profesorsVideos.map(({ videos }) => videos[0])
+  const profesors = profesorsVideos.map(({ profesor_id: profesorId }) => profesorId)
+  if (!homeVideos) {
     return (<h1>cargando</h1>)
   }
   return (
     <>
-      <Hero />
-      <EducatorList />
-      {search
+      <Hero profesorsVideos={profesorsVideos} />
+      {/*
+      <EducatorList profesors={profesors} />
+   {search
         ? <SuperCardRail cardData={search.length ? search : 'error'} />
-        : <SuperCardRail cardData={all} title='Videos mas vistos' />}
+        : <SuperCardRail cardData={homeVideos} title='Videos mas vistos' />} */}
     </>
   )
 }
-const mapDispatchToProps = state => {
-  return {
-    ranked: state.ranked,
-    search: state.search
-  }
-}
+const mapDispatchToProps = state => ({
+  profesorsVideos: state.videos,
+  search: state.search
+})
 export default connect(mapDispatchToProps, null)(home)

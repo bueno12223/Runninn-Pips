@@ -10,17 +10,13 @@ function reproductor (props) {
   const search = useSelector(state => state.search)
   const [video, setVideo] = useState({})
   const [videos, setVideos] = useState([])
-  useEffect(() => {
-    // eslint-disable-next-line eqeqeq
-    const prevideo = props.videos[teacher].find((data) => data.key == id)
-    setVideo(prevideo)
-    setVideos(props.videos[teacher].slice(0, 9))
-  }, [])
-  useEffect(() => {
-    // eslint-disable-next-line eqeqeq
-    const prevideo = props.videos[teacher].find((data) => data.key == id)
-    setVideo(prevideo)
-  }, [location])
+  const sortVideos = () => {
+    const profesorVideos = props.profesorsVideos.find(({ profesor_id: profesorId }) => teacher === profesorId)
+    setVideo(profesorVideos.videos.find(({ key }) => key == id))
+    setVideos(profesorVideos.videos.slice(0, 9))
+  }
+  useEffect(sortVideos, [])
+  useEffect(sortVideos, [location])
   return (
     <>
       <Hero />
@@ -43,6 +39,6 @@ function reproductor (props) {
   )
 }
 const mapStateToProps = state => ({
-  videos: state.videos
+  profesorsVideos: state.videos
 })
 export default connect(mapStateToProps, null)(reproductor)

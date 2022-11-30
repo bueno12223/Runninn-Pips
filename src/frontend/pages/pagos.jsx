@@ -3,12 +3,25 @@ import Table from '../components/cart/table'
 import Plans from '../components/layout/plans'
 import { useSelector } from 'react-redux'
 import DisplayMesage from '../components/global/displayMessage'
-import Paypal from '../components/cart/paypal'
+import axios from 'axios'
 import './styles/pagos.scss'
 function pagos () {
   const [totalCharges, setTotal] = useState(120)
-  const [checkout, setCheckOut] = useState(false)
-  const isLogged = !!(useSelector(state => state.user))
+  const user = useSelector(state => state.user) || {}
+  const isLogged = !!user
+  const generatePaymentLink = async () => {
+    // fetch bincance API to get the link
+
+    const response = await axios.post('/payments', {
+      body: {
+        orderAmount: totalCharges,
+        firstName: user.userName || 'anonymusName',
+        buyerEmail: user.email || 'anonymusEmail',
+        userId: user._id || 'anonymus'
+      }
+    })
+    console.log(response)
+  }
   return (
     <>
       <h1 className='title'>{isLogged ? 'Parece que tu cuenta aún no esta activa' : 'Estos son todos los métodos de pago que usamos'}</h1>
@@ -16,19 +29,14 @@ function pagos () {
       <Plans onClick={setTotal} to='/pagos' />
       <section className='pagos-container mt'>
         <Table totalCharges={totalCharges} />
-        {
-        checkout
-          ? <button
-              onClick={() => {
-                setCheckOut(true)
-              }}
-            />
-          : <Paypal amount={totalCharges} />
-}
+        <button
+          onClick={generatePaymentLink}
+        >Pagar
+        </button>
         <DisplayMesage />
       </section>
       <p className='text'> IMPORTANTE!!!! <br />
-        tienes que poner tu correo con el que creaste tu cuenta
+        debes pagar con el email que tienes en tu cuenta
       </p>
     </>
   )

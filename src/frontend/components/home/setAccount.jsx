@@ -1,13 +1,13 @@
 import React from 'react'
 import useForm from '../../hooks/useForm'
 import DisplayMessage from '../global/displayMessage'
-import telegram from '../../assets/images/home/telegram.jpg'
 import { useHistory } from 'react-router-dom'
 import { messageHandler } from '../../actions'
 import { connect, useSelector } from 'react-redux'
 import './styles/setAccount.scss'
 function setAccount ({ setStudentAccont, messageHandler }) {
-  const { email, userID, userName, telegram: { telegramToken } } = useSelector(state => state.user)
+  const { email, userID, userName, telegram } = useSelector(state => state.user)
+  const telegramToken = telegram ? telegram.telegramToken : '0000'
   const history = useHistory()
   const [value, onChange] = useForm({
     email: '',

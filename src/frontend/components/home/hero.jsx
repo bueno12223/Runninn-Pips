@@ -5,10 +5,13 @@ import { Link } from 'react-router-dom'
 import UserIcon from '../../assets/icons/home/user.js'
 import { useDispatch } from 'react-redux'
 function hero ({ profesorsVideos }) {
-  const allVideos = profesorsVideos.reduce((acc = [], profesorsVideo) => {
-    acc = [...acc, ...profesorsVideo.videos]
-    return acc
-  }, [])
+  const allVideos =
+  profesorsVideos
+    ? profesorsVideos.reduce((acc = [], profesorsVideo) => {
+        acc = [...acc, ...profesorsVideo.videos]
+        return acc
+      }, [])
+    : []
   let result
   const dispatch = useDispatch()
   const handleKeyDown = (e) => {

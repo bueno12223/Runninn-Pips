@@ -1,16 +1,14 @@
+import { createOrder } from '../modules/binance'
 import axios from 'axios'
-const transacctions = (app) => {
+
+const paymemts = (app) => {
   app.post('/payments', async (req, res) => {
     try {
-      await axios({
-        method: 'POST',
-        data: req.body,
-        url: `${process.env.API_URL}/payments`
-      })
-      res.sendStatus(200)
+      const { data, headers } = createOrder(req.body)
+      res.status(200).header(headers).json({ ...data })
     } catch (e) {
-      console.error(e)
-      res.sendStatus(400)
+      // console.log(e.response.data)
+      // res.sendStatus(e.response.status)
     }
   })
   app.post('/message', async (req, res) => {
@@ -27,4 +25,4 @@ const transacctions = (app) => {
     }
   })
 }
-export default transacctions
+export default paymemts

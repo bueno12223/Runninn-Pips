@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { Link, Redirect } from 'react-router-dom'
 import Hero from '../components/home/hero'
 import EducatorList from '../components/home/EducatorList'
 import SuperCardRail from '../components/home/superCardRail'
@@ -10,7 +9,6 @@ function home ({ profesorsVideos, search }) {
   if (!homeVideos) {
     return (<h1>cargando</h1>)
   }
-  console.log(search)
   return (
     <>
       <Hero profesorsVideos={profesorsVideos} />

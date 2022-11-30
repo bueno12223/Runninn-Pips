@@ -16,7 +16,8 @@ import cors from 'cors'
 import getManifest from './getManifest'
 import resetPassword from './routes/resetPassword'
 import studentRoutes from './routes/student'
-import transacctions from './routes/transacctions'
+import paymemts from './routes/payments'
+import utils from './routes/utils'
 import cookieParser from 'cookie-parser'
 import axios from 'axios'
 
@@ -130,9 +131,10 @@ const renderApp = async (req, res) => {
   res.send(setResponse(html, preloadedState, req.hashManifest))
 }
 app.set('x-powered-by', false)
+utils(app)
 studentRoutes(app)
-transacctions(app)
 resetPassword(app)
+paymemts(app)
 app.get('*', renderApp)
 
 app.listen(PORT, (err) => {

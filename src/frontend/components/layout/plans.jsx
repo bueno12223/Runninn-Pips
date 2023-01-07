@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import check from '../../assets/icons/check2.svg'
 import box from '../../assets/icons/box.svg'
 import './styles/plans.scss'
-function plans ({ to = '/registro', onClick = () => {} }) {
+function plans ({ prices, to = '/registro', onClick = () => {} }) {
   return (
     <>
       <h2 className='plans-title'>Escoge tu plan</h2>
@@ -18,7 +18,7 @@ function plans ({ to = '/registro', onClick = () => {} }) {
             'Mentorías personalizada'
           ]}
           isCheck={check}
-          price={300}
+          price='300'
           tile='Plan inversor inteligente'
           to={to}
           onClick={onClick}
@@ -32,7 +32,7 @@ function plans ({ to = '/registro', onClick = () => {} }) {
             'Mentorías personalizada'
           ]}
           isCheck={check}
-          price={1500}
+          price='300'
           tile='Plan inversor profesional'
           to={to}
           onClick={onClick}
@@ -46,7 +46,7 @@ function plans ({ to = '/registro', onClick = () => {} }) {
             'Mentorías personalizada'
           ]}
           isCheck={check}
-          price={3000}
+          price='300'
           tile='Plan top trader'
           to={to}
           onClick={onClick}

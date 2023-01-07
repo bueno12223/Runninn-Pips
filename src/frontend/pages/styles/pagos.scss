@@ -12,4 +12,7 @@
     button {
         @extend %button;
     }
+    Link {
+        @extend %button;
+    }
 }

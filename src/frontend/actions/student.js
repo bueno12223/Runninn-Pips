@@ -8,7 +8,7 @@ export const loginStudent = (payload, redirectFunc, onFail) => async (dispatch) 
     dispatch(registerData({ data: videos, name: 'videos' }))
     dispatch(registerData({ data: isActive, name: 'isActive' }))
     window.localStorage.removeItem('recaptcha')
-    redirectFunc.push('/home')
+    isActive ? redirectFunc.push('/home') : redirectFunc.push('/pagos')
   } catch (e) {
     console.error(e)
     if (e.response.status !== 401) {

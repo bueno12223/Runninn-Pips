@@ -8,7 +8,7 @@ function table ({ totalCharges }) {
         <thead>
           <tr>
             <th className='table-item__text table-item'>Acceso a la plataforma</th>
-            <th className='table-item__price table-item'> {totalCharges.toFixed(2)}$</th>
+            <th className='table-item__price table-item'> {totalCharges}$</th>
           </tr>
         </thead>
         <tbody>
@@ -20,7 +20,7 @@ function table ({ totalCharges }) {
         <tfoot>
           <tr className='table-row'>
             <th className='table-item__text table-item'> <b>Total</b></th>
-            <th className='table-item__price table-item'> <b>{(totalCharges.toFixed(2))}$</b></th>
+            <th className='table-item__price table-item'> <b>{(totalCharges)}$</b></th>
           </tr>
         </tfoot>
       </table>

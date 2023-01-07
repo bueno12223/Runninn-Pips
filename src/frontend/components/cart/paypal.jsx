@@ -8,7 +8,6 @@ function PayPalBtn (props) {
       amount={props.amount}
       shippingPreference='NO_SHIPPING'
       onSuccess={async (details, data) => {
-        console.log(data.orderID)
         await props.validatePayment({ id: data.orderID })
         props.messageHandler({ message: 'Transaccion realizada correctamente', success: true })
         return window.fetch('/paypal-transaction-complete', {

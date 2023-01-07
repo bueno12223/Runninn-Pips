@@ -40,7 +40,6 @@ export const createOrder = async ({ orderAmount, firstName, buyerEmail, userId }
     body: body
 
   })
-  console.log(result)
   if (result.status !== 200) {
     console.log(formatCurreny(orderAmount))
     throw new Error(`Error creating order for user ${userId} with the error`)

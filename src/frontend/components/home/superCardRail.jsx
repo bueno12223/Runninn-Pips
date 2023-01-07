@@ -1,18 +1,17 @@
 import React from 'react'
 import SuperCard from './superCard'
 import './styles/superCard.scss'
-function superCardRail ({ cardData, title = '', idx }) {
+function superCardRail ({ cardData, title = '' }) {
   if (cardData === 'error') {
     return (<h1 className='title'>No hemos encuentrado el video que buscabas</h1>)
   }
-  console.log(cardData)
   return (
     <>
       <h2 className='superCard-mainTitle'>{title}</h2>
       <div className='superCard-container'>
         {
-              cardData.map((data, idx2) => (
-                <SuperCard {...data} key={data.title} idx={title ? idx2 : idx} otherKey={data.key} />
+              cardData.map((data) => (
+                <SuperCard {...data} key={data.title} idx={data._id} otherKey={data.key} />
               ))
           }
       </div>

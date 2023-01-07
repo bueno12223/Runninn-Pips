@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import def from '../../assets/images/home/def.jpg'
 import TeacherHero from './TeacherHero'
 
-function superCard ({ otherKey, profesor_id, duration, title, idx }) {
+function superCard ({ otherKey, profesor_id, duration, title }) {
   return (
     <Link to={`/${profesor_id}/${otherKey}/#video`}>
       <article className='superCard'>

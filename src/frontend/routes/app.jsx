@@ -18,7 +18,8 @@ import Transacciones from '../pages/transacciones'
 import NotFound from '../pages/404'
 import '../assets/styles/app.scss'
 const App = () => {
-  const isLogged = !!(useSelector(state => state.user))
+  const user = useSelector(state => state.user)
+  const isLogged = user && user._id
   return (
     <BrowserRouter>
       <Layout>

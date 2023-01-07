@@ -75,8 +75,13 @@ export const setStudentAccont = (payload, redirectUrl) => async (dispatch) => {
 
 // cerrar sesión eleiminando las cookies
 export const logOutUser = (redirectFunc) => async (dispatch) => {
-  document.cookie = 'connect.sid='
+  deleteCookieByName('connect.sid')
   dispatch(registerData({ data: null, name: 'videos' }))
   dispatch(registerData({ data: null, name: 'user' }))
   redirectFunc.push('/login')
+}
+
+function deleteCookieByName (name) {
+  const newCookie = document.cookie.replace(new RegExp(`${name}=[^ ]*( )?`), '')
+  document.__defineGetter__('cookie', function () { return newCookie })
 }

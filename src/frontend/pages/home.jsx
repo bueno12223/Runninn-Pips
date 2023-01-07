@@ -9,7 +9,7 @@ function home ({ profesorsVideos, search }) {
     setTimeout(() => { window.location = '/pagos' }, 3000)
     return <h2 className='redirectTitle'>Lo sentimos, aún no tienes acceso a la academia, serás redirigido a pagos</h2>
   }
-  const homeVideos = profesorsVideos.map(({ videos }) => videos[0])
+  const homeVideos = profesorsVideos.map(({ videos }) => videos[0]).filter((video) => video)
   if (!homeVideos) {
     return (<h1>cargando</h1>)
   }

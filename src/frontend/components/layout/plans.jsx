@@ -18,7 +18,7 @@ function plans ({ prices, to = '/registro', onClick = () => {} }) {
             'Mentorías personalizada'
           ]}
           isCheck={check}
-          price='300'
+          price={prices[0]}
           tile='Plan inversor inteligente'
           to={to}
           onClick={onClick}
@@ -32,7 +32,7 @@ function plans ({ prices, to = '/registro', onClick = () => {} }) {
             'Mentorías personalizada'
           ]}
           isCheck={check}
-          price='300'
+          price={prices[1]}
           tile='Plan inversor profesional'
           to={to}
           onClick={onClick}
@@ -46,7 +46,7 @@ function plans ({ prices, to = '/registro', onClick = () => {} }) {
             'Mentorías personalizada'
           ]}
           isCheck={check}
-          price='300'
+          price={prices[2]}
           tile='Plan top trader'
           to={to}
           onClick={onClick}

@@ -18,7 +18,7 @@ function TransCard ({ startDate, endDate, amount, description, transaccionID, _i
   return (
     <div className='transaccionCard'>
       <h3 className='transaccionCard-title'>{description}</h3>
-      <p>Tipo de pago: Paypal</p>
+      <p>Tipo de pago: Pago online</p>
       <p>Fecha del pago: {startDate}</p>
       {
           endDate && <p>Fecha final de acceso:{endDate}</p>

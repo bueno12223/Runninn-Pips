@@ -44,16 +44,6 @@ function setAccount ({ setStudentAccont, messageHandler }) {
         <input className='setAccount-formInput__submit' type='submit' value='Enviar' />
         <DisplayMessage />
       </form>
-      {
-            telegramToken &&
-              <>
-                <h2 className='tile'>Código de telegram : {telegramToken}</h2>
-                <h2 id='telegram' className='title' style={{ fontSize: 2 + 'em' }}>¿Cómo entrar a canal de telegram?</h2>
-                <p className='text'>Entra al bot de Running trader <a href='https://t.me/RunningTrader_bot'>aquí</a> y escribe lo siguiente <br /> /unirme [Id de usuario]{'     '}[Código] <br /> Ejemplo:<br /> demo12 3430</p>
-                <img src={telegram} alt='ejemplo de telegram' />
-                <p className='text'>Si te equivocas solo manda el mensaje nuevamente</p>
-              </>
-        }
     </section>
   )
 }

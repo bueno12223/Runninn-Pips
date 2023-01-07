@@ -6,7 +6,6 @@ function TeacherHero ({ profesor_id: profesorId, duration, title }) {
   let profesorData = useSelector(state => state.videos)
   profesorData = profesorData.find(({ profesor_id }) => profesor_id == profesorId)
   const { profesor_id: name, photoUrl, desc } = profesorData
-  console.log(profesorData)
   return (
     <div className='teacherHero'>
       <img src={photoUrl} alt='' className='teacherHero-img' />

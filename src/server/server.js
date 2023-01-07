@@ -104,7 +104,7 @@ const renderApp = async (req, res) => {
   const { 'connect.sid': sesionID = null } = req.cookies
   if (sesionID != null) {
     try {
-      const { data: { user, videos, isActive } } = await axios({
+      const { data: { user, videos, isActive, planPrices } } = await axios({
         method: 'POST',
         url: `${process.env.API_URL}/student`,
         // eslint-disable-next-line quote-props
@@ -112,10 +112,14 @@ const renderApp = async (req, res) => {
         withCredentials: true
       })
       isLogged = true
-      console.log('user', isActive)
-      InitalState = { user, videos, message: { message: '' }, isActive }
+      InitalState = { user, videos, message: { message: '' }, isActive, planPrices }
     } catch (e) {
-      console.error(e)
+      console.log(e)
+      const { data } = await axios({
+        method: 'GET',
+        url: `${process.env.API_URL}/student/settings`
+      })
+      InitalState = { ...InitalState, ...data }
     }
   }
   const store = createStore(reducer, InitalState)

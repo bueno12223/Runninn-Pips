@@ -6,9 +6,10 @@ import './styles/header.scss'
 import { useHistory } from 'react-router'
 import { logOutUser } from '../../actions'
 import { connect } from 'react-redux'
-function header ({ user, logOutUser }) {
+function header ({ user, logOutUser, isActive }) {
   const [display, setDisplay] = useState(false)
   const history = useHistory()
+  const isLogged = user && user._id
   const handleOnClick = () => {
     setDisplay(!display)
     logOutUser(history)
@@ -21,13 +22,13 @@ function header ({ user, logOutUser }) {
         </Link>
         <img src={menuIcon} className='lheader-menu' alt='menu icon' onClick={() => setDisplay(!display)} />
         <div className='lheader-links' style={{ left: display ? '0%' : '100%' }}>
-          <Link className='lheader-links__item' to={user ? '/transacciones' : '/pagos'} onClick={() => setDisplay(!display)}>{user ? 'transacciones' : 'Pagos'}</Link>
-          <Link className='lheader-links__item' to={user ? '/cuenta' : '/preguntas'} onClick={() => setDisplay(!display)}>{user ? 'Cuenta' : 'Preguntas'}</Link>
-          <Link className='lheader-links__item' to={user ? '/referidos' : '/'} onClick={() => setDisplay(!display)}>{user ? 'Referidos' : 'Acerca de'}</Link>
+          <Link className='lheader-links__item' to={(isActive && isLogged) ? '/transacciones' : '/pagos'} onClick={() => setDisplay(!display)}>{(isActive && isLogged) ? 'transacciones' : 'Pagos'}</Link>
+          <Link className='lheader-links__item' to={isLogged ? '/cuenta' : '/preguntas'} onClick={() => setDisplay(!display)}>{isLogged ? 'Cuenta' : 'Preguntas'}</Link>
+          <Link className='lheader-links__item' to={isLogged ? '/referidos' : '/'} onClick={() => setDisplay(!display)}>{isLogged ? 'Referidos' : 'Acerca de'}</Link>
           <Link className='lheader-links__item' to='/politicas' onClick={() => setDisplay(!display)}>Políticas</Link>
           <span className='lheader-links__span' />
-          <Link to={user ? '/login' : '/registro'} className='lheader-links__item' onClick={handleOnClick}><b>{user ? 'Cerrar Sesión' : 'Registrarme'}</b></Link>
-          <Link to={user ? '/home' : '/login'} className='lheader-links__button lheader-links__button-main' onClick={() => setDisplay(!display)}>{user ? 'Home' : 'Iniciar Sesión'}</Link>
+          <Link to={isLogged ? '/login' : '/registro'} className='lheader-links__item' onClick={handleOnClick}><b>{isLogged ? 'Cerrar Sesión' : 'Registrarme'}</b></Link>
+          <Link to={isLogged ? '/home' : '/login'} className='lheader-links__button lheader-links__button-main' onClick={() => setDisplay(!display)}>{isLogged ? 'Home' : 'Iniciar Sesión'}</Link>
         </div>
       </header>
     </div>
@@ -35,7 +36,8 @@ function header ({ user, logOutUser }) {
 }
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
+    isActive: state.isActive
   }
 }
 const mapDispachToProps = {

@@ -5,12 +5,16 @@ import Plans from '../components/layout/plans'
 import Teams from '../components/layout/teams'
 import Suscribe from '../components/layout/suscribe'
 import Testiomonial from '../components/layout/testimonial'
+import { useSelector } from 'react-redux'
 function landing () {
+  const planPrices = useSelector(state => {
+    return state.planPrices
+  })
   return (
     <>
       <Hero />
       <Description />
-      <Plans />
+      <Plans prices={planPrices} />
       <Teams />
       <Testiomonial />
       <Suscribe />

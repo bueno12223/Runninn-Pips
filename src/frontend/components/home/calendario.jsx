@@ -2,6 +2,7 @@ import React from 'react'
 import './styles/calendario.scss'
 
 function calendario ({ teacherCalendar = [] }) {
+  console.log(teacherCalendar, 'teacherCalendar')
   return (
     <section className='calendario'>
       <p className='calendario-text'>Lunes</p>

@@ -1,14 +1,19 @@
-import { createOrder } from '../modules/binance'
 import axios from 'axios'
 
 const paymemts = (app) => {
   app.post('/payments', async (req, res) => {
     try {
-      const { data, headers } = createOrder(req.body)
-      res.status(200).header(headers).json({ ...data })
+      const { headers } = req
+      const { data } = await axios({
+        method: 'POST',
+        data: { ...req.body, token: process.env.PAYMENT_TOKEN },
+        url: `${process.env.API_URL}/payments`,
+        headers
+      })
+      return res.status(200).json({ ...data })
     } catch (e) {
-      // console.log(e.response.data)
-      // res.sendStatus(e.response.status)
+      console.log(e.response.data)
+      return res.sendStatus(e.response.status).json(e.response.data)
     }
   })
   app.post('/message', async (req, res) => {

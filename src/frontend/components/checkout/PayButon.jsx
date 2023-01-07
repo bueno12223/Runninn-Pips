@@ -10,7 +10,7 @@ function PayButon ({ paymentCallback, amount, isLogged }) {
   }
   return (
     <GooglePayButton
-      environment='TEST'
+      environment='PRODUCTION'
       paymentRequest={{
         apiVersion: 2,
         apiVersionMinor: 0,
@@ -20,19 +20,12 @@ function PayButon ({ paymentCallback, amount, isLogged }) {
             parameters: {
               allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
               allowedCardNetworks: ['MASTERCARD', 'VISA']
-            },
-            tokenizationSpecification: {
-              type: 'PAYMENT_GATEWAY',
-              parameters: {
-                gateway: 'example',
-                gatewayMerchantId: 'exampleGatewayMerchantId'
-              }
             }
           }
         ],
         merchantInfo: {
-          merchantId: '12345678901234567890',
-          merchantName: 'Demo Merchant'
+          merchantId: 'BCR2DN4TQS44FLCM',
+          merchantName: 'Running tarder'
         },
         transactionInfo: {
           totalPriceStatus: 'FINAL',

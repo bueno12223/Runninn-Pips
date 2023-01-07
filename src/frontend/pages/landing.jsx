@@ -10,6 +10,7 @@ function landing () {
   const planPrices = useSelector(state => {
     return state.planPrices
   })
+  console.log(planPrices)
   return (
     <>
       <Hero />

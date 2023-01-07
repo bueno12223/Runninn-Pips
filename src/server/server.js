@@ -122,6 +122,13 @@ const renderApp = async (req, res) => {
       InitalState = { ...InitalState, ...data }
     }
   }
+  if (!InitalState.planPrices) {
+    const { data } = await axios({
+      method: 'GET',
+      url: `${process.env.API_URL}/student/settings`
+    })
+    InitalState = { ...InitalState, ...data }
+  }
   const store = createStore(reducer, InitalState)
   const preloadedState = store.getState()
   const html = renderToString(

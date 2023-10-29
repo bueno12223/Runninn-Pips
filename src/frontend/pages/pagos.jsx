@@ -18,6 +18,7 @@ function pagos({ validatePayment }) {
     const paymentCallback = async () => {
         if (totalCharges !== "0.00") {
             const yappyURL = await validatePayment(totalCharges);
+            console.log(yappyURL)
             if (yappyURL.data.url) {
                 window.open(yappyURL.data.url, "_blank");
             }

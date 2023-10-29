@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY package*.json ./
 
+COPY *.tar /app/
+
 ENV ENV production
 
 ENV PORT 3000

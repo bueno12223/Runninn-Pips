@@ -18,6 +18,7 @@ import resetPassword from './routes/resetPassword'
 import studentRoutes from './routes/student'
 import paymemts from './routes/payments'
 import utils from './routes/utils'
+import yappyRoutes from "./routes/yappy"
 import cookieParser from 'cookie-parser'
 import axios from 'axios'
 
@@ -146,6 +147,7 @@ utils(app)
 studentRoutes(app)
 resetPassword(app)
 paymemts(app)
+yappyRoutes(app)
 app.get('*', renderApp)
 
 app.listen(PORT, (err) => {

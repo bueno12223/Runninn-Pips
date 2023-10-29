@@ -1,9 +1,9 @@
 import React from 'react'
 import './styles/table.scss'
 function table ({ totalCharges }) {
+  const subtotal = parseInt(totalCharges)
   const itbms = parseInt(totalCharges) *0.09
   const total = parseInt(totalCharges) + parseInt(itbms)
-  console.log(total,itbms,total + itbms)
   return (
     <article className='table-container'>
       <h2 className='title'>Seleciona tu método de pago</h2>
@@ -11,7 +11,7 @@ function table ({ totalCharges }) {
         <thead>
           <tr>
             <th className='table-item__text table-item'>Acceso a la plataforma</th>
-            <th className='table-item__price table-item'> {totalCharges}$</th>
+            <th className='table-item__price table-item'> {subtotal}$</th>
           </tr>
         </thead>
         <tbody>
@@ -23,7 +23,7 @@ function table ({ totalCharges }) {
         <tfoot>
           <tr className='table-row'>
             <th className='table-item__text table-item'> <b>Total</b></th>
-            <th className='table-item__price table-item'> <b>{total + itbms}$</b></th>
+            <th className='table-item__price table-item'> <b>{subtotal + itbms}$</b></th>
           </tr>
         </tfoot>
       </table>

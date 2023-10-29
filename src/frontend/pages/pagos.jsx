@@ -10,7 +10,7 @@ import buttonYappy from "../assets/images/layout/yappy.png";
 
 function pagos({ validatePayment }) {
     const prices = ["300", "1500", "3000"];
-    const [totalCharges, setTotal] = useState("10.00");
+    const [totalCharges, setTotal] = useState("0.00");
     const user = useSelector((state) => state.user) || {};
     const planPrices = useSelector((state) => state.planPrices) || prices;
     const isLogged = user && user._id;
